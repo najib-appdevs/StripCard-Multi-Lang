@@ -1,0 +1,99 @@
+{
+  "Common": {
+    "loading": "लोड हो रहा है...",
+    "error": "कुछ गलत हो गया",
+    "learnMore": "और जानें",
+    "getStarted": "शुरू करें",
+    "signIn": "साइन इन करें",
+    "signUp": "साइन अप करें",
+    "dashboard": "डैशबोर्ड",
+    "logout": "लॉग आउट"
+  },
+  "Nav": {
+    "home": "होम",
+    "about": "हमारे बारे में",
+    "services": "सेवाएँ",
+    "contact": "संपर्क करें",
+    "announcement": "घोषणा",
+    "privacyPolicy": "गोपनीयता नीति",
+    "applyCard": "वर्चुअल कार्ड के लिए आवेदन करें",
+    "login": "लॉगिन",
+    "register": "रजिस्टर करें"
+  },
+  "Hero": {
+    "badge": "StripCard में आपका स्वागत है!",
+    "heading1": "वर्चुअल",
+    "heading2": "कार्ड का",
+    "heading3": "अनुभव",
+    "description": "AliExpress, Netflix, Facebook-Google Advertising, Amazon जैसी प्रमुख ऑनलाइन कंपनियों और विभिन्न अन्य शॉपिंग प्लेटफॉर्म्स की भुगतान आवश्यकताएँ।",
+    "cta": "वर्चुअल कार्ड के लिए आवेदन करें",
+    "activeUsers": "सक्रिय उपयोगकर्ता",
+    "topRated": "टॉप रेटेड",
+    "secure": "100% सुरक्षित",
+    "sslProtected": "SSL सुरक्षित",
+    "instant": "तुरंत",
+    "activation": "सक्रियण",
+    "stars": "/ 5 स्टार"
+  },
+  "Services": {
+    "title": "हमारी सेवाएँ",
+    "subtitle": "वर्चुअल कार्ड प्रबंधन के लिए सब कुछ जो आपको चाहिए"
+  },
+  "WhyChooseUs": {
+    "title": "StripCard क्यों चुनें?",
+    "subtitle": "हम सर्वश्रेष्ठ वर्चुअल कार्ड अनुभव प्रदान करते हैं"
+  },
+  "HowItWorks": {
+    "title": "यह कैसे काम करता है",
+    "subtitle": "केवल कुछ सरल चरणों में शुरू करें"
+  },
+  "ProjectOverview": {
+    "title": "प्रोजेक्ट अवलोकन",
+    "subtitle": "एक शक्तिशाली वर्चुअल कार्ड प्लेटफॉर्म"
+  },
+  "DownloadApp": {
+    "title": "हमारा ऐप डाउनलोड करें",
+    "subtitle": "अपने डिवाइस पर StripCard ऐप प्राप्त करें",
+    "appStore": "ऐप स्टोर",
+    "googlePlay": "गूगल प्ले"
+  },
+  "Footer": {
+    "rights": "सर्वाधिकार सुरक्षित।",
+    "company": "StripCard"
+  },
+  "Auth": {
+    "login": {
+      "title": "अपने खाते में साइन इन करें",
+      "email": "ईमेल पता",
+      "password": "पासवर्ड",
+      "submit": "साइन इन करें",
+      "noAccount": "खाता नहीं है?",
+      "forgotPassword": "पासवर्ड भूल गए?"
+    },
+    "register": {
+      "title": "अपना खाता बनाएं",
+      "name": "पूरा नाम",
+      "email": "ईमेल पता",
+      "password": "पासवर्ड",
+      "submit": "खाता बनाएं",
+      "haveAccount": "पहले से खाता है?"
+    }
+  },
+  "Metadata": {
+    "home": {
+      "title": "StripCard - वर्चुअल क्रेडिट कार्ड समाधान",
+      "description": "ऑनलाइन भुगतान के लिए सर्वश्रेष्ठ वर्चुअल कार्ड प्लेटफॉर्म"
+    },
+    "login": {
+      "title": "लॉगिन",
+      "description": "StripCard खाते में सुरक्षित लॉगिन"
+    },
+    "register": {
+      "title": "रजिस्टर",
+      "description": "StripCard खाता बनाएं"
+    },
+    "dashboard": {
+      "title": "डैशबोर्ड"
+    }
+  }
+}

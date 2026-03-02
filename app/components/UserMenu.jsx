@@ -13,8 +13,8 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { useLogout } from "../(auth)/useLogout.js";
 import { getUserProfile } from "../utils/api";
+import { useLogout } from "../[locale]/(auth)/useLogout";
 
 // ============================================================================
 // MAIN COMPONENT

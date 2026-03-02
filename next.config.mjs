@@ -1,30 +1,17 @@
-// original main config
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   /* config options here */
-// };
+import createNextIntlPlugin from "next-intl/plugin";
 
-// export default nextConfig;
+const withNextIntl = createNextIntlPlugin("./i18n/request.js");
 
-// modify config
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "mehedi.appdevs.team",
-        pathname: "/**",
-      },
+      protocol: 'https',
+      hostname: '**',     
+    },
     ],
   },
-  output: "export",
-  images: { unoptimized: true },
 };
 
-export default nextConfig;
-
-// output modify config
-// /** @type {import('next').NextConfig} */
-// const nextConfig = { output: "export", images: { unoptimized: true } };
-// export default nextConfig;
+export default withNextIntl(nextConfig);

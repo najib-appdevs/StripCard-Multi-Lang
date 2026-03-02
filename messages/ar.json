@@ -1,0 +1,99 @@
+{
+  "Common": {
+    "loading": "جار التحميل...",
+    "error": "حدث خطأ ما",
+    "learnMore": "اعرف المزيد",
+    "getStarted": "ابدأ الآن",
+    "signIn": "تسجيل الدخول",
+    "signUp": "إنشاء حساب",
+    "dashboard": "لوحة التحكم",
+    "logout": "تسجيل الخروج"
+  },
+  "Nav": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "services": "خدماتنا",
+    "contact": "اتصل بنا",
+    "announcement": "الإعلانات",
+    "privacyPolicy": "سياسة الخصوصية",
+    "applyCard": "احصل على بطاقة افتراضية",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب"
+  },
+  "Hero": {
+    "badge": "مرحباً بك في StripCard!",
+    "heading1": "اكتشف تجربة",
+    "heading2": "البطاقة الافتراضية",
+    "heading3": "الفريدة",
+    "description": "نلبي احتياجات الدفع لكبرى المنصات العالمية مثل AliExpress وNetflix وإعلانات Facebook وGoogle وAmazon وغيرها من منصات التسوق.",
+    "cta": "احصل على بطاقتك الافتراضية",
+    "activeUsers": "مستخدم نشط",
+    "topRated": "الأعلى تقييماً",
+    "secure": "آمن 100%",
+    "sslProtected": "محمي بـ SSL",
+    "instant": "تفعيل",
+    "activation": "فوري",
+    "stars": "/ 5 نجوم"
+  },
+  "Services": {
+    "title": "خدماتنا",
+    "subtitle": "كل ما تحتاجه لإدارة بطاقاتك الافتراضية بسهولة"
+  },
+  "WhyChooseUs": {
+    "title": "لماذا تختار StripCard؟",
+    "subtitle": "نقدم لك أفضل تجربة للبطاقات الافتراضية"
+  },
+  "HowItWorks": {
+    "title": "كيف يعمل؟",
+    "subtitle": "ابدأ في بضع خطوات بسيطة"
+  },
+  "ProjectOverview": {
+    "title": "نظرة عامة على المشروع",
+    "subtitle": "منصة بطاقات افتراضية قوية"
+  },
+  "DownloadApp": {
+    "title": "حمّل تطبيقنا",
+    "subtitle": "احصل على تطبيق StripCard على جهازك",
+    "appStore": "متجر App Store",
+    "googlePlay": "متجر Google Play"
+  },
+  "Footer": {
+    "rights": "جميع الحقوق محفوظة.",
+    "company": "StripCard"
+  },
+  "Auth": {
+    "login": {
+      "title": "تسجيل الدخول إلى حسابك",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "submit": "تسجيل الدخول",
+      "noAccount": "ليس لديك حساب؟",
+      "forgotPassword": "نسيت كلمة المرور؟"
+    },
+    "register": {
+      "title": "إنشاء حسابك",
+      "name": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "submit": "إنشاء الحساب",
+      "haveAccount": "لديك حساب بالفعل؟"
+    }
+  },
+  "Metadata": {
+    "home": {
+      "title": "StripCard - حل البطاقة الائتمانية الافتراضية",
+      "description": "أفضل منصة للبطاقات الافتراضية للمدفوعات الإلكترونية"
+    },
+    "login": {
+      "title": "تسجيل الدخول",
+      "description": "تسجيل دخول آمن إلى حساب StripCard الخاص بك"
+    },
+    "register": {
+      "title": "إنشاء حساب",
+      "description": "أنشئ حساب StripCard الخاص بك"
+    },
+    "dashboard": {
+      "title": "لوحة التحكم"
+    }
+  }
+}

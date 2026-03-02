@@ -1,0 +1,99 @@
+{
+  "Common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "dashboard": "Dashboard",
+    "logout": "Logout"
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "announcement": "Announcement",
+    "privacyPolicy": "Privacy Policy",
+    "applyCard": "Apply Virtual Card",
+    "login": "Login",
+    "register": "Register"
+  },
+  "Hero": {
+    "badge": "Welcome To StripCard!",
+    "heading1": "Unveiling the",
+    "heading2": "Virtual Card",
+    "heading3": "Experience",
+    "description": "The payment needs of major online giants such as AliExpress, Netflix, Facebook-Google Advertising, Amazon, and various other shopping platforms.",
+    "cta": "Apply Virtual Card",
+    "activeUsers": "active users",
+    "topRated": "Top Rated",
+    "secure": "100% Secure",
+    "sslProtected": "SSL Protected",
+    "instant": "Instant",
+    "activation": "Activation",
+    "stars": "/ 5 stars"
+  },
+  "Services": {
+    "title": "Our Services",
+    "subtitle": "Everything you need for seamless virtual card management"
+  },
+  "WhyChooseUs": {
+    "title": "Why Choose StripCard?",
+    "subtitle": "We provide the best virtual card experience"
+  },
+  "HowItWorks": {
+    "title": "How It Works",
+    "subtitle": "Get started in just a few simple steps"
+  },
+  "ProjectOverview": {
+    "title": "Project Overview",
+    "subtitle": "A powerful virtual card platform"
+  },
+  "DownloadApp": {
+    "title": "Download Our App",
+    "subtitle": "Get the StripCard app on your device",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
+  "Footer": {
+    "rights": "All rights reserved.",
+    "company": "StripCard"
+  },
+  "Auth": {
+    "login": {
+      "title": "Sign in to your account",
+      "email": "Email address",
+      "password": "Password",
+      "submit": "Sign in",
+      "noAccount": "Don't have an account?",
+      "forgotPassword": "Forgot password?"
+    },
+    "register": {
+      "title": "Create your account",
+      "name": "Full name",
+      "email": "Email address",
+      "password": "Password",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?"
+    }
+  },
+  "Metadata": {
+    "home": {
+      "title": "StripCard - Virtual Credit Card Solution",
+      "description": "The best virtual card platform for online payments"
+    },
+    "login": {
+      "title": "Login",
+      "description": "Secure login to your StripCard account"
+    },
+    "register": {
+      "title": "Register",
+      "description": "Create your StripCard account"
+    },
+    "dashboard": {
+      "title": "Dashboard"
+    }
+  }
+}

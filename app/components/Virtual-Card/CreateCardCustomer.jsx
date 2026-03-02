@@ -5,10 +5,12 @@ import toast from "react-hot-toast";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { createStrowalletCustomer } from "../../utils/api";
+import { useRouter } from "next/navigation";   
 
 export default function CreateCardCustomer({ createFields }) {
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
+  const router = useRouter();   
 
   const handleInputChange = (fieldName, value) => {
     setFormData((prev) => ({
@@ -39,7 +41,7 @@ export default function CreateCardCustomer({ createFields }) {
       const submitData = { ...formData };
 
       // ──────────────────────────────────────────────────────────────
-      // FIX 1: Rename email → customer_email   <--- ADD THIS BLOCK
+      // Rename email → customer_email
       if (submitData.email) {
         submitData.customer_email = submitData.email;
         delete submitData.email;
@@ -47,27 +49,24 @@ export default function CreateCardCustomer({ createFields }) {
       // ──────────────────────────────────────────────────────────────
 
       // ──────────────────────────────────────────────────────────────
-      // FIX 2: Make sure phone_code has + prefix   <--- ADD / MODIFY THIS
+      // Make sure phone_code has + prefix
       if (submitData.phone_code && !submitData.phone_code.startsWith("+")) {
         submitData.phone_code = "+" + submitData.phone_code;
       }
       // ──────────────────────────────────────────────────────────────
 
-      // Your existing phone_combined cleanup – keep it, but improved version is safer:
       if (submitData.phone_combined) {
         const fullPhone = submitData.phone_combined.replace(/\s+/g, "").trim();
 
-        // Try to extract code + number more reliably
         const match = fullPhone.match(/^\+(\d{1,4})(.+)$/);
         if (match) {
           submitData.phone_code = "+" + match[1];
-          submitData.phone = match[2].replace(/^0+/, ""); // optional: strip leading zero
+          submitData.phone = match[2].replace(/^0+/, "");
         }
 
         delete submitData.phone_combined;
       }
 
-      // ─── Build FormData (your original code – no change needed here) ───
       const formDataToSend = new FormData();
 
       Object.entries(submitData).forEach(([key, value]) => {
@@ -80,7 +79,6 @@ export default function CreateCardCustomer({ createFields }) {
 
       const response = await createStrowalletCustomer(formDataToSend);
 
-      // Your existing success/error handling – you can keep as-is
       if (response?.message?.error && Array.isArray(response.message.error)) {
         response.message.error.forEach((errMsg) => {
           toast.error(errMsg);
@@ -92,6 +90,9 @@ export default function CreateCardCustomer({ createFields }) {
       ) {
         toast.success("Customer created successfully!");
         setFormData({}); // optional reset
+
+        // ─── Redirect after success ───
+        router.push("/dashboard");
       } else {
         toast.error("Something went wrong. Please try again.");
       }

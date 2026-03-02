@@ -1,0 +1,99 @@
+{
+  "Common": {
+    "loading": "Chargement...",
+    "error": "Quelque chose s'est mal passé",
+    "learnMore": "En savoir plus",
+    "getStarted": "Commencer",
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "dashboard": "Tableau de bord",
+    "logout": "Se déconnecter"
+  },
+  "Nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "services": "Services",
+    "contact": "Contact",
+    "announcement": "Annonce",
+    "privacyPolicy": "Politique de confidentialité",
+    "applyCard": "Demander une carte virtuelle",
+    "login": "Connexion",
+    "register": "Inscription"
+  },
+  "Hero": {
+    "badge": "Bienvenue sur StripCard !",
+    "heading1": "Découvrez l'",
+    "heading2": "expérience",
+    "heading3": "Carte Virtuelle",
+    "description": "Les besoins de paiement des géants en ligne tels qu'AliExpress, Netflix, publicité Facebook-Google, Amazon et diverses autres plateformes d'achat.",
+    "cta": "Demander une carte virtuelle",
+    "activeUsers": "utilisateurs actifs",
+    "topRated": "Meilleure note",
+    "secure": "100% Sécurisé",
+    "sslProtected": "Protégé par SSL",
+    "instant": "Instantanée",
+    "activation": "Activation",
+    "stars": "/ 5 étoiles"
+  },
+  "Services": {
+    "title": "Nos Services",
+    "subtitle": "Tout ce dont vous avez besoin pour une gestion fluide des cartes virtuelles"
+  },
+  "WhyChooseUs": {
+    "title": "Pourquoi choisir StripCard ?",
+    "subtitle": "Nous offrons la meilleure expérience de carte virtuelle"
+  },
+  "HowItWorks": {
+    "title": "Comment ça marche",
+    "subtitle": "Commencez en quelques étapes simples"
+  },
+  "ProjectOverview": {
+    "title": "Aperçu du projet",
+    "subtitle": "Une plateforme puissante de cartes virtuelles"
+  },
+  "DownloadApp": {
+    "title": "Téléchargez Notre Application",
+    "subtitle": "Obtenez l'application StripCard sur votre appareil",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
+  "Footer": {
+    "rights": "Tous droits réservés.",
+    "company": "StripCard"
+  },
+  "Auth": {
+    "login": {
+      "title": "Connectez-vous à votre compte",
+      "email": "Adresse e-mail",
+      "password": "Mot de passe",
+      "submit": "Se connecter",
+      "noAccount": "Pas de compte ?",
+      "forgotPassword": "Mot de passe oublié ?"
+    },
+    "register": {
+      "title": "Créez votre compte",
+      "name": "Nom complet",
+      "email": "Adresse e-mail",
+      "password": "Mot de passe",
+      "submit": "Créer un compte",
+      "haveAccount": "Vous avez déjà un compte ?"
+    }
+  },
+  "Metadata": {
+    "home": {
+      "title": "StripCard - Solution de Carte Virtuelle",
+      "description": "La meilleure plateforme de cartes virtuelles pour les paiements en ligne"
+    },
+    "login": {
+      "title": "Connexion",
+      "description": "Connexion sécurisée à votre compte StripCard"
+    },
+    "register": {
+      "title": "Inscription",
+      "description": "Créez votre compte StripCard"
+    },
+    "dashboard": {
+      "title": "Tableau de bord"
+    }
+  }
+}
