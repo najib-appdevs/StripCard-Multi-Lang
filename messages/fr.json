@@ -1,7 +1,7 @@
 {
   "Common": {
-    "loading": "Chargement...",
-    "error": "Quelque chose s'est mal passé",
+    "loading": "Chargement en cours...",
+    "error": "Une erreur s'est produite",
     "learnMore": "En savoir plus",
     "getStarted": "Commencer",
     "signIn": "Se connecter",
@@ -22,22 +22,22 @@
   },
   "Hero": {
     "badge": "Bienvenue sur StripCard !",
-    "heading1": "Découvrez l'",
-    "heading2": "expérience",
-    "heading3": "Carte Virtuelle",
-    "description": "Les besoins de paiement des géants en ligne tels qu'AliExpress, Netflix, publicité Facebook-Google, Amazon et diverses autres plateformes d'achat.",
+    "heading1": "Découvrez l'expérience",
+    "heading2": "Carte Virtuelle",
+    "heading3": "Révolutionnaire",
+    "description": "Répond aux besoins de paiement des grandes plateformes en ligne telles qu'AliExpress, Netflix, publicités Facebook-Google, Amazon et de nombreux autres sites de shopping.",
     "cta": "Demander une carte virtuelle",
     "activeUsers": "utilisateurs actifs",
-    "topRated": "Meilleure note",
-    "secure": "100% Sécurisé",
+    "topRated": "Mieux noté",
+    "secure": "100 % sécurisé",
     "sslProtected": "Protégé par SSL",
-    "instant": "Instantanée",
+    "instant": "Instantané",
     "activation": "Activation",
     "stars": "/ 5 étoiles"
   },
   "Services": {
-    "title": "Nos Services",
-    "subtitle": "Tout ce dont vous avez besoin pour une gestion fluide des cartes virtuelles"
+    "title": "Nos services",
+    "subtitle": "Tout ce dont vous avez besoin pour une gestion fluide de vos cartes virtuelles"
   },
   "WhyChooseUs": {
     "title": "Pourquoi choisir StripCard ?",
@@ -52,7 +52,7 @@
     "subtitle": "Une plateforme puissante de cartes virtuelles"
   },
   "DownloadApp": {
-    "title": "Téléchargez Notre Application",
+    "title": "Téléchargez notre application",
     "subtitle": "Obtenez l'application StripCard sur votre appareil",
     "appStore": "App Store",
     "googlePlay": "Google Play"
@@ -67,7 +67,7 @@
       "email": "Adresse e-mail",
       "password": "Mot de passe",
       "submit": "Se connecter",
-      "noAccount": "Pas de compte ?",
+      "noAccount": "Vous n'avez pas de compte ?",
       "forgotPassword": "Mot de passe oublié ?"
     },
     "register": {
@@ -75,13 +75,13 @@
       "name": "Nom complet",
       "email": "Adresse e-mail",
       "password": "Mot de passe",
-      "submit": "Créer un compte",
+      "submit": "Créer le compte",
       "haveAccount": "Vous avez déjà un compte ?"
     }
   },
   "Metadata": {
     "home": {
-      "title": "StripCard - Solution de Carte Virtuelle",
+      "title": "StripCard - Solution de carte de crédit virtuelle",
       "description": "La meilleure plateforme de cartes virtuelles pour les paiements en ligne"
     },
     "login": {
@@ -94,6 +94,575 @@
     },
     "dashboard": {
       "title": "Tableau de bord"
+    }
+  },
+  "ServiceProvide": {
+    "badge": "Nos services",
+    "title": "Nos services phares",
+    "gradientPart": "Ce que nous vous offrons",
+    "description": "Réalisez des transactions numériques fluides grâce à nos services puissants — de la gestion de cartes virtuelles et des paiements sécurisés au support multilingue et aux notifications en temps réel.",
+    "cta": {
+      "ready": "Prêt à commencer ?",
+      "join": "Rejoignez des milliers d'utilisateurs qui font confiance à notre plateforme pour leurs finances numériques.",
+      "button": "Découvrir tous les services"
+    },
+    "items": [
+      {
+        "tag": "Cartes",
+        "title": "Acheter une carte virtuelle",
+        "description": "Obtenez votre carte virtuelle dès aujourd'hui et profitez de la facilité d'utilisation pour vos achats en ligne, jeux ou abonnements préférés."
+      },
+      {
+        "tag": "Portefeuille",
+        "title": "Ajouter des fonds",
+        "description": "Déposez facilement de l'argent dans votre portefeuille numérique pour une flexibilité et un confort optimaux grâce à notre service sécurisé et intuitif."
+      },
+      {
+        "tag": "Transfert",
+        "title": "Transfert d'argent",
+        "description": "Transférez rapidement et en toute sécurité de l'argent au sein de la plateforme, pour plus de commodité et de sérénité."
+      },
+      {
+        "tag": "Retrait",
+        "title": "Retirer de l'argent",
+        "description": "Transférez facilement vos fonds vers votre compte bancaire préféré ou votre portefeuille numérique."
+      },
+      {
+        "tag": "Rechargement",
+        "title": "Recharger la carte virtuelle",
+        "description": "Rechargez facilement le solde de votre carte virtuelle pour un usage ininterrompu en shopping, abonnements ou jeux."
+      },
+      {
+        "tag": "Cadeaux",
+        "title": "Carte cadeau",
+        "description": "Achetez des cartes cadeaux numériques pour des services populaires directement depuis l'application."
+      },
+      {
+        "tag": "API",
+        "title": "Configurer l'API carte virtuelle",
+        "description": "Configurez l'API pour générer et gérer des cartes virtuelles pour des paiements en ligne sécurisés."
+      },
+      {
+        "tag": "Sécurité",
+        "title": "Connexion biométrique",
+        "description": "Connectez-vous en toute sécurité via l'authentification biométrique (empreinte digitale) pour une protection renforcée."
+      },
+      {
+        "tag": "Journaux",
+        "title": "Historique des transactions",
+        "description": "Consultez le détail de toutes vos transactions pour suivre vos dépenses et surveiller l'activité de votre compte."
+      },
+      {
+        "tag": "Global",
+        "title": "Multilingue",
+        "description": "Utilisez l'application dans plusieurs langues pour une accessibilité mondiale et une expérience conviviale."
+      }
+    ]
+  },
+  "WhyChooseUs": {
+    "badge": "Pourquoi nous ?",
+    "title": {
+      "main": "Ce qui fait de nous",
+      "highlight": "votre meilleur choix"
+    },
+    "description": "Découvrez ce qui nous distingue grâce à des services inégalés, des solutions innovantes et un engagement envers l'excellence. Notre approche centrée sur l'utilisateur garantit fiabilité, sécurité et satisfaction.",
+    "features": [
+      {
+        "title": "Émission de carte virtuelle",
+        "description": "Créez et gérez instantanément des cartes virtuelles pour des transactions en ligne sécurisées, adaptées à vos besoins."
+      },
+      {
+        "title": "Transactions en ligne sécurisées",
+        "description": "Profitez d'un chiffrement avancé et de méthodes d'authentification pour protéger vos paiements."
+      },
+      {
+        "title": "Plans de paiement personnalisables",
+        "description": "Choisissez parmi diverses formules flexibles adaptées à tous les budgets et préférences."
+      },
+      {
+        "title": "Suivi des transactions en temps réel",
+        "description": "Suivez vos dépenses avec des notifications instantanées et un historique détaillé."
+      },
+      {
+        "title": "Support multi-devises",
+        "description": "Gérez facilement les transactions dans plusieurs devises, idéal pour les achats internationaux."
+      },
+      {
+        "title": "Support client 24/7",
+        "description": "Bénéficiez d'une assistance disponible à tout moment pour résoudre vos questions liées aux paiements."
+      }
+    ]
+  },
+  "HowItWorks": {
+    "badge": "Comment ça marche",
+    "title": {
+      "main": "Comment ça marche",
+      "highlight": "Processus étape par étape"
+    },
+    "description": "Découvrez comment StripCard vous permet de gérer vos cartes virtuelles, d'ajouter des fonds, de transférer de l'argent et d'effectuer des paiements sécurisés en toute simplicité.",
+    "continueLabel": "Continuer",
+    "steps": [
+      {
+        "title": "Créez votre compte",
+        "description": "Inscrivez-vous facilement, vérifiez votre e-mail et complétez la vérification KYC pour un accès sécurisé.",
+        "tag": "Démarrage"
+      },
+      {
+        "title": "Alimenter le portefeuille",
+        "description": "Ajoutez des fonds à votre portefeuille numérique via plusieurs méthodes de paiement pour une expérience fluide.",
+        "tag": "Portefeuille"
+      },
+      {
+        "title": "Acheter une carte virtuelle",
+        "description": "Procurez-vous une carte virtuelle adaptée à vos besoins pour le shopping en ligne, les jeux ou les abonnements.",
+        "tag": "Cartes"
+      },
+      {
+        "title": "Gérez votre carte virtuelle",
+        "description": "Rechargez le solde, suivez les transactions et utilisez-la en toute sécurité sur diverses plateformes.",
+        "tag": "Gestion"
+      },
+      {
+        "title": "Effectuez des transactions",
+        "description": "Transférez de l'argent, payez des factures et faites vos achats en ligne en toute confiance.",
+        "tag": "Paiements"
+      },
+      {
+        "title": "Restez sécurisé",
+        "description": "Profitez de la connexion biométrique, de l'authentification à deux facteurs et de l'historique détaillé.",
+        "tag": "Sécurité"
+      },
+      {
+        "title": "Obtenez de l'aide",
+        "description": "Contactez-nous via le système de tickets pour des réponses rapides à tout moment.",
+        "tag": "Support"
+      },
+      {
+        "title": "Profitez de la flexibilité mondiale",
+        "description": "Bénéficiez du support multilingue et des options de cartes cadeaux pour une expérience globale.",
+        "tag": "Global"
+      }
+    ]
+  },
+  "ProjectOverview": {
+    "badge": "Aperçu du projet",
+    "title": {
+      "main": "Points forts du projet",
+      "highlight": "en un coup d'œil"
+    },
+    "description": "Découvrez les principales étapes et réalisations de notre projet grâce à des compteurs en temps réel illustrant notre croissance et notre impact.",
+    "stats": {
+      "users": {
+        "title": "Utilisateurs totaux",
+        "subtitle": "Membres actifs de la communauté"
+      },
+      "happy": {
+        "title": "Utilisateurs satisfaits",
+        "subtitle": "Clients heureux"
+      },
+      "services": {
+        "title": "Services",
+        "subtitle": "Fournis avec succès"
+      }
+    },
+    "transactionsBadge": {
+      "label": "Transactions traitées",
+      "amount": "Plus de {value} M",
+      "subtitle": "transactions traitées en toute sécurité"
+    }
+  },
+  "DownloadApp": {
+    "imageAlt": "Application mobile StripCard",
+    "sectionBadge": "Télécharger l'app",
+    "title": {
+      "part1": "Voici",
+      "part2": "l'APK en temps réel"
+    },
+    "paragraph1": "Collaborez avec des professionnels talentueux aux prix les plus abordables pour optimiser votre temps et vos coûts grâce aux applications mobiles.",
+    "paragraph2": "Internet regorge d'applications créées par des développeurs du monde entier. Il est parfois difficile de savoir lesquelles sont les meilleures. Notre sélection inclut des applis de réseaux sociaux, antivirus, VPN, jeux, émulateurs, et bien plus.",
+    "features": {
+      "fast": {
+        "title": "Rapide",
+        "subtitle": "Vitesse éclair"
+      },
+      "secure": {
+        "title": "Sécurisé",
+        "subtitle": "Données protégées"
+      },
+      "free": {
+        "title": "Gratuit",
+        "subtitle": "Aucun frais caché"
+      }
+    },
+    "downloadPrompt": "Téléchargez maintenant sur votre plateforme préférée",
+    "qr": {
+      "googleAlt": "QR Google Play",
+      "appStoreAlt": "QR App Store"
+    },
+    "floatingBadge": {
+      "available": "Disponible maintenant",
+      "platforms": "iOS & Android"
+    },
+    "stats": {
+      "downloads": {
+        "count": "50K+",
+        "text": "téléchargements"
+      },
+      "rating": "4.8/5"
+    }
+  },
+  "Footer": {
+    "logoAlt": "Logo StripCard",
+    "thankYou": "Merci d'avoir choisi StripCard comme partenaire de confiance pour vos transactions en ligne sécurisées. Nous nous engageons à vous offrir une expérience fluide et protégée.",
+    "followUs": {
+      "title": "Suivez-nous"
+    },
+    "usefulLinks": {
+      "title": "Liens utiles",
+      "privacyPolicy": "Politique de confidentialité"
+    },
+    "subscribe": {
+      "title": "S'abonner",
+      "description": "Restez connecté ! Abonnez-vous à nos dernières actualités – remplissez le formulaire ci-dessous.",
+      "placeholder": "Entrez votre adresse e-mail",
+      "button": "S'abonner"
+    },
+    "copyright": {
+      "allRights": "Tous droits réservés.",
+      "company": "StripCard"
+    }
+  },
+  "About": {
+    "badge": "À propos de nous",
+    "title": {
+      "part1": "Façonner l'avenir des",
+      "part2": "transactions en ligne"
+    },
+    "description": "Nous sommes à l'avant-garde de la révolution des services financiers numériques. Notre mission est claire : offrir aux utilisateurs et entrepreneurs une plateforme sécurisée, efficace et conviviale pour effectuer des transactions en ligne via des cartes de crédit virtuelles.",
+    "highlights": {
+      "vision": {
+        "title": "Notre vision"
+      },
+      "difference": {
+        "title": "La différence StripCard"
+      },
+      "commitment": {
+        "title": "Notre engagement"
+      },
+      "join": {
+        "title": "Rejoignez-nous dans cette aventure"
+      }
+    },
+    "imageAlt": "Plateforme StripCard - cartes de crédit virtuelles sécurisées"
+  },
+  "Testimonials": {
+    "header": {
+      "badge": "Ce que disent nos utilisateurs",
+      "title": {
+        "main": "Découvrez ce que nos utilisateurs satisfaits disent de",
+        "highlight": "leurs expériences",
+        "suffix": "avec nous."
+      },
+      "description": "Nous sommes à l'avant-garde de la révolution des services financiers numériques. Notre mission est claire : offrir aux utilisateurs et entrepreneurs une plateforme sécurisée, efficace et conviviale pour effectuer des transactions en ligne via des cartes de crédit virtuelles."
+    },
+    "testimonials": [
+      {
+        "name": "Aisha Patel",
+        "role": "Designer graphique freelance",
+        "text": "Nous sommes à l'avant-garde de la révolution des services financiers numériques. Notre mission est claire : offrir aux utilisateurs et entrepreneurs une plateforme sécurisée, efficace et conviviale pour effectuer des transactions en ligne via des cartes de crédit virtuelles."
+      },
+      {
+        "name": "James Carter",
+        "role": "Entrepreneur e-commerce",
+        "text": "En tant que propriétaire de petite entreprise, StripCard a changé la donne. Cela me permet d'offrir des options de paiement pratiques à mes clients tout en générant une source de revenus supplémentaire. Les codes à usage unique apportent une tranquillité d'esprit, sachant que mes transactions sont sécurisées. StripCard est gagnant-gagnant pour mes clients et mon entreprise."
+      },
+      {
+        "name": "Lena Moreau",
+        "role": "Nomade digitale & créatrice de contenu",
+        "text": "Les achats en ligne n'ont jamais été aussi sécurisés et simples. Les codes uniques de StripCard me donnent confiance dans la sécurité de mes transactions. C'est comme une couche de protection supplémentaire. Je ne pourrais plus revenir à ma carte classique pour les achats en ligne. StripCard m'a conquise !"
+      }
+    ],
+    "stats": {
+      "users": {
+        "count": "Plus de 10 000",
+        "label": "Utilisateurs satisfaits"
+      },
+      "rating": "Note moyenne 4.9/5"
+    }
+  },
+  "FAQ": {
+    "header": {
+      "badge": "Section FAQ",
+      "title": {
+        "main": "Fonctionnalités de sécurité avancées conçues pour",
+        "highlight": "protéger vos informations",
+        "suffix": "efficacement"
+      },
+      "description": "Notre système de sécurité utilise des technologies de pointe pour garantir une protection maximale de vos données sensibles. Avec un chiffrement de haut niveau, une authentification multicouche et une surveillance en temps réel, vos informations sont protégées contre tout accès non autorisé et les violations. Profitez d'une tranquillité d'esprit totale grâce à nos mesures de sécurité robustes."
+    },
+    "questions": {
+      "left": [
+        {
+          "question": "Comment acheter une carte virtuelle ?",
+          "answer": "Pour acheter une carte virtuelle, allez dans la section « Cartes virtuelles », choisissez le type de carte souhaité et suivez les instructions pour finaliser l'achat."
+        },
+        {
+          "question": "Comment recharger ma carte virtuelle ?",
+          "answer": "Vous pouvez recharger votre carte virtuelle en la sélectionnant dans la section « Carte virtuelle », en entrant le montant et en choisissant une méthode de paiement."
+        },
+        {
+          "question": "Comment ajouter de l'argent à mon portefeuille ?",
+          "answer": "Ajoutez de l'argent à votre portefeuille via différentes méthodes comme PayPal, Stripe ou virement bancaire. Allez dans la section « Ajouter des fonds », choisissez votre méthode et finalisez la transaction."
+        },
+        {
+          "question": "Comment acheter une carte cadeau ?",
+          "answer": "Achetez des cartes cadeaux pour différentes plateformes dans la section « Cartes cadeaux », sélectionnez celle désirée et complétez le paiement."
+        }
+      ],
+      "right": [
+        {
+          "question": "Comment transférer de l'argent ?",
+          "answer": "Le transfert est simple. Allez dans la section « Transfert d'argent », entrez les détails du destinataire, le montant et confirmez la transaction."
+        },
+        {
+          "question": "Comment configurer l'API carte virtuelle ?",
+          "answer": "Configurez l'API pour activer la génération et la gestion de cartes virtuelles pour des paiements en ligne sécurisés."
+        },
+        {
+          "question": "Comment retirer de l'argent ?",
+          "answer": "Pour retirer, allez sur la page « Retrait », choisissez votre méthode, entrez les informations nécessaires et soumettez votre demande."
+        },
+        {
+          "question": "Où puis-je voir mes journaux de transactions ?",
+          "answer": "Consultez et suivez toutes vos transactions dans la section « Journaux de transactions » pour rester informé de vos activités financières."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Vous avez encore des questions ?",
+      "description": "Contactez notre équipe de support disponible 24/7",
+      "button": "Obtenir de l'aide"
+    }
+  },
+  "PrivacyPolicy": {
+    "title": "Politique de confidentialité",
+    "sections": {
+      "collect": {
+        "title": "Quelles informations collectons-nous ?",
+        "content": "Nous recueillons des données vous concernant lorsque vous vous inscrivez sur notre site, soumettez une demande, achetez des services, réagissez à un avis ou remplissez un formulaire. Lors de la commande d'un service ou de l'inscription sur notre site, selon le cas, il pourra vous être demandé de fournir : votre nom, votre adresse e-mail ou votre numéro de téléphone. Vous pouvez toutefois visiter notre site de manière anonyme."
+      },
+      "protect": {
+        "title": "Comment protégeons-nous vos informations ?",
+        "part1": "Toutes les informations sensibles / données de carte de crédit sont transmises via Stripe.",
+        "part2": "Après une transaction, vos informations personnelles (numéros de carte de crédit, numéros de sécurité sociale, informations financières, etc.) ne seront pas stockées sur nos serveurs."
+      },
+      "disclose": {
+        "title": "Divulguons-nous des informations à des tiers ?",
+        "content": "Nous ne vendons, n'échangeons ni ne transférons de quelque manière que ce soit des informations personnellement identifiables à des tiers. Cela n'inclut pas les tiers de confiance qui nous aident à exploiter notre site, à conduire nos activités ou à vous servir, dans la mesure où ces parties s'engagent à garder ces informations confidentielles. Nous pouvons également divulguer vos informations lorsque nous estimons que cette divulgation est appropriée pour respecter la loi, appliquer les politiques de notre site ou protéger nos droits, notre propriété ou notre sécurité, ou ceux d'autrui."
+      },
+      "coppa": {
+        "title": "Conformité à la Children's Online Privacy Protection Act (COPPA)",
+        "content": "Nous respectons les exigences de la COPPA (Children's Online Privacy Protection Act) et ne collectons aucune information auprès de personnes de moins de 13 ans. Notre site, nos produits et services sont entièrement destinés aux personnes âgées d'au moins 13 ans."
+      },
+      "changes": {
+        "title": "Modifications de notre politique de confidentialité",
+        "content": "Si nous décidons de modifier notre politique de confidentialité, nous publierons ces modifications sur cette page."
+      },
+      "retain": {
+        "title": "Combien de temps conservons-nous vos informations ?",
+        "content": "Lorsque vous vous inscrivez sur notre site, nous traitons et conservons vos données aussi longtemps que vous n'avez pas supprimé votre compte ou retiré votre consentement (sous réserve des lois et réglementations applicables)."
+      }
+    }
+  },
+  "Contact": {
+    "form": {
+      "badge": "Contactez-nous",
+      "title": {
+        "part1": "N'hésitez pas à",
+        "highlight": "nous contacter",
+        "part2": ""
+      },
+      "labels": {
+        "name": "Nom *",
+        "email": "E-mail *",
+        "phone": "Téléphone",
+        "subject": "Sujet *",
+        "message": "Message *"
+      },
+      "placeholders": {
+        "name": "Entrez votre nom",
+        "email": "Entrez votre adresse e-mail",
+        "phone": "Entrez votre numéro de téléphone",
+        "subject": "Entrez le sujet",
+        "message": "Écrivez votre message ici..."
+      },
+      "recaptchaError": "Veuillez compléter la vérification reCAPTCHA.",
+      "successMessage": "Merci ! Votre message a été envoyé.",
+      "button": "Envoyer le message"
+    },
+    "info": {
+      "title": "Informations",
+      "description": "Nous serions ravis d'avoir de vos nouvelles ! Si vous avez des questions ou besoin d'assistance, n'hésitez pas à nous contacter via les informations suivantes :",
+      "phone": {
+        "label": "Numéro de mobile",
+        "value": "+1 (123) 456-7890"
+      },
+      "address": {
+        "label": "Adresse",
+        "value": "1234 Main Street, City, State 56789, USA"
+      },
+      "email": {
+        "label": "Adresse e-mail",
+        "value": "info@example.com"
+      }
+    }
+  },
+  "Announcements": {
+    "list": {
+      "badge": "Annonce",
+      "title": {
+        "part1": "Nos récentes",
+        "highlight": "Annonces"
+      },
+      "readMore": "Lire la suite"
+    },
+    "detail": {
+      "backButton": "Retour aux annonces",
+      "tagsTitle": "Étiquettes",
+      "categoriesTitle": "Catégories",
+      "recentPostsTitle": "Articles récents",
+      "extraContent": {
+        "part1": "Les cartes de crédit virtuelles représentent un changement de paradigme dans notre façon de concevoir la sécurité des paiements. Contrairement aux cartes physiques traditionnelles, elles génèrent des numéros de carte uniques pour chaque transaction ou commerçant, réduisant considérablement les risques de fraude et de prélèvements non autorisés. Pour les entrepreneurs et les entreprises, cela se traduit par un meilleur contrôle des dépenses et une réconciliation simplifiée.",
+        "part2": "À mesure que l'économie numérique continue de se développer, l'adoption de solutions de paiement virtuelles n'est plus une option — elle est essentielle. Les entreprises qui intègrent ces technologies tôt gagnent un avantage concurrentiel, en offrant à leurs clients une expérience fluide et sécurisée qui renforce la confiance et la fidélité à long terme."
+      }
+    },
+    "announcements": [
+      {
+        "title": "Succès entrepreneurial avec les services de cartes de crédit virtuelles",
+        "preview": "Êtes-vous un entrepreneur cherchant à diversifier votre activité et à augmenter vos revenus ? Dans cet article, nous explorons comment proposer des services de cartes de crédit virtuelles à vos clients peut changer la donne...",
+        "fullDescription": "Êtes-vous un entrepreneur cherchant à diversifier votre activité et à augmenter vos revenus ? Dans cet article, nous explorons comment proposer des services de cartes de crédit virtuelles à vos clients peut changer la donne. Nous discutons des opportunités, des avantages et des stratégies pour les entrepreneurs afin de tirer parti de la tendance des cartes virtuelles et de créer une situation gagnant-gagnant pour leurs clients et leur entreprise."
+      },
+      {
+        "title": "L'avenir des paiements en ligne sécurisés",
+        "preview": "À l'ère numérique actuelle, les paiements en ligne font partie intégrante de notre quotidien. Mais avec la commodité vient le besoin de sécurité...",
+        "fullDescription": "À l'ère numérique actuelle, les paiements en ligne font partie intégrante de notre quotidien. Mais avec la commodité vient le besoin de sécurité. Cet article explore le phénomène des cartes de crédit virtuelles, leur popularité croissante et la façon dont elles révolutionnent les paiements en ligne. Nous examinons les avantages des cartes virtuelles, leurs caractéristiques uniques et pourquoi elles sont considérées comme l'avenir des transactions en ligne sécurisées."
+      },
+      {
+        "title": "L'essor des cartes de crédit virtuelles : transformer les paiements en ligne",
+        "preview": "À l'ère numérique actuelle, les paiements en ligne font partie intégrante de notre quotidien. Mais avec la commodité vient le besoin de sécurité...",
+        "fullDescription": "À l'ère numérique actuelle, les paiements en ligne font partie intégrante de notre quotidien. Mais avec la commodité vient le besoin de sécurité. Cet article explore le phénomène des cartes de crédit virtuelles, leur popularité croissante et la façon dont elles révolutionnent les paiements en ligne. Nous examinons les avantages des cartes virtuelles, leurs caractéristiques uniques et pourquoi elles sont considérées comme l'avenir des transactions en ligne sécurisées."
+      }
+    ]
+  },
+  "Login": {
+    "logoAlt": "Logo StripCard",
+    "title": "Bienvenue de retour",
+    "subtitle": "Connectez-vous pour accéder à votre compte en toute sécurité",
+    "form": {
+      "labels": {
+        "email": "Adresse e-mail",
+        "password": "Mot de passe"
+      },
+      "placeholders": {
+        "email": "Nom d'utilisateur ou adresse e-mail",
+        "password": "Entrez votre mot de passe"
+      },
+      "rememberMe": "Se souvenir de moi",
+      "forgotPassword": "Mot de passe oublié ?",
+      "securityVerification": "Vérification de sécurité",
+      "verificationSuccess": "Vérification réussie",
+      "verificationRequired": "Veuillez compléter la vérification",
+      "securityHelpText": "Cela nous aide à protéger votre compte contre les accès non autorisés",
+      "button": "Se connecter",
+      "recaptchaError": "Veuillez compléter la vérification CAPTCHA",
+      "invalidResponse": "Réponse invalide du serveur",
+      "genericError": "Une erreur s'est produite. Veuillez réessayer plus tard."
+    },
+    "footer": {
+      "noAccount": "Vous n'avez pas de compte ?",
+      "signUp": "S'inscrire",
+      "goBack": "Retour à",
+      "home": "Accueil"
+    }
+  },
+  "Register": {
+    "logoAlt": "Logo StripCard",
+    "title": "Créez votre compte",
+    "subtitle": "Inscrivez-vous pour commencer avec StripCard",
+    "form": {
+      "labels": {
+        "firstName": "Prénom",
+        "lastName": "Nom de famille",
+        "email": "Adresse e-mail",
+        "password": "Mot de passe"
+      },
+      "placeholders": {
+        "firstName": "Entrez votre prénom",
+        "lastName": "Entrez votre nom de famille",
+        "email": "Entrez votre adresse e-mail",
+        "password": "Créez un mot de passe fort"
+      },
+      "termsAgreement": {
+        "part1": "J'accepte les",
+        "termsLink": "Conditions d'utilisation",
+        "and": "et la",
+        "privacyLink": "Politique de confidentialité"
+      },
+      "termsError": "Veuillez accepter les Conditions d'utilisation et la Politique de confidentialité",
+      "recaptchaError": "Veuillez compléter la vérification CAPTCHA",
+      "registrationFailed": "L'inscription a échoué",
+      "tokenMissing": "Impossible de finaliser votre inscription. Veuillez réessayer",
+      "successMessage": "Inscription réussie ! Redirection en cours...",
+      "genericError": "Échec de l'inscription. Veuillez réessayer.",
+      "securityVerification": "Vérification de sécurité",
+      "verificationSuccess": "Vérification réussie",
+      "verificationRequired": "Veuillez compléter la vérification",
+      "securityHelpText": "Cela nous aide à bloquer les bots et à protéger votre compte",
+      "button": "S'inscrire",
+      "loading": "Inscription en cours..."
+    },
+    "footer": {
+      "alreadyHaveAccount": "Vous avez déjà un compte ?",
+      "login": "Se connecter",
+      "goBack": "Retour à",
+      "home": "Accueil"
+    }
+  },
+
+  "ForgotPassword": {
+    "logoAlt": "Logo StripCard",
+    "emailStage": {
+      "title": "Mot de passe oublié ?",
+      "description": "Entrez votre email et nous vous enverrons un mot de passe à usage unique (OTP).",
+      "emailLabel": "Adresse e-mail",
+      "emailPlaceholder": "Entrez votre adresse e-mail",
+      "securityVerification": "Vérification de sécurité",
+      "verificationSuccess": "Vérification réussie",
+      "verificationRequired": "Veuillez compléter la vérification",
+      "securityHelpText": "Cela permet d'éviter les requêtes automatisées",
+      "button": "Envoyer l'OTP",
+      "loading": "Envoi en cours...",
+      "recaptchaError": "Veuillez compléter la vérification CAPTCHA",
+      "genericError": "Une erreur inattendue s'est produite."
+    },
+    "otpStage": {
+      "title": "Entrez le code",
+      "description": "Nous avons envoyé un code à 6 chiffres à",
+      "resendCountdown": {
+        "part1": "Nouvel envoi possible dans"
+      },
+      "resendPrompt": "Vous n'avez pas reçu le code ?",
+      "resendButton": "Renvoyer le code",
+      "resending": "Renvoi en cours...",
+      "invalidOtp": "Veuillez saisir le code OTP à 6 chiffres complet",
+      "verificationError": "Une erreur inattendue s'est produite lors de la vérification de l'OTP.",
+      "button": "Vérifier l'OTP",
+      "verifying": "Vérification en cours..."
+    },
+    "footer": {
+      "emailStage": "Vous vous souvenez de votre mot de passe ?",
+      "otpStage": "Vous avez déjà un compte ?",
+      "loginLink": "Se connecter"
     }
   }
 }

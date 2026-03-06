@@ -1,108 +1,48 @@
 /* eslint-disable @next/next/no-img-element */
-"use client"
+"use client";
+
+import { useTranslations } from "next-intl";
+
 function ServiceProvide() {
-  const services = [
-    {
-      id: 1,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/423ffbae-6f99-4809-b834-cee688ebdd0e.webp",
-      title: "Buy Virtual Card",
-      description:
-        "Get your Virtual Card today and enjoy the ease of using the Virtual Card for online shopping, gaming, or your favorite subscriptions.",
-      accent: "#3B82F6",
-      tag: "Cards",
-    },
-    {
-      id: 2,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/d78871d3-ff5e-4d04-b026-7832c9a96a8e.webp",
-      title: "Add Money",
-      description:
-        "Easily deposit funds into your digital wallet to ensure financial flexibility and convenience with our user-friendly and secure money-adding service.",
-      accent: "#6366F1",
-      tag: "Wallet",
-    },
-    {
-      id: 3,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/c8c4aaef-d419-4086-ad09-c3dbd4f3d488.webp",
-      title: "Money Transfer",
-      description:
-        "Swift and securely transfer money within the platform, providing convenience and peace of mind for all your financial needs.",
-      accent: "#8B5CF6",
-      tag: "Transfer",
-    },
-    {
-      id: 4,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/25989242-5e9d-4bb1-bda0-3efed8f512b4.webp",
-      title: "Withdraw Money",
-      description:
-        "Effortlessly transfer funds from your account to your preferred bank account or digital wallet.",
-      accent: "#3B82F6",
-      tag: "Withdraw",
-    },
-    {
-      id: 5,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/04a7bb97-51a5-4388-a668-b3f2208de6e4.webp",
-      title: "Virtual Card TopUp",
-      description:
-        "Easily top up your virtual card balance to ensure uninterrupted spending for shopping, subscriptions, or gaming.",
-      accent: "#06B6D4",
-      tag: "Top Up",
-    },
-    {
-      id: 6,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/de25f560-2415-4d37-acef-fd8eba428e35.webp",
-      title: "Gift Card",
-      description:
-        "Purchase digital gift cards for popular services, directly from the app, for seamless gifting.",
-      accent: "#A855F7",
-      tag: "Gifts",
-    },
-    {
-      id: 7,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/43d05a5f-f7a8-4075-9364-58d50b35de24.webp",
-      title: "Setup Virtual Card API",
-      description:
-        "Configure the API to enable virtual card generation and management for secure online payments.",
-      accent: "#6366F1",
-      tag: "API",
-    },
-    {
-      id: 8,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/6858c3f1-fece-4935-99ab-5e79a392a6bd.webp",
-      title: "Biometric Login",
-      description:
-        "Log in securely using biometric authentication using the fingerprint for added protection.",
-      accent: "#3B82F6",
-      tag: "Security",
-    },
-    {
-      id: 9,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/188cb7f7-c86e-44f1-a4e8-805c2f58fc94.webp",
-      title: "Transaction Logs",
-      description:
-        "Access detailed logs of all your transactions to track spending and monitor account activities.",
-      accent: "#8B5CF6",
-      tag: "Logs",
-    },
-    {
-      id: 10,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/3ace52a4-e272-47ef-8f24-1b675cfd6f83.webp",
-      title: "Multi-Language",
-      description:
-        "Use in multiple languages, making it accessible and user-friendly for a global audience.",
-      accent: "#06B6D4",
-      tag: "Global",
-    },
+  const t = useTranslations("ServiceProvide");
+
+  // Original images (unchanged)
+  const images = [
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/423ffbae-6f99-4809-b834-cee688ebdd0e.webp",
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/d78871d3-ff5e-4d04-b026-7832c9a96a8e.webp",
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/c8c4aaef-d419-4086-ad09-c3dbd4f3d488.webp",
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/25989242-5e9d-4bb1-bda0-3efed8f512b4.webp",
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/04a7bb97-51a5-4388-a668-b3f2208de6e4.webp",
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/de25f560-2415-4d37-acef-fd8eba428e35.webp",
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/43d05a5f-f7a8-4075-9364-58d50b35de24.webp",
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/6858c3f1-fece-4935-99ab-5e79a392a6bd.webp",
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/188cb7f7-c86e-44f1-a4e8-805c2f58fc94.webp",
+    "https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/3ace52a4-e272-47ef-8f24-1b675cfd6f83.webp",
   ];
+
+  // Original accent colors (unchanged)
+  const accents = [
+    "#3B82F6",
+    "#6366F1",
+    "#8B5CF6",
+    "#3B82F6",
+    "#06B6D4",
+    "#A855F7",
+    "#6366F1",
+    "#3B82F6",
+    "#8B5CF6",
+    "#06B6D4",
+  ];
+
+  // Build services from translations — index matches your JSON array
+  const services = Array.from({ length: 10 }, (_, index) => ({
+    id: index + 1,
+    image: images[index],
+    accent: accents[index],
+    tag: t(`items.${index}.tag`),
+    title: t(`items.${index}.title`),
+    description: t(`items.${index}.description`),
+  }));
 
   return (
     <section className="relative w-full py-24 overflow-hidden bg-[#f8f9ff] dark:bg-[#080c18]">
@@ -233,7 +173,6 @@ function ServiceProvide() {
           opacity: 0.08;
         }
 
-        /* Divider line accent */
         .sp-line-accent {
           width: 3px;
           height: 100%;
@@ -287,7 +226,6 @@ function ServiceProvide() {
           to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Decorative background blobs */
         .sp-blob {
           position: absolute;
           border-radius: 50%;
@@ -296,7 +234,7 @@ function ServiceProvide() {
         }
       `}</style>
 
-      {/* Background blobs */}
+      {/* Background blobs – exactly as original */}
       <div
         className="sp-blob"
         style={{
@@ -329,7 +267,6 @@ function ServiceProvide() {
       />
 
       <div className="sp-section relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-
         {/* Header */}
         <div className="flex flex-col items-center text-center mb-16" style={{ gap: 20 }}>
           {/* Badge */}
@@ -346,7 +283,7 @@ function ServiceProvide() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              Service Provide
+              {t("badge")}
             </span>
           </div>
 
@@ -362,7 +299,7 @@ function ServiceProvide() {
             }}
             className="dark:text-slate-50"
           >
-            Our Upheld Administrations{" "}
+            {t("title")}{" "}
             <span
               style={{
                 background: "linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%)",
@@ -370,7 +307,7 @@ function ServiceProvide() {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              What We Serve To You
+              {t("gradientPart")}
             </span>
           </h2>
 
@@ -385,8 +322,7 @@ function ServiceProvide() {
             }}
             className="dark:text-slate-400"
           >
-            Unlock seamless digital transactions with our powerful services — from virtual card
-            management and secure payments to multi-language support and real-time notifications.
+            {t("description")}
           </p>
 
           {/* Decorative divider */}
@@ -406,7 +342,7 @@ function ServiceProvide() {
           </div>
         </div>
 
-        {/* Services Grid — horizontal card layout */}
+        {/* Services Grid */}
         <div
           style={{
             display: "grid",
@@ -420,13 +356,11 @@ function ServiceProvide() {
               className="sp-card sp-fade-in"
               style={{ animationDelay: `${index * 60}ms` }}
             >
-              {/* Left accent line */}
               <div
                 className="sp-line-accent"
                 style={{ background: `linear-gradient(180deg, ${service.accent}, transparent)` }}
               />
 
-              {/* Icon */}
               <div
                 className="sp-icon-wrap"
                 style={{
@@ -437,7 +371,6 @@ function ServiceProvide() {
                 <img src={service.image} alt={service.title} loading="lazy" />
               </div>
 
-              {/* Text */}
               <div style={{ flex: 1, minWidth: 0 }}>
                 <span
                   className="sp-tag"
@@ -452,13 +385,12 @@ function ServiceProvide() {
                 <p className="sp-desc">{service.description}</p>
               </div>
 
-              {/* Ghost number */}
               <span className="sp-number">{String(service.id).padStart(2, "0")}</span>
             </div>
           ))}
         </div>
 
-        {/* Bottom CTA stripe */}
+        {/* CTA stripe */}
         <div
           className="dark:border-indigo-500/20"
           style={{
@@ -484,13 +416,13 @@ function ServiceProvide() {
               }}
               className="dark:text-slate-100 sp-section"
             >
-              Ready to get started?
+              {t("cta.ready")}
             </p>
             <p
               style={{ margin: "4px 0 0", fontSize: 14, color: "#64748b" }}
               className="dark:text-slate-400 sp-section"
             >
-              Join thousands of users who trust our platform for their digital finances.
+              {t("cta.join")}
             </p>
           </div>
           <button
@@ -517,7 +449,7 @@ function ServiceProvide() {
               e.currentTarget.style.boxShadow = "0 8px 24px rgba(99,102,241,0.35)";
             }}
           >
-            Explore All Services 
+            {t("cta.button")}
           </button>
         </div>
       </div>

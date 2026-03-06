@@ -95,5 +95,575 @@
     "dashboard": {
       "title": "Dashboard"
     }
+  },
+  "ServiceProvide": {
+    "badge": "Service Provide",
+    "title": "Our Upheld Administrations",
+    "gradientPart": "What We Serve To You",
+    "description": "Unlock seamless digital transactions with our powerful services, from virtual card management and secure payments to multi-language support and real-time notifications—designed for convenience and security.",
+    "cta": {
+      "ready": "Ready to get started?",
+      "join": "Join thousands of users who trust our platform for their digital finances.",
+      "button": "Explore All Services"
+    },
+    "items": [
+      {
+        "tag": "Cards",
+        "title": "Buy Virtual Card",
+        "description": "Get your Virtual Card today and enjoy the ease of using the Virtual Card for online shopping, gaming, or your favorite subscriptions."
+      },
+      {
+        "tag": "Wallet",
+        "title": "Add Money",
+        "description": "Easily deposit funds into your digital wallet to ensure financial flexibility and convenience with our user-friendly and secure money-adding service."
+      },
+      {
+        "tag": "Transfer",
+        "title": "Money Transfer",
+        "description": "Swift and securely transfer money within the platform, providing convenience and peace of mind for all your financial needs."
+      },
+      {
+        "tag": "Withdraw",
+        "title": "Withdraw Money",
+        "description": "Effortlessly transfer funds from your account to your preferred bank account or digital wallet."
+      },
+      {
+        "tag": "Top Up",
+        "title": "Virtual Card TopUp",
+        "description": "Easily top up your virtual card balance to ensure uninterrupted spending for shopping, subscriptions, or gaming."
+      },
+      {
+        "tag": "Gifts",
+        "title": "Gift Card",
+        "description": "Purchase digital gift cards for popular services, directly from the app, for seamless gifting."
+      },
+      {
+        "tag": "API",
+        "title": "Setup Virtual Card API",
+        "description": "Configure the API to enable virtual card generation and management for secure online payments."
+      },
+      {
+        "tag": "Security",
+        "title": "Biometric Login",
+        "description": "Log in securely using biometric authentication using the fingerprint for added protection."
+      },
+      {
+        "tag": "Logs",
+        "title": "Transaction Logs",
+        "description": "Access detailed logs of all your transactions to track spending and monitor account activities."
+      },
+      {
+        "tag": "Global",
+        "title": "Multi-Language",
+        "description": "Use in multiple languages, making it accessible and user-friendly for a global audience."
+      }
+    ]
+  },
+  "WhyChooseUs": {
+    "badge": "Why Choose Us",
+    "title": {
+      "main": "What Makes Us Your",
+      "highlight": "Best Choice"
+    },
+    "description": "Discover why we stand out with unparalleled services, innovative solutions, and a commitment to excellence. Our user-first approach ensures reliability, security, and satisfaction, making us the trusted choice for all your needs.",
+    "features": [
+      {
+        "title": "Virtual Card Issuance",
+        "description": "Instantly create and manage virtual cards for secure online transactions, customized to suit your specific needs."
+      },
+      {
+        "title": "Secure Online Transactions",
+        "description": "Benefit from advanced encryption and authentication methods, ensuring that your online payments are protected."
+      },
+      {
+        "title": "Customizable Payment Plans",
+        "description": "Choose from a variety of flexible payment plans designed to accommodate different budgets and preferences."
+      },
+      {
+        "title": "Real-Time Transaction Monitoring",
+        "description": "Keep track of your spending with real-time notifications and detailed transaction history."
+      },
+      {
+        "title": "Multi-Currency Support",
+        "description": "Easily manage transactions in multiple currencies, perfect for international shopping and payments."
+      },
+      {
+        "title": "24/7 Customer Support",
+        "description": "Access round-the-clock customer support to resolve any payment-related issues or inquiries."
+      }
+    ]
+  },
+  "HowItWorks": {
+    "badge": "How It Works",
+    "title": {
+      "main": "How It Works",
+      "highlight": "Step-by-Step Process"
+    },
+    "description": "Discover how StripCard empowers you with an easy step-by-step process to manage virtual cards, add funds, transfer money, and ensure secure transactions—all designed for convenience, flexibility, and seamless financial management.",
+    "continueLabel": "continues",
+    "steps": [
+      {
+        "title": "Create Your Account",
+        "description": "Sign up easily by providing your details, verifying your email, and completing KYC verification for secure access.",
+        "tag": "Getting Started"
+      },
+      {
+        "title": "Loading Funds",
+        "description": "Deposit money into your digital wallet through multiple payment methods for a seamless experience.",
+        "tag": "Wallet"
+      },
+      {
+        "title": "Buy a Virtual Card",
+        "description": "Purchase a virtual card tailored to your needs for online shopping, gaming, or subscriptions.",
+        "tag": "Cards"
+      },
+      {
+        "title": "Manage Your Virtual Card",
+        "description": "Top up your card balance, track transactions, and use it across various platforms securely.",
+        "tag": "Management"
+      },
+      {
+        "title": "Make Transactions",
+        "description": "Transfer money, pay bills, and shop online with confidence using your virtual card.",
+        "tag": "Payments"
+      },
+      {
+        "title": "Stay Secure",
+        "description": "Leverage services like biometric login, 2FA, and detailed transaction logs to protect your account.",
+        "tag": "Security"
+      },
+      {
+        "title": "Access Support",
+        "description": "Reach out via the support ticket system for quick resolutions and assistance anytime.",
+        "tag": "Support"
+      },
+      {
+        "title": "Enjoy Global Flexibility",
+        "description": "Use multi-language support and gift card options for a versatile, global experience.",
+        "tag": "Global"
+      }
+    ]
+  },
+  "ProjectOverview": {
+    "badge": "Project Overview",
+    "title": {
+      "main": "Project Highlights",
+      "highlight": "at a Glance"
+    },
+    "description": "Explore key milestones and achievements of our project, brought to life with real-time counters showcasing our growth, success, and impact. See how we're delivering results and making a difference through our innovative solutions.",
+    "stats": {
+      "users": {
+        "title": "Total Users",
+        "subtitle": "Active community members"
+      },
+      "happy": {
+        "title": "Happy Users",
+        "subtitle": "Satisfied customers"
+      },
+      "services": {
+        "title": "Services",
+        "subtitle": "Delivered successfully"
+      }
+    },
+    "transactionsBadge": {
+      "label": "Transactions Processed",
+      "amount": "Over {value}M",
+      "subtitle": "transactions processed securely"
+    }
+  },
+  "DownloadApp": {
+    "imageAlt": "StripCard Mobile App",
+    "sectionBadge": "Download App",
+    "title": {
+      "part1": "Here Is",
+      "part2": "Realtime Apk."
+    },
+    "paragraph1": "Work with the pro, talented people at the most affordable price to get the most out of your time and cost using mobile apps.",
+    "paragraph2": "The internet is saturated with applications from developers and creators worldwide. Sometimes it can be hard to tell which are the best downloaded apps on the market. Our list features an assortment of social media, antivirus, VPN, game, and emulator apps, to name a few. Don't miss out on the latest Chrome, Bluetooth, Office, Youtube, and Web-cam file versions available today.",
+    "features": {
+      "fast": {
+        "title": "Fast",
+        "subtitle": "Lightning speed"
+      },
+      "secure": {
+        "title": "Secure",
+        "subtitle": "Protected data"
+      },
+      "free": {
+        "title": "Free",
+        "subtitle": "No hidden fees"
+      }
+    },
+    "downloadPrompt": "Download now on your favorite platform",
+    "qr": {
+      "googleAlt": "Google Play QR",
+      "appStoreAlt": "App Store QR"
+    },
+    "floatingBadge": {
+      "available": "Available Now",
+      "platforms": "iOS & Android"
+    },
+    "stats": {
+      "downloads": {
+        "count": "50K+",
+        "text": "downloads"
+      },
+      "rating": "4.8/5"
+    }
+  },
+  "Footer": {
+    "logoAlt": "StripCard Logo",
+    "thankYou": "Thank you for choosing StripCard as your trusted partner for secure online transactions. We are committed to providing you with a seamless and secure experience.",
+    "followUs": {
+      "title": "Follow Us"
+    },
+    "usefulLinks": {
+      "title": "Useful Links",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "subscribe": {
+      "title": "Subscribe",
+      "description": "Stay Connected! Subscribe to Our Latest Feeds – Just Fill Out the Form Below.",
+      "placeholder": "Enter Email Address",
+      "button": "Subscribe"
+    },
+    "copyright": {
+      "allRights": "All Rights Reserved.",
+      "company": "StripCard"
+    }
+  },
+  "About": {
+    "badge": "About Us",
+    "title": {
+      "part1": "Empowering the Future of",
+      "part2": "Online Transactions"
+    },
+    "description": "We are at the forefront of revolutionizing the way people navigate the digital financial landscape. Our mission is clear: to provide users and entrepreneurs with a secure, efficient, and user-friendly platform for conducting online transactions through virtual credit cards.",
+    "highlights": {
+      "vision": {
+        "title": "Our Vision"
+      },
+      "difference": {
+        "title": "The StripCard Difference"
+      },
+      "commitment": {
+        "title": "Our Commitment"
+      },
+      "join": {
+        "title": "Join Us on this Journey"
+      }
+    },
+    "imageAlt": "StripCard platform - secure virtual credit cards"
+  },
+  "Testimonials": {
+    "header": {
+      "badge": "What Our Users Are Saying",
+      "title": {
+        "main": "Explore what our satisfied users have to say about",
+        "highlight": "their experiences",
+        "suffix": "with it."
+      },
+      "description": "We are at the forefront of revolutionizing the way people navigate the digital financial landscape. Our mission is clear: to provide users and entrepreneurs with a secure, efficient, and user-friendly platform for conducting online transactions through virtual credit cards."
+    },
+    "testimonials": [
+      {
+        "name": "Aisha Patel",
+        "role": "Freelance Graphic Designer",
+        "text": "We are at the forefront of revolutionizing the way people navigate the digital financial landscape. Our mission is clear: to provide users and entrepreneurs with a secure, efficient, and user-friendly platform for conducting online transactions through virtual credit cards."
+      },
+      {
+        "name": "James Carter",
+        "role": "E-commerce Entrepreneur",
+        "text": "As a small business owner, StripCard has been a game-changer. It allows me to offer convenient payment options to my clients while generating an extra revenue stream. The one-time-use codes provide peace of mind, knowing that my transactions are secure. StripCard is a win-win for both my clients and my business."
+      },
+      {
+        "name": "Lena Moreau",
+        "role": "Digital Nomad & Content Creator",
+        "text": "Shopping online has never been this secure and straightforward. StripCard's unique codes make me feel confident about the safety of my transactions. It's like having an extra layer of protection. I can't imagine going back to using my regular card for online purchases. StripCard has won me over!"
+      }
+    ],
+    "stats": {
+      "users": {
+        "count": "10,000+",
+        "label": "Happy Users"
+      },
+      "rating": "4.9/5 Average Rating"
+    }
+  },
+  "FAQ": {
+    "header": {
+      "badge": "Faq Section",
+      "title": {
+        "main": "Advanced Security Features Designed to",
+        "highlight": "Protect Your Information",
+        "suffix": "Effectively"
+      },
+      "description": "Our security system employs advanced technology to ensure the utmost protection for your sensitive information. With state-of-the-art encryption, multi-layered authentication, and real-time monitoring, your data is safeguarded against unauthorized access and breaches. Experience peace of mind knowing that our robust security measures are designed to keep your information secure and private at all times."
+    },
+    "questions": {
+      "left": [
+        {
+          "question": "How can I buy a virtual card?",
+          "answer": "To buy a virtual card, navigate to the \"Virtual Cards\" section, select your preferred card type, and follow the instructions to complete the purchase."
+        },
+        {
+          "question": "How can I top up my virtual card?",
+          "answer": "You can top up your virtual card by selecting it in the \"Virtual Card\" section, entering the top-up amount, and choosing a payment method."
+        },
+        {
+          "question": "How do I add money to my wallet?",
+          "answer": "You can add money to your wallet using various payment methods like PayPal, Stripe, and bank transfers. Simply go to the \"Add Money\" section, choose your payment method, and complete the transaction."
+        },
+        {
+          "question": "How do I purchase a gift card?",
+          "answer": "Purchase gift cards for different platforms by visiting the \"Gift Card\" section, selecting your desired gift card, and completing the payment."
+        }
+      ],
+      "right": [
+        {
+          "question": "How can I transfer money?",
+          "answer": "Transferring money is easy. Go to the \"Money Transfer\" section, enter the recipient's details, select the amount, and confirm the transaction."
+        },
+        {
+          "question": "How do I set up the Virtual Card API?",
+          "answer": "Configure the API to enable virtual card generation and management for secure online payments."
+        },
+        {
+          "question": "How do I withdraw money?",
+          "answer": "To withdraw money, visit the \"Withdraw\" page, select your withdrawal method, enter the necessary details, and submit your request."
+        },
+        {
+          "question": "Where can I view my transaction logs?",
+          "answer": "View and track all your transactions in the \"Transaction Logs\" section to stay updated on your financial activities."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Still have questions?",
+      "description": "Contact our 24/7 support team for assistance",
+      "button": "Get Help"
+    }
+  },
+  "PrivacyPolicy": {
+    "title": "Privacy Policy",
+    "sections": {
+      "collect": {
+        "title": "What information do we collect?",
+        "content": "We gather data from you when you register on our site, submit a request, buy any services, react to an overview, or round out a structure. At the point when requesting any assistance or enrolling on our site, as suitable, you might be approached to enter your: name, email address, or telephone number. You may, nonetheless, visit our site anonymously."
+      },
+      "protect": {
+        "title": "How do we protect your information?",
+        "part1": "All provided delicate/credit data is sent through Stripe.",
+        "part2": "After an exchange, your private data (credit cards, social security numbers, financials, and so on) won be put away on our workers."
+      },
+      "disclose": {
+        "title": "Do we disclose any information to outside parties?",
+        "content": "We don sell, exchange, or in any case move to outside gatherings by and by recognizable data. This does exclude confided in outsiders who help us in working our site, leading our business, or adjusting you, since those gatherings consent to keep this data private. We may likewise deliver your data when we accept discharge is suitable to follow the law, implement our site strategies, or ensure our own or others rights, property, or wellbeing."
+      },
+      "coppa": {
+        "title": "Children's Online Privacy Protection Act Compliance",
+        "content": "We are consistent with the prerequisites of COPPA (Childrens Online Privacy Protection Act), we don gather any data from anybody under 13 years old. Our site, items, and administrations are completely coordinated to individuals who are in any event 13 years of age or more established."
+      },
+      "changes": {
+        "title": "Changes to our Privacy Policy",
+        "content": "If we decide to change our privacy policy, we will post those changes on this page."
+      },
+      "retain": {
+        "title": "How long we retain your information?",
+        "content": "At the point when you register for our site, we cycle and keep your information we have about you however long you don not erase the record or withdraw yourself (subject to laws and regulations)."
+      }
+    }
+  },
+  "Contact": {
+    "form": {
+      "badge": "Contact Us",
+      "title": {
+        "part1": "Feel Free To",
+        "highlight": "Get In Touch",
+        "part2": "With Us"
+      },
+      "labels": {
+        "name": "Name *",
+        "email": "Email *",
+        "phone": "Phone",
+        "subject": "Subject *",
+        "message": "Message *"
+      },
+      "placeholders": {
+        "name": "Enter Name",
+        "email": "Enter Email Address",
+        "phone": "Enter Phone",
+        "subject": "Enter Subject",
+        "message": "Write your message here..."
+      },
+      "recaptchaError": "Please complete the reCAPTCHA verification.",
+      "successMessage": "Thank you! Your message has been sent.",
+      "button": "Send Message"
+    },
+    "info": {
+      "title": "Information",
+      "description": "We'd love to hear from you! If you have any questions or need assistance, please don't hesitate to get in touch with us using the following contact information:",
+      "phone": {
+        "label": "Mobile Number",
+        "value": "+1 (123) 456-7890"
+      },
+      "address": {
+        "label": "Address",
+        "value": "1234 Main Street City, State 56789 USA"
+      },
+      "email": {
+        "label": "Email Address",
+        "value": "info@example.com"
+      }
+    }
+  },
+
+  "Announcements": {
+    "list": {
+      "badge": "Announcement",
+      "title": {
+        "part1": "Our Recent",
+        "highlight": "Announcements"
+      },
+      "readMore": "Read More"
+    },
+    "detail": {
+      "backButton": "Back to Announcements",
+      "tagsTitle": "Tags",
+      "categoriesTitle": "Categories",
+      "recentPostsTitle": "Recent Posts",
+      "extraContent": {
+        "part1": "Virtual credit cards represent a paradigm shift in how we think about payment security. Unlike traditional physical cards, they generate unique card numbers for each transaction or merchant, dramatically reducing the risk of fraud and unauthorized charges. For entrepreneurs and businesses, this translates to greater control over expenditures and simplified reconciliation.",
+        "part2": "As the digital economy continues to expand, embracing virtual payment solutions is no longer optional — it is essential. Companies that integrate these technologies early gain a competitive edge, offering clients a seamless, secure experience that builds trust and long-term loyalty."
+      }
+    },
+    "announcements": [
+      {
+        "title": "Entrepreneurial Success with Virtual Credit Card Services",
+        "preview": "Are you an entrepreneur looking to diversify your business and boost revenue? In this blog, we explore how offering virt...",
+        "fullDescription": "Are you an entrepreneur looking to diversify your business and boost revenue? In this blog, we explore how offering virtual credit card services to your clients can be a game-changer. We discuss the opportunities, benefits, and strategies for entrepreneurs to leverage the virtual credit card trend and create a win-win scenario for their clients and their business."
+      },
+      {
+        "title": "The Future of Secure Online Payments",
+        "preview": "In today's digital age, online payments have become an integral part of our lives. But with convenience comes the need f...",
+        "fullDescription": "In today's digital age, online payments have become an integral part of our lives. But with convenience comes the need for security. This blog explores the phenomenon of virtual credit cards, their growing popularity, and how they are revolutionizing online payments. We delve into the benefits of virtual credit cards, their unique features, and why they are considered the future of secure online transactions."
+      },
+      {
+        "title": "The Rise of Virtual Credit Cards: Transforming Online Payments",
+        "preview": "In today's digital age, online payments have become an integral part of our lives. But with convenience comes the need f...",
+        "fullDescription": "In today's digital age, online payments have become an integral part of our lives. But with convenience comes the need for security. This blog explores the phenomenon of virtual credit cards, their growing popularity, and how they are revolutionizing online payments. We delve into the benefits of virtual credit cards, their unique features, and why they are considered the future of secure online transactions."
+      }
+    ]
+  },
+
+  "Login": {
+    "logoAlt": "StripCard Logo",
+    "title": "Welcome Back",
+    "subtitle": "Log in to access your account securely",
+    "form": {
+      "labels": {
+        "email": "Email Address",
+        "password": "Password"
+      },
+      "placeholders": {
+        "email": "Username OR Email Address",
+        "password": "Enter your password"
+      },
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot Password?",
+      "securityVerification": "Security Verification",
+      "verificationSuccess": "Verification successful",
+      "verificationRequired": "Please complete the verification",
+      "securityHelpText": "This helps us protect your account from unauthorized access",
+      "button": "Log In",
+      "recaptchaError": "Please complete the CAPTCHA verification",
+      "invalidResponse": "Invalid response from server",
+      "genericError": "Something went wrong. Please try again later."
+    },
+    "footer": {
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign Up",
+      "goBack": "Go back to",
+      "home": "Home"
+    }
+  },
+  "Register": {
+    "logoAlt": "StripCard Logo",
+    "title": "Create Your Account",
+    "subtitle": "Sign up to get started with StripCard",
+    "form": {
+      "labels": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email Address",
+        "password": "Password"
+      },
+      "placeholders": {
+        "firstName": "Enter First Name",
+        "lastName": "Enter Last Name",
+        "email": "Enter Email Address",
+        "password": "Create a strong password"
+      },
+      "termsAgreement": {
+        "part1": "I have agreed with",
+        "termsLink": "Terms of Use",
+        "and": "&",
+        "privacyLink": "Privacy Policy"
+      },
+      "termsError": "Please agree to the Terms of Use & Privacy Policy",
+      "recaptchaError": "Please complete the CAPTCHA verification",
+      "registrationFailed": "Registration was not successful",
+      "tokenMissing": "Couldn’t complete your registration. Please try again",
+      "successMessage": "Registration successful! Redirecting...",
+      "genericError": "Registration failed. Please try again.",
+      "securityVerification": "Security Verification",
+      "verificationSuccess": "Verification successful",
+      "verificationRequired": "Please complete the verification",
+      "securityHelpText": "This helps us keep bots away and protect your account",
+      "button": "Sign Up",
+      "loading": "Signing Up..."
+    },
+    "footer": {
+      "alreadyHaveAccount": "Already have an account?",
+      "login": "Log In",
+      "goBack": "Go back to",
+      "home": "Home"
+    }
+  },
+  "ForgotPassword": {
+    "logoAlt": "StripCard Logo",
+    "emailStage": {
+      "title": "Forgot Password?",
+      "description": "Enter your email and we'll send you a One-Time Password (OTP).",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "Enter Email Address",
+      "securityVerification": "Security Verification",
+      "verificationSuccess": "Verification successful",
+      "verificationRequired": "Please complete the verification",
+      "securityHelpText": "This helps prevent automated requests",
+      "button": "Send OTP",
+      "loading": "Sending...",
+      "recaptchaError": "Please complete the CAPTCHA verification",
+      "genericError": "An unexpected error occurred."
+    },
+    "otpStage": {
+      "title": "Enter the Code",
+      "description": "We've sent a 6-digit code to",
+      "resendCountdown": {
+        "part1": "Resend available in"
+      },
+      "resendPrompt": "Didn't receive the code?",
+      "resendButton": "Resend Code",
+      "resending": "Resending...",
+      "invalidOtp": "Please enter the complete 6-digit OTP",
+      "verificationError": "An unexpected error occurred during OTP verification.",
+      "button": "Verify OTP",
+      "verifying": "Verifying..."
+    },
+    "footer": {
+      "emailStage": "Remember your password?",
+      "otpStage": "Already have an account?",
+      "loginLink": "Log In"
+    }
   }
 }

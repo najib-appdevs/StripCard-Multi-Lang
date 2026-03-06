@@ -3,31 +3,34 @@
 
 import { Quote, Star } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function TestimonialsSection() {
+  const t = useTranslations("Testimonials");
+
   const testimonials = [
     {
-      name: "Aisha Patel",
-      role: "Freelance Graphic Designer",
+      name: t("testimonials.0.name"),
+      role: t("testimonials.0.role"),
       image:
         "https://thumbs.dreamstime.com/b/young-asian-woman-holding-credit-card-using-smart-phone-shopping-online-business-technology-concept-online-payment-123093095.jpg",
-      text: "We are at the forefront of revolutionizing the way people navigate the digital financial landscape. Our mission is clear: to provide users and entrepreneurs with a secure, efficient, and user-friendly platform for conducting online transactions through virtual credit cards.",
+      text: t("testimonials.0.text"),
       rating: 5,
     },
     {
-      name: "James Carter",
-      role: "E-commerce Entrepreneur",
+      name: t("testimonials.1.name"),
+      role: t("testimonials.1.role"),
       image:
         "https://www.shutterstock.com/shutterstock/photos/2367985967/display_1500/stock-photo-bank-employee-smiling-young-african-american-man-sitting-in-office-at-desk-with-laptop-holding-2367985967.jpg",
-      text: "As a small business owner, StripCard has been a game-changer. It allows me to offer convenient payment options to my clients while generating an extra revenue stream. The one-time-use codes provide peace of mind, knowing that my transactions are secure. StripCard is a win-win for both my clients and my business.",
+      text: t("testimonials.1.text"),
       rating: 5,
     },
     {
-      name: "Lena Moreau",
-      role: "Digital Nomad & Content Creator",
+      name: t("testimonials.2.name"),
+      role: t("testimonials.2.role"),
       image:
         "https://www.outsideonline.com/wp-content/uploads/2018/02/26/rethink-your-commute_h.jpg",
-      text: "Shopping online has never been this secure and straightforward. StripCard's unique codes make me feel confident about the safety of my transactions. It's like having an extra layer of protection. I can't imagine going back to using my regular card for online purchases. StripCard has won me over!",
+      text: t("testimonials.2.text"),
       rating: 5,
     },
   ];
@@ -52,26 +55,22 @@ export default function TestimonialsSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 mb-4">
             <Quote className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             <span className="text-sm uppercase tracking-widest bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent font-semibold">
-              What Our Users Are Saying
+              {t("header.badge")}
             </span>
           </div>
 
           {/* Main title */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6 max-w-4xl mx-auto leading-tight">
-            Explore what our satisfied users have to say about{" "}
+            {t("header.title.main")}{" "}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">
-              their experiences
+              {t("header.title.highlight")}
             </span>{" "}
-            with it.
+            {t("header.title.suffix")}
           </h2>
 
           {/* Description */}
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl mx-auto">
-            We are at the forefront of revolutionizing the way people navigate
-            the digital financial landscape. Our mission is clear: to provide
-            users and entrepreneurs with a secure, efficient, and user-friendly
-            platform for conducting online transactions through virtual credit
-            cards.
+            {t("header.description")}
           </p>
         </div>
 
@@ -135,10 +134,10 @@ export default function TestimonialsSection() {
           <div className="inline-flex items-center gap-6 px-8 py-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 rounded-2xl border border-blue-100 dark:border-blue-800/50">
             <div className="text-center">
               <p className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
-                10,000+
+                {t("stats.users.count")}
               </p>
               <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-medium">
-                Happy Users
+                {t("stats.users.label")}
               </p>
             </div>
             <div className="w-px h-12 bg-slate-300 dark:bg-gray-600" />
@@ -152,7 +151,7 @@ export default function TestimonialsSection() {
                 ))}
               </div>
               <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 font-medium mt-1">
-                4.9/5 Average Rating
+                {t("stats.rating")}
               </p>
             </div>
           </div>

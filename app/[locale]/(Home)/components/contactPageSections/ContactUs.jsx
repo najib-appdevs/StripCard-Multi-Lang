@@ -1,11 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { Mail, MapPin, MessageSquare, Phone, Send } from "lucide-react";
 import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl";
 
 export default function ContactSection() {
+  const t = useTranslations("Contact");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -34,21 +38,22 @@ export default function ContactSection() {
     e.preventDefault();
 
     if (!recaptchaToken) {
-      toast.error("Please complete the reCAPTCHA verification.");
+      toast.error(t("form.recaptchaError"));
       return;
     }
 
     const payload = { ...formData, recaptchaToken };
 
+    // Reset form
     setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     setRecaptchaToken(null);
     if (recaptchaRef.current) recaptchaRef.current.reset();
 
-    toast.success("Thank you! Your message has been sent.");
+    toast.success(t("form.successMessage"));
   };
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-950 dark:via-indigo-950 dark:to-purple-950 overflow-hidden">
+    <section className="relative py-16 md:py-20 lg:py-24 dark:from-gray-950 dark:via-indigo-950 dark:to-purple-950 overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-72 h-72 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
@@ -56,12 +61,12 @@ export default function ContactSection() {
       </div>
 
       {/* Grid Pattern Overlay */}
-      <div
+      {/* <div
         className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
-      />
+      /> */}
 
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-[5fr_3fr] gap-8 md:gap-12 lg:gap-16 items-start">
@@ -71,21 +76,21 @@ export default function ContactSection() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/50 mb-4">
               <MessageSquare className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               <span className="text-sm uppercase tracking-widest text-blue-600 dark:text-blue-400 font-semibold">
-                Contact Us
+                {t("form.badge")}
               </span>
             </div>
 
             {/* Title */}
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 leading-tight">
               <span className="text-slate-900 dark:text-slate-100">
-                Feel Free To{" "}
+                {t("form.title.part1")}
               </span>
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">
-                Get In Touch
+                {t("form.title.highlight")}
               </span>
               <span className="text-slate-900 dark:text-slate-100">
                 {" "}
-                With Us
+                {t("form.title.part2")}
               </span>
             </h2>
 
@@ -96,7 +101,7 @@ export default function ContactSection() {
                     htmlFor="name"
                     className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Name *
+                    {t("form.labels.name")}
                   </label>
                   <input
                     type="text"
@@ -106,7 +111,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-white dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 hover:border-slate-300 dark:hover:border-gray-600"
-                    placeholder="Enter Name"
+                    placeholder={t("form.placeholders.name")}
                   />
                 </div>
 
@@ -115,7 +120,7 @@ export default function ContactSection() {
                     htmlFor="email"
                     className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Email *
+                    {t("form.labels.email")}
                   </label>
                   <input
                     type="email"
@@ -125,7 +130,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-white dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 hover:border-slate-300 dark:hover:border-gray-600"
-                    placeholder="Enter Email Address"
+                    placeholder={t("form.placeholders.email")}
                   />
                 </div>
               </div>
@@ -136,7 +141,7 @@ export default function ContactSection() {
                     htmlFor="phone"
                     className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Phone
+                    {t("form.labels.phone")}
                   </label>
                   <input
                     type="tel"
@@ -145,7 +150,7 @@ export default function ContactSection() {
                     value={formData.phone}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-white dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 hover:border-slate-300 dark:hover:border-gray-600"
-                    placeholder="Enter Phone"
+                    placeholder={t("form.placeholders.phone")}
                   />
                 </div>
 
@@ -154,7 +159,7 @@ export default function ContactSection() {
                     htmlFor="subject"
                     className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                   >
-                    Subject *
+                    {t("form.labels.subject")}
                   </label>
                   <input
                     type="text"
@@ -164,7 +169,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-white dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 hover:border-slate-300 dark:hover:border-gray-600"
-                    placeholder="Enter Subject"
+                    placeholder={t("form.placeholders.subject")}
                   />
                 </div>
               </div>
@@ -174,7 +179,7 @@ export default function ContactSection() {
                   htmlFor="message"
                   className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
                 >
-                  Message *
+                  {t("form.labels.message")}
                 </label>
                 <textarea
                   id="message"
@@ -184,7 +189,7 @@ export default function ContactSection() {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-white dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 outline-none transition-all resize-none text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 hover:border-slate-300 dark:hover:border-gray-600"
-                  placeholder="Write your message here..."
+                  placeholder={t("form.placeholders.message")}
                 />
               </div>
 
@@ -204,7 +209,7 @@ export default function ContactSection() {
                 type="submit"
                 className="group w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-600 dark:hover:to-indigo-600 transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2"
               >
-                <span>Send Message</span>
+                <span>{t("form.button")}</span>
                 <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </form>
@@ -213,12 +218,10 @@ export default function ContactSection() {
           {/* Right: Information */}
           <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 md:p-8 border border-blue-100/50 dark:border-blue-800/50">
             <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-              Information
+              {t("info.title")}
             </h3>
             <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-              We&apos;d love to hear from you! If you have any questions or need
-              assistance, please don&apos;t hesitate to get in touch with us
-              using the following contact information:
+              {t("info.description")}
             </p>
 
             <div className="space-y-5 md:space-y-6">
@@ -229,13 +232,13 @@ export default function ContactSection() {
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-base md:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-0.5">
-                    Mobile Number
+                    {t("info.phone.label")}
                   </h4>
                   <a
                     href="tel:+11234567890"
                     className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-[15px] leading-snug sm:leading-relaxed"
                   >
-                    +1 (123) 456-7890
+                    {t("info.phone.value")}
                   </a>
                 </div>
               </div>
@@ -247,10 +250,10 @@ export default function ContactSection() {
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-base md:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-0.5">
-                    Address
+                    {t("info.address.label")}
                   </h4>
                   <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-[15px] leading-snug sm:leading-relaxed">
-                    1234 Main Street City, State 56789 USA
+                    {t("info.address.value")}
                   </p>
                 </div>
               </div>
@@ -262,13 +265,13 @@ export default function ContactSection() {
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-base md:text-lg font-semibold text-slate-900 dark:text-slate-100 mb-0.5">
-                    Email Address
+                    {t("info.email.label")}
                   </h4>
                   <a
                     href="mailto:info@example.com"
                     className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm md:text-[15px] leading-snug sm:leading-relaxed"
                   >
-                    info@example.com
+                    {t("info.email.value")}
                   </a>
                 </div>
               </div>

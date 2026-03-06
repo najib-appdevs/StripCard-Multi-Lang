@@ -2,11 +2,14 @@
 "use client";
 
 import { Facebook, Instagram, Mail, Twitter } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 function Footer() {
+  const t = useTranslations("Footer");
+
   const currentYear = new Date().getFullYear();
   const [captchaToken, setCaptchaToken] = useState(null);
 
@@ -26,14 +29,6 @@ function Footer() {
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-indigo-400/10 dark:bg-indigo-500/5 rounded-full blur-3xl animate-pulse" />
       </div>
 
-      {/* Grid Pattern Overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
-
       {/* Top decorative line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent dark:via-blue-500 opacity-50" />
 
@@ -45,22 +40,20 @@ function Footer() {
             <div className="flex items-center">
               <img
                 src="/logo-dark.png"
-                alt="StripCard Logo"
+                alt={t("logoAlt")}
                 className="h-10 w-auto"
               />
             </div>
 
             {/* Thank you text */}
             <p className="leading-relaxed max-w-xl text-slate-700 dark:text-slate-300 text-base">
-              Thank you for choosing StripCard as your trusted partner for
-              secure online transactions. We are committed to providing you with
-              a seamless and secure experience.
+              {t("thankYou")}
             </p>
 
             {/* Follow Us */}
             <div className="space-y-4">
               <p className="text-slate-900 dark:text-slate-100 font-semibold text-lg">
-                Follow Us
+                {t("followUs.title")}
               </p>
               <div className="flex items-center gap-4">
                 {/* Facebook */}
@@ -102,7 +95,7 @@ function Footer() {
           {/* MIDDLE – Useful Links */}
           <div className="lg:col-span-2 space-y-6">
             <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-              Useful Links
+              {t("usefulLinks.title")}
             </h3>
 
             <nav className="flex flex-col gap-3">
@@ -110,7 +103,7 @@ function Footer() {
                 href="/privacy-policy"
                 className="text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors hover:translate-x-1 duration-300 inline-block"
               >
-                Privacy Policy
+                {t("usefulLinks.privacyPolicy")}
               </Link>
             </nav>
           </div>
@@ -118,12 +111,11 @@ function Footer() {
           {/* RIGHT – Subscribe */}
           <div className="lg:col-span-5 space-y-6">
             <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100">
-              Subscribe
+              {t("subscribe.title")}
             </h3>
 
             <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-              Stay Connected! Subscribe to Our Latest Feeds – Just Fill Out the
-              Form Below.
+              {t("subscribe.description")}
             </p>
 
             {/* Email Form */}
@@ -143,7 +135,7 @@ function Footer() {
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 dark:text-slate-500" />
                   <input
                     type="email"
-                    placeholder="Enter Email Address"
+                    placeholder={t("subscribe.placeholder")}
                     className="w-full pl-12 pr-4 py-3.5 bg-white dark:bg-gray-800 border-2 border-slate-200 dark:border-gray-700 rounded-lg text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-blue-500 focus:ring-none focus:ring-blue-500/50 transition-all shadow-sm"
                     required
                   />
@@ -152,7 +144,7 @@ function Footer() {
                   type="submit"
                   className="cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-600 dark:hover:to-indigo-600 text-white font-semibold px-8 py-3.5 rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap"
                 >
-                  Subscribe
+                  {t("subscribe.button")}
                 </button>
               </div>
             </form>
@@ -163,9 +155,9 @@ function Footer() {
       {/* Bottom copyright */}
       <div className="relative border-t border-slate-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-slate-800 dark:text-slate-300">
-          © {currentYear} All Rights Reserved.{" "}
+          © {currentYear} {t("copyright.allRights")}{" "}
           <span className="font-semibold text-blue-600 dark:text-blue-400">
-            StripCard
+            {t("copyright.company")}
           </span>
         </div>
       </div>

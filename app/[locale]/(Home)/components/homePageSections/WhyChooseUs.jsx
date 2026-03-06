@@ -1,10 +1,17 @@
+/* WhyChooseUs.jsx */
+"use client";
+
+import { useTranslations } from "next-intl";
+
 function WhyChooseUs() {
+  const t = useTranslations("WhyChooseUs");
+
+  
   const features = [
     {
       id: 1,
-      title: "Virtual Card Issuance",
-      description:
-        "Instantly create and manage virtual cards for secure online transactions, customized to suit your specific needs.",
+      title: t("features.0.title"),
+      description: t("features.0.description"),
       gradient: "from-blue-500 to-cyan-500",
       icon: (
         <svg
@@ -24,9 +31,8 @@ function WhyChooseUs() {
     },
     {
       id: 2,
-      title: "Secure Online Transactions",
-      description:
-        "Benefit from advanced encryption and authentication methods, ensuring that your online payments are protected.",
+      title: t("features.1.title"),
+      description: t("features.1.description"),
       gradient: "from-indigo-500 to-purple-500",
       icon: (
         <svg
@@ -46,9 +52,8 @@ function WhyChooseUs() {
     },
     {
       id: 3,
-      title: "Customizable Payment Plans",
-      description:
-        "Choose from a variety of flexible payment plans designed to accommodate different budgets and preferences.",
+      title: t("features.2.title"),
+      description: t("features.2.description"),
       gradient: "from-violet-500 to-fuchsia-500",
       icon: (
         <svg
@@ -68,9 +73,8 @@ function WhyChooseUs() {
     },
     {
       id: 4,
-      title: "Real-Time Transaction Monitoring",
-      description:
-        "Keep track of your spending with real-time notifications and detailed transaction history.",
+      title: t("features.3.title"),
+      description: t("features.3.description"),
       gradient: "from-cyan-500 to-blue-500",
       icon: (
         <svg
@@ -90,9 +94,8 @@ function WhyChooseUs() {
     },
     {
       id: 5,
-      title: "Multi-Currency Support",
-      description:
-        "Easily manage transactions in multiple currencies, perfect for international shopping and payments.",
+      title: t("features.4.title"),
+      description: t("features.4.description"),
       gradient: "from-purple-500 to-pink-500",
       icon: (
         <svg
@@ -112,9 +115,8 @@ function WhyChooseUs() {
     },
     {
       id: 6,
-      title: "24/7 Customer Support",
-      description:
-        "Access round-the-clock customer support to resolve any payment-related issues or inquiries.",
+      title: t("features.5.title"),
+      description: t("features.5.description"),
       gradient: "from-indigo-500 to-violet-500",
       icon: (
         <svg
@@ -160,24 +162,21 @@ function WhyChooseUs() {
               <div className="w-2 h-2 bg-white dark:bg-gray-900 rounded-full" />
             </div>
             <span className="text-sm font-bold tracking-wide bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent uppercase">
-              Why Choose Us
+              {t("badge")}
             </span>
           </div>
 
           {/* Title */}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6 leading-tight">
-            What Makes Us Your{" "}
+            {t("title.main")}{" "}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">
-              Best Choice
+              {t("title.highlight")}
             </span>
           </h2>
 
           {/* Description */}
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-            Discover why we stand out with unparalleled services, innovative
-            solutions, and a commitment to excellence. Our user-first approach
-            ensures reliability, security, and satisfaction, making us the
-            trusted choice for all your needs.
+            {t("description")}
           </p>
         </div>
 

@@ -1,3 +1,5 @@
+import Footer from "../../(Home)/components/Footer";
+import Navbar from "../../(Home)/components/Navbar";
 import ForgotPasswordPage from "./ForgotPassword";
 
 export const metadata = {
@@ -5,5 +7,11 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <ForgotPasswordPage />;
+  return (
+    <>
+      <Navbar />
+      <ForgotPasswordPage />
+      <Footer />
+    </>
+  );
 }

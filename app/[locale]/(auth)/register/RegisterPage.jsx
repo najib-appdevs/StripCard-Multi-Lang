@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import {
@@ -16,8 +17,11 @@ import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast from "react-hot-toast";
 import { registerUser } from "../../../utils/api";
+import { useTranslations } from "next-intl";
 
 export default function RegisterPage() {
+  const t = useTranslations("Register");
+
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -34,13 +38,13 @@ export default function RegisterPage() {
     e.preventDefault();
 
     if (!termsChecked) {
-      toast.error("Please agree to the Terms of Use & Privacy Policy");
+      toast.error(t("form.termsError"));
       return;
     }
 
     if (!captchaValue) {
       setCaptchaError(true);
-      toast.error("Please complete the CAPTCHA verification");
+      toast.error(t("form.recaptchaError"));
       return;
     }
 
@@ -63,14 +67,14 @@ export default function RegisterPage() {
       );
 
       if (!isSuccess) {
-        toast.error("Registration was not successful");
+        toast.error(t("form.registrationFailed"));
       }
 
       const token = response?.data?.token;
       const user = response?.data?.user;
 
       if (!token) {
-        toast.error("Couldn’t complete your registration. Please try again");
+        toast.error(t("form.tokenMissing"));
         return;
       }
 
@@ -79,7 +83,7 @@ export default function RegisterPage() {
         sessionStorage.setItem("user", JSON.stringify(user));
       }
       sessionStorage.setItem("email_verified", user?.email_verified);
-      toast.success("Registration successful! Redirecting...");
+      toast.success(t("form.successMessage"));
 
       if (user?.email_verified === 1) {
         router.push("/dashboard");
@@ -87,9 +91,7 @@ export default function RegisterPage() {
         router.push("/email-verify");
       }
     } catch (error) {
-      // console.error("Registration error:", error);
-
-      let errorMessage = "Registration failed. Please try again.";
+      let errorMessage = t("form.genericError");
 
       if (error.response?.data) {
         const backendData = error.response.data;
@@ -126,7 +128,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950/30 flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950/30 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-20 w-72 h-72 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
@@ -134,19 +136,19 @@ export default function RegisterPage() {
       </div>
 
       {/* Grid Pattern Overlay */}
-      <div
+      {/* <div
         className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
-      />
+      /> */}
 
       <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-2xl w-full max-w-lg p-8 md:p-10 border border-blue-100/50 dark:border-blue-800/50">
         {/* Logo and Header */}
         <div className="text-center mb-8">
           <Image
             src="/logo-dark.png"
-            alt="StripCard Logo"
+            alt={t("logoAlt")}
             width={150}
             height={32}
             className="mx-auto mb-4"
@@ -155,10 +157,10 @@ export default function RegisterPage() {
         </div>
 
         <h2 className="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-slate-100 mb-2">
-          Create Your Account
+          {t("title")}
         </h2>
         <p className="text-center text-slate-600 dark:text-slate-300 text-sm mb-8">
-          Sign up to get started with StripCard
+          {t("subtitle")}
         </p>
 
         {/* Form */}
@@ -171,7 +173,7 @@ export default function RegisterPage() {
                 htmlFor="firstName"
                 className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
               >
-                First Name <span className="text-red-500">*</span>
+                {t("form.labels.firstName")} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -182,7 +184,7 @@ export default function RegisterPage() {
                   id="firstName"
                   value={firstname}
                   onChange={(e) => setFirstname(e.target.value)}
-                  placeholder="Enter First Name"
+                  placeholder={t("form.placeholders.firstName")}
                   required
                   className="w-full pl-12 pr-4 py-3 border-2 text-slate-900 dark:text-slate-100 border-slate-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-none focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-all hover:border-slate-300 dark:hover:border-gray-600 bg-white dark:bg-gray-800 placeholder-slate-400 dark:placeholder-slate-500"
                 />
@@ -195,7 +197,7 @@ export default function RegisterPage() {
                 htmlFor="lastName"
                 className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
               >
-                Last Name <span className="text-red-500">*</span>
+                {t("form.labels.lastName")} <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -206,7 +208,7 @@ export default function RegisterPage() {
                   id="lastName"
                   value={lastname}
                   onChange={(e) => setLastname(e.target.value)}
-                  placeholder="Enter Last Name"
+                  placeholder={t("form.placeholders.lastName")}
                   required
                   className="w-full pl-12 pr-4 py-3 border-2 text-slate-900 dark:text-slate-100 border-slate-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-none focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-all hover:border-slate-300 dark:hover:border-gray-600 bg-white dark:bg-gray-800 placeholder-slate-400 dark:placeholder-slate-500"
                 />
@@ -220,7 +222,7 @@ export default function RegisterPage() {
               htmlFor="email"
               className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
             >
-              Email Address <span className="text-red-500">*</span>
+              {t("form.labels.email")} <span className="text-red-500">*</span>
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -231,7 +233,7 @@ export default function RegisterPage() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter Email Address"
+                placeholder={t("form.placeholders.email")}
                 required
                 className="w-full pl-12 pr-4 py-3 border-2 text-slate-900 dark:text-slate-100 border-slate-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-none focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-all hover:border-slate-300 dark:hover:border-gray-600 bg-white dark:bg-gray-800 placeholder-slate-400 dark:placeholder-slate-500"
               />
@@ -244,7 +246,7 @@ export default function RegisterPage() {
               htmlFor="password"
               className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
             >
-              Password <span className="text-red-500">*</span>
+              {t("form.labels.password")} <span className="text-red-500">*</span>
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -255,7 +257,7 @@ export default function RegisterPage() {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Create a strong password"
+                placeholder={t("form.placeholders.password")}
                 required
                 className="w-full pl-12 pr-12 py-3 border-2 text-slate-900 dark:text-slate-100 border-slate-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-none focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-all hover:border-slate-300 dark:hover:border-gray-600 bg-white dark:bg-gray-800 placeholder-slate-400 dark:placeholder-slate-500"
               />
@@ -287,19 +289,19 @@ export default function RegisterPage() {
               htmlFor="terms"
               className="text-sm text-slate-700 dark:text-slate-300 cursor-pointer"
             >
-              I have agreed with{" "}
+              {t("form.termsAgreement.part1")}{" "}
               <Link
                 href="/privacy-policy"
                 className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium hover:underline"
               >
-                Terms of Use
+                {t("form.termsAgreement.termsLink")}
               </Link>{" "}
-              &{" "}
+              {t("form.termsAgreement.and")}{" "}
               <Link
                 href="/privacy-policy"
                 className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium hover:underline"
               >
-                Privacy Policy
+                {t("form.termsAgreement.privacyLink")}
               </Link>
             </label>
           </div>
@@ -308,7 +310,7 @@ export default function RegisterPage() {
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
               <Shield className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-              <span>Security Verification</span>
+              <span>{t("form.securityVerification")}</span>
             </div>
 
             <div className="flex justify-start">
@@ -324,7 +326,7 @@ export default function RegisterPage() {
             {captchaValue && (
               <div className="flex items-center justify-center gap-2 text-green-600 dark:text-green-400 text-sm font-semibold">
                 <CheckCircle2 className="h-4 w-4" />
-                <span>Verification successful</span>
+                <span>{t("form.verificationSuccess")}</span>
               </div>
             )}
 
@@ -343,12 +345,12 @@ export default function RegisterPage() {
                     d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>Please complete the verification</span>
+                <span>{t("form.verificationRequired")}</span>
               </div>
             )}
 
             <p className="text-xs text-slate-500 dark:text-slate-300 text-center">
-              This helps us keep bots away and protect your account
+              {t("form.securityHelpText")}
             </p>
           </div>
 
@@ -358,29 +360,29 @@ export default function RegisterPage() {
             disabled={loading || !termsChecked}
             className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 text-white font-semibold py-3.5 rounded-lg shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-indigo-700 dark:hover:from-blue-600 dark:hover:to-indigo-600 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 hover:scale-[1.02]"
           >
-            {loading ? "Signing Up..." : "Sign Up"}
+            {loading ? t("form.loading") : t("form.button")}
           </button>
         </form>
 
         {/* Bottom Links */}
         <div className="mt-8 text-center text-sm text-slate-600 dark:text-slate-300 space-y-3">
           <p>
-            Already have an account?{" "}
+            {t("footer.alreadyHaveAccount")}{" "}
             <Link
               href="/login"
               className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold hover:underline transition-colors"
             >
-              Log In
+              {t("footer.login")}
             </Link>
           </p>
 
           <p>
-            Go back to{" "}
+            {t("footer.goBack")}{" "}
             <Link
               href="/"
               className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold hover:underline transition-colors"
             >
-              Home
+              {t("footer.home")}
             </Link>
           </p>
         </div>

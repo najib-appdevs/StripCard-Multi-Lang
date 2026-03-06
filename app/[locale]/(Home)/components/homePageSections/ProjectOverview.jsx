@@ -1,8 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 export default function ProjectOverview() {
+  const t = useTranslations("ProjectOverview");
+
   const [counters, setCounters] = useState({
     users: 0,
     happy: 0,
@@ -70,8 +73,6 @@ export default function ProjectOverview() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-20 sm:top-40 right-10 sm:right-20 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-bl from-blue-400/10 to-transparent dark:from-blue-600/8 dark:to-transparent rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-20 sm:bottom-40 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-gradient-to-tr from-indigo-400/10 to-transparent dark:from-indigo-600/8 dark:to-transparent rounded-full blur-3xl animate-pulse-slow [animation-delay:2s]" />
-
-        {/* Additional decorative circles */}
         <div className="absolute top-1/2 left-1/4 w-32 h-32 sm:w-64 sm:h-64 bg-gradient-to-br from-purple-400/5 to-transparent dark:from-purple-600/5 dark:to-transparent rounded-full blur-2xl animate-pulse-slow [animation-delay:1s]" />
         <div className="absolute bottom-1/3 right-1/3 w-40 h-40 sm:w-72 sm:h-72 bg-gradient-to-tl from-cyan-400/5 to-transparent dark:from-cyan-600/5 dark:to-transparent rounded-full blur-2xl animate-pulse-slow [animation-delay:3s]" />
       </div>
@@ -95,38 +96,31 @@ export default function ProjectOverview() {
               <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white dark:bg-slate-900 rounded-full relative z-10" />
             </div>
             <span className="text-sm font-bold tracking-wide bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent uppercase">
-              Project Overview
+              {t("badge")}
             </span>
           </div>
 
           {/* Title */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-5 sm:mb-7 px-4">
-            Project Highlights{" "}
+            {t("title.main")}{" "}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">
-              at a Glance
+              {t("title.highlight")}
             </span>
           </h2>
 
           {/* Description */}
           <p className="text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-300 px-4 max-w-2xl mx-auto">
-            Explore key milestones and achievements of our project, brought to
-            life with real-time counters showcasing our growth, success, and
-            impact. See how we&apos;re delivering results and making a
-            difference through our innovative solutions.
+            {t("description")}
           </p>
         </div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 mb-12 sm:mb-14 md:mb-16">
-          {/* Stat 1 */}
+          {/* Stat 1 - Users */}
           <div className="group relative bg-white/90 backdrop-blur-sm dark:bg-slate-900/70 rounded-3xl shadow-xl hover:shadow-2xl border border-white/60 dark:border-slate-700/50 transition-all duration-500 overflow-hidden hover:-translate-y-3 animate-fade-in-up">
-            {/* Gradient Background Layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-[0.08] dark:group-hover:opacity-[0.15] transition-opacity duration-500" />
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-[0.12] blur-xl dark:group-hover:opacity-[0.20] transition-opacity duration-500" />
-
-            {/* Shimmer Effect */}
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-slate-200/10" />
-
             <div className="relative p-6 sm:p-7 md:p-9 text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18 md:w-22 md:h-22 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950/50 dark:to-cyan-950/50 rounded-3xl mb-4 md:mb-5 group-hover:scale-110 transition-transform duration-500 shadow-lg group-hover:shadow-xl">
                 <span className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-br from-blue-600 to-cyan-600 bg-clip-text text-transparent">
@@ -134,27 +128,23 @@ export default function ProjectOverview() {
                 </span>
               </div>
               <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 mb-2 md:mb-3 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-cyan-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                Total Users
+                {t("stats.users.title")}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                Active community members
+                {t("stats.users.subtitle")}
               </p>
             </div>
             <div className="h-1.5 bg-gradient-to-r from-blue-500 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
           </div>
 
-          {/* Stat 2 */}
+          {/* Stat 2 - Happy Users */}
           <div
             className="group relative bg-white/90 backdrop-blur-sm dark:bg-slate-900/70 rounded-3xl shadow-xl hover:shadow-2xl border border-white/60 dark:border-slate-700/50 transition-all duration-500 overflow-hidden hover:-translate-y-3 animate-fade-in-up"
             style={{ animationDelay: "150ms" }}
           >
-            {/* Gradient Background Layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-0 group-hover:opacity-[0.08] dark:group-hover:opacity-[0.15] transition-opacity duration-500" />
             <div className="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-0 group-hover:opacity-[0.12] blur-xl dark:group-hover:opacity-[0.20] transition-opacity duration-500" />
-
-            {/* Shimmer Effect */}
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-slate-200/10" />
-
             <div className="relative p-6 sm:p-7 md:p-9 text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18 md:w-22 md:h-22 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/50 dark:to-emerald-950/50 rounded-3xl mb-4 md:mb-5 group-hover:scale-110 transition-transform duration-500 shadow-lg group-hover:shadow-xl">
                 <span className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-br from-green-600 to-emerald-600 bg-clip-text text-transparent">
@@ -162,27 +152,23 @@ export default function ProjectOverview() {
                 </span>
               </div>
               <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 mb-2 md:mb-3 group-hover:bg-gradient-to-r group-hover:from-green-600 group-hover:to-emerald-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                Happy Users
+                {t("stats.happy.title")}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                Satisfied customers
+                {t("stats.happy.subtitle")}
               </p>
             </div>
             <div className="h-1.5 bg-gradient-to-r from-green-500 to-emerald-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
           </div>
 
-          {/* Stat 3 */}
+          {/* Stat 3 - Services */}
           <div
             className="group relative bg-white/90 backdrop-blur-sm dark:bg-slate-900/70 rounded-3xl shadow-xl hover:shadow-2xl border border-white/60 dark:border-slate-700/50 transition-all duration-500 overflow-hidden hover:-translate-y-3 animate-fade-in-up sm:col-span-2 lg:col-span-1"
             style={{ animationDelay: "300ms" }}
           >
-            {/* Gradient Background Layers */}
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-fuchsia-500 opacity-0 group-hover:opacity-[0.08] dark:group-hover:opacity-[0.15] transition-opacity duration-500" />
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-fuchsia-500 opacity-0 group-hover:opacity-[0.12] blur-xl dark:group-hover:opacity-[0.20] transition-opacity duration-500" />
-
-            {/* Shimmer Effect */}
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent dark:via-slate-200/10" />
-
             <div className="relative p-6 sm:p-7 md:p-9 text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 sm:w-18 sm:h-18 md:w-22 md:h-22 bg-gradient-to-br from-purple-50 to-fuchsia-50 dark:from-purple-950/50 dark:to-fuchsia-950/50 rounded-3xl mb-4 md:mb-5 group-hover:scale-110 transition-transform duration-500 shadow-lg group-hover:shadow-xl">
                 <span className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-br from-purple-600 to-fuchsia-600 bg-clip-text text-transparent">
@@ -193,17 +179,17 @@ export default function ProjectOverview() {
                 </span>
               </div>
               <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 mb-2 md:mb-3 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-fuchsia-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                Services
+                {t("stats.services.title")}
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-                Delivered successfully
+                {t("stats.services.subtitle")}
               </p>
             </div>
             <div className="h-1.5 bg-gradient-to-r from-purple-500 to-fuchsia-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
           </div>
         </div>
 
-        {/* Image Section with Caption Bar */}
+        {/* Image Section */}
         <div
           className="relative max-w-5xl mx-auto animate-fade-in-up"
           style={{ animationDelay: "450ms" }}
@@ -219,50 +205,48 @@ export default function ProjectOverview() {
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/15 via-transparent to-indigo-600/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            {/* Decorative Elements */}
+            {/* Decorative Corners */}
             <div className="absolute bottom-0 left-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-36 lg:h-36 bg-gradient-to-tr from-blue-500/25 to-transparent dark:from-blue-600/20 dark:to-transparent rounded-tr-[4rem]" />
             <div className="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 bg-gradient-to-bl from-indigo-500/20 to-transparent dark:from-indigo-600/15 dark:to-transparent rounded-bl-[3rem]" />
-          </div>
 
-          {/* Caption Bar */}
-          <div className="mt-5 sm:mt-7 bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 p-[2px] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden hover:shadow-blue-500/25 dark:hover:shadow-indigo-500/20 transition-all duration-300">
-            <div className="bg-white/95 backdrop-blur-md dark:bg-slate-900/90 rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-9">
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 lg:gap-8">
-                {/* Content Section */}
-                <div className="flex-1 space-y-2 sm:space-y-3">
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="w-1.5 h-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full animate-pulse" />
-                    <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-600/80 dark:text-blue-400/80">
-                      Financial Milestone
-                    </span>
-                  </div>
-                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-slate-900 dark:text-slate-100">
-                    Transactions Processed
-                  </h3>
-                  <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300">
-                    Over{" "}
-                    <span className="font-bold text-blue-600 dark:text-blue-400">
-                      $10M
-                    </span>{" "}
-                    in transactions processed securely, ensuring smooth
-                    financial operations for our users.
-                  </p>
+            {/* Floating Badge – bottom-left corner */}
+            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-10">
+              <div className="relative bg-white/20 dark:bg-slate-900/30 backdrop-blur-xl rounded-2xl border border-white/30 dark:border-white/10 shadow-2xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4 group/badge hover:scale-105 transition-transform duration-300">
+                {/* Glow */}
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/20 to-violet-500/20 blur-md -z-10" />
+
+                {/* Icon ring */}
+                <div className="relative flex-shrink-0 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-500/40">
+                  <svg
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                    />
+                  </svg>
+                  <span className="absolute -inset-1 rounded-xl border border-blue-400/40 animate-ping opacity-50" />
                 </div>
 
-                {/* Counter Badge */}
-                <div className="w-full sm:w-auto flex-shrink-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/40 dark:via-indigo-950/40 dark:to-purple-950/40 rounded-2xl sm:rounded-3xl px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 border-2 border-blue-100 dark:border-blue-800/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                  <div className="text-center space-y-2">
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 bg-clip-text text-transparent leading-none">
-                      ${counters.transactions}M+
-                    </div>
-                    <div className="flex items-center justify-center gap-1.5">
-                      <div className="w-1 h-1 bg-blue-600 dark:bg-blue-400 rounded-full animate-pulse" />
-                      <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wide">
-                        Processed
-                      </div>
-                      <div className="w-1 h-1 bg-indigo-600 dark:bg-indigo-400 rounded-full animate-pulse [animation-delay:0.5s]" />
-                    </div>
-                  </div>
+                {/* Text */}
+                <div>
+                  <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white/70 leading-none mb-1">
+                    {t("transactionsBadge.label")}
+                  </p>
+                  <p className="text-lg sm:text-xl font-extrabold text-white leading-none">
+                    {t("transactionsBadge.amount", {
+                      value: counters.transactions,
+                    })}
+                    <span className="text-blue-300 ml-0.5">+</span>
+                  </p>
+                  <p className="text-[10px] sm:text-xs text-white/60 leading-none mt-0.5">
+                    {t("transactionsBadge.subtitle")}
+                  </p>
                 </div>
               </div>
             </div>

@@ -1,232 +1,340 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { ArrowLeft, Clock, Sparkles, X } from "lucide-react";
+import { ArrowLeft, Clock, Sparkles, Tag, Folder, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
-export default function RecentAnnouncement() {
-  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
+const announcements = [
+  {
+    id: 1,
+    image:
+      "https://mehedi.appdevs.team/stripcard/public/backend/files/blog/5738b6fd-6f84-4fb9-b43f-4a60b2406301.webp",
+    titleKey: "announcements.0.title",
+    previewKey: "announcements.0.preview",
+    fullDescriptionKey: "announcements.0.fullDescription",
+    date: "15-11-2024",
+    tags: ["StripCard", "Online Payment", "Virtual Card"],
+    categories: [
+      { name: "Finance", count: 0 },
+      { name: "Insurance", count: 1 },
+      { name: "Help", count: 0 },
+      { name: "Taxes", count: 0 },
+      { name: "Credit Card", count: 2 },
+    ],
+  },
+  {
+    id: 2,
+    image:
+      "https://mehedi.appdevs.team/stripcard/public/backend/files/blog/56a5408b-0f2b-4eb0-9e56-004435a8170e.webp",
+    titleKey: "announcements.1.title",
+    previewKey: "announcements.1.preview",
+    fullDescriptionKey: "announcements.1.fullDescription",
+    date: "10-11-2024",
+    tags: ["Money", "Online", "StripCard", "Payment"],
+    categories: [
+      { name: "Finance", count: 0 },
+      { name: "Insurance", count: 1 },
+      { name: "Help", count: 0 },
+      { name: "Taxes", count: 0 },
+      { name: "Credit Card", count: 2 },
+    ],
+  },
+  {
+    id: 3,
+    image:
+      "https://mehedi.appdevs.team/stripcard/public/backend/files/blog/4ed4a526-d4e2-4132-82c5-5d846e044020.webp",
+    titleKey: "announcements.2.title",
+    previewKey: "announcements.2.preview",
+    fullDescriptionKey: "announcements.2.fullDescription",
+    date: "05-11-2024",
+    tags: ["StripCard", "VirtualCard", "Appdevs"],
+    categories: [
+      { name: "Finance", count: 0 },
+      { name: "Insurance", count: 1 },
+      { name: "Help", count: 0 },
+      { name: "Taxes", count: 0 },
+      { name: "Credit Card", count: 2 },
+    ],
+  },
+];
 
-  const announcements = [
-    {
-      id: 1,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/backend/files/blog/5738b6fd-6f84-4fb9-b43f-4a60b2406301.webp",
-      title: "Entrepreneurial Success with Virtual Credit Card Services",
-      preview:
-        "Are you an entrepreneur looking to diversify your business and boost revenue? In this blog, we explore how offering virt...",
-      fullDescription:
-        "Are you an entrepreneur looking to diversify your business and boost revenue? In this blog, we explore how offering virtual credit card services to your clients can be a game-changer. We discuss the opportunities, benefits, and strategies for entrepreneurs to leverage the virtual credit card trend and create a win-win scenario for their clients and their business.",
-      date: "15-11-2024",
-      tags: ["StripCard", "Online Payment", "Virtual Card"],
-      categories: [
-        { name: "Finance", count: 0 },
-        { name: "Insurance", count: 1 },
-        { name: "Help", count: 0 },
-        { name: "Taxes", count: 0 },
-        { name: "Credit Card", count: 2 },
-      ],
-    },
-    {
-      id: 2,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/backend/files/blog/56a5408b-0f2b-4eb0-9e56-004435a8170e.webp",
-      title: "Entrepreneurial Success with Virtual Credit Card Services",
-      preview:
-        "In today’s digital age, online payments have become an integral part of our lives. But with convenience comes the need f...",
-      fullDescription:
-        "In today’s digital age, online payments have become an integral part of our lives. But with convenience comes the need for security. This blog explores the phenomenon of virtual credit cards, their growing popularity, and how they are revolutionizing online payments. We delve into the benefits of virtual credit cards, their unique features, and why they are considered the future of secure online transactions.",
-      date: "10-11-2024",
-      tags: ["Money", "Online", "StripCard", "Payment"],
-      categories: [
-        { name: "Finance", count: 0 },
-        { name: "Insurance", count: 1 },
-        { name: "Help", count: 0 },
-        { name: "Taxes", count: 0 },
-        { name: "Credit Card", count: 2 },
-      ],
-    },
-    {
-      id: 3,
-      image:
-        "https://mehedi.appdevs.team/stripcard/public/backend/files/blog/4ed4a526-d4e2-4132-82c5-5d846e044020.webp",
-      title: "The Rise of Virtual Credit Cards: Transforming Online Payments",
-      preview:
-        "In today’s digital age, online payments have become an integral part of our lives. But with convenience comes the need f...",
-      fullDescription:
-        "In today’s digital age, online payments have become an integral part of our lives. But with convenience comes the need for security. This blog explores the phenomenon of virtual credit cards, their growing popularity, and how they are revolutionizing online payments. We delve into the benefits of virtual credit cards, their unique features, and why they are considered the future of secure online transactions.",
-      date: "05-11-2024",
-      tags: ["StripCard", "VirtualCard", "Appdevs"],
-      categories: [
-        { name: "Finance", count: 0 },
-        { name: "Insurance", count: 1 },
-        { name: "Help", count: 0 },
-        { name: "Taxes", count: 0 },
-        { name: "Credit Card", count: 2 },
-      ],
-    },
-  ];
+const categoryColorMap = {
+  Finance: "bg-blue-50/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200/60 dark:border-blue-700/50",
+  Insurance: "bg-purple-50/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200/60 dark:border-purple-700/50",
+  Help: "bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200/60 dark:border-emerald-700/50",
+  Taxes: "bg-amber-50/80 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200/60 dark:border-amber-700/50",
+  "Credit Card": "bg-rose-50/80 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 border-rose-200/60 dark:border-rose-700/50",
+};
+
+// ─── Detail Page ──────────────────────────────────────────────────────────────
+function AnnouncementDetail({ item, onSelect, onBack }) {
+  const t = useTranslations("Announcements");
+  const recentPosts = announcements.filter((a) => a.id !== item.id);
 
   return (
-    <>
-      <section className="relative pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-950 dark:via-indigo-950 dark:to-purple-950 overflow-hidden">
-        {/* Decorative blurred circles */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-16 left-10 md:left-20 w-64 h-64 md:w-72 md:h-72 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-12 right-10 md:right-20 w-80 h-80 md:w-96 md:h-96 bg-indigo-400/10 dark:bg-indigo-500/5 rounded-full blur-3xl animate-pulse" />
-        </div>
+    <section className="relative min-h-screen pt-8 pb-16 dark:from-gray-800 dark:via-indigo-850 dark:to-purple-950 overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-16 left-10 md:left-20 w-72 h-72 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-12 right-10 md:right-20 w-96 h-96 bg-indigo-400/10 dark:bg-indigo-500/5 rounded-full blur-3xl animate-pulse" />
+      </div>
 
-        <div className="relative container mx-auto px-5 sm:px-6 lg:px-8 max-w-7xl -mt-4 md:-mt-6 lg:-mt-8">
-          {/* Header - more compact */}
-          <div className="text-center mb-6 md:mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm shadow-lg shadow-blue-500/10 dark:shadow-blue-500/5 border border-blue-100 dark:border-blue-800/50 mx-auto mb-4">
-              <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-xs uppercase tracking-widest bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent font-semibold">
-                Announcement
-              </span>
-            </div>
+      <div className="relative container mx-auto px-5 sm:px-6 lg:px-8 max-w-7xl">
+        {/* Back button */}
+        <button
+          onClick={onBack}
+          className="cursor-pointer mb-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-blue-100 dark:border-blue-800/50 text-indigo-700 dark:text-indigo-300 font-medium shadow-sm hover:shadow-md hover:bg-white dark:hover:bg-gray-800 transition-all duration-200 text-sm"
+        >
+          <ArrowLeft size={16} />
+          {t("detail.backButton")}
+        </button>
 
-            <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 leading-tight">
-              Our Recent{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
-                Announcements
-              </span>
-            </h2>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+          {/* ── Main Content ── */}
+          <div className="lg:col-span-2">
+            <div className="bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg shadow-blue-200/10 dark:shadow-blue-500/5 border border-blue-100/60 dark:border-blue-800/50 overflow-hidden">
+              {/* Hero image */}
+              <div className="relative w-full aspect-video overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={t(item.titleKey)}
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              </div>
 
-          {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-            {announcements.map((item) => (
-              <div
-                key={item.id}
-                className="group relative bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg shadow-blue-200/10 dark:shadow-blue-500/5 border border-blue-100/60 dark:border-blue-800/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-300/20 dark:hover:shadow-blue-500/10 hover:-translate-y-2 hover:border-blue-200/70 dark:hover:border-blue-700 flex flex-col cursor-pointer"
-                onClick={() => setSelectedAnnouncement(item)}
-              >
-                <div className="relative h-48 overflow-hidden shrink-0">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="p-6 md:p-8 lg:p-10">
+                {/* Meta */}
+                <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 mb-4">
+                  <Clock size={15} />
+                  <span>{item.date}</span>
                 </div>
 
-                <div className="p-5 md:p-6 flex flex-col grow">
-                  <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2.5 line-clamp-2 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-600 dark:text-slate-300 mb-5 line-clamp-3 grow text-[15px] leading-relaxed">
-                    {item.preview}
+                {/* Title */}
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 leading-tight mb-6">
+                  {t(item.titleKey)}
+                </h1>
+
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r from-blue-200 via-indigo-200 to-transparent dark:from-blue-800 dark:via-indigo-800 mb-6" />
+
+                {/* Body */}
+                <div className="prose prose-slate dark:prose-invert prose-lg max-w-none leading-relaxed text-slate-700 dark:text-slate-300">
+                  <p>{t(item.fullDescriptionKey)}</p>
+                  <p className="mt-4">
+                    {t("detail.extraContent.part1")}
                   </p>
-                  <div className="flex items-center justify-between text-sm mt-auto pt-4 border-t border-slate-100/80 dark:border-gray-700">
-                    <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-300 font-medium">
-                      <Clock size={16} />
-                      {item.date}
-                    </div>
-                    <span className="text-blue-600 dark:text-blue-400 font-semibold flex items-center gap-1.5 group-hover:gap-2 transition-all">
-                      Read More
-                      <span aria-hidden="true">→</span>
-                    </span>
+                  <p className="mt-4">
+                    {t("detail.extraContent.part2")}
+                  </p>
+                </div>
+
+                {/* Tags */}
+                <div className="mt-8 pt-6 border-t border-slate-100/80 dark:border-gray-700">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Tag size={15} className="text-indigo-500 dark:text-indigo-400" />
+                    <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200 uppercase tracking-wider">
+                      {t("detail.tagsTitle")}
+                    </h4>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {item.tags.map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className="px-3.5 py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium border border-indigo-100/70 dark:border-indigo-800/50 hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors cursor-pointer"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Modal */}
-      {selectedAnnouncement && (
-        <div className="fixed inset-0 bg-black/65 dark:bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-          <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-md rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-blue-100/40 dark:border-blue-800/40">
-            <button
-              onClick={() => setSelectedAnnouncement(null)}
-              className={`cursor-pointer absolute top-4 right-4 z-10 p-2.5 rounded-full bg-white/90 dark:bg-gray-800/90 hover:bg-red-50 dark:hover:bg-red-900/30 text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-all duration-200 shadow-sm hover:shadow-md border border-transparent hover:border-red-200 dark:hover:border-red-800/40`}
-              aria-label="Close"
-            >
-              <X size={22} strokeWidth={2.5} />
-            </button>
-
-            <div className="p-6 md:p-10 lg:p-12">
-              <div className="rounded-2xl overflow-hidden mb-6 shadow-lg shadow-blue-200/20 dark:shadow-blue-500/10">
-                <Image
-                  src={selectedAnnouncement.image}
-                  alt={selectedAnnouncement.title}
-                  width={1200}
-                  height={675}
-                  className="w-full h-auto object-cover"
-                />
+          {/* ── Sidebar ── */}
+          <div className="space-y-6">
+            {/* Categories */}
+            <div className="bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg shadow-blue-200/10 dark:shadow-blue-500/5 border border-blue-100/60 dark:border-blue-800/50 p-6">
+              <div className="flex items-center gap-2 mb-5">
+                <Folder size={16} className="text-blue-600 dark:text-blue-400" />
+                <h3 className="font-bold text-slate-900 dark:text-slate-100 text-base uppercase tracking-wide">
+                  {t("detail.categoriesTitle")}
+                </h3>
               </div>
+              <ul className="space-y-2">
+                {item.categories.map((cat, idx) => (
+                  <li key={idx}>
+                    <button className="cursor-pointer w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group">
+                      <div className="flex items-center gap-2.5">
+                        <ChevronRight size={14} className="text-blue-400 dark:text-blue-500 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors" />
+                        <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                          {cat.name}
+                        </span>
+                      </div>
+                      <span
+                        className={`text-xs font-semibold px-2 py-0.5 rounded-full border ${categoryColorMap[cat.name] ?? "bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-600"}`}
+                      >
+                        {cat.count}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-              <div className="mb-7">
-                <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-300 mb-3">
-                  <Clock size={16} />
-                  {selectedAnnouncement.date}
-                </div>
-                <h2 className="text-2xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 leading-tight bg-gradient-to-r from-slate-900 via-blue-800 to-indigo-800 dark:from-slate-100 dark:via-blue-300 dark:to-indigo-300 bg-clip-text">
-                  {selectedAnnouncement.title}
-                </h2>
+            {/* Recent Posts */}
+            <div className="bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg shadow-blue-200/10 dark:shadow-blue-500/5 border border-blue-100/60 dark:border-blue-800/50 p-6">
+              <div className="flex items-center gap-2 mb-5">
+                <Sparkles size={16} className="text-blue-600 dark:text-blue-400" />
+                <h3 className="font-bold text-slate-900 dark:text-slate-100 text-base uppercase tracking-wide">
+                  {t("detail.recentPostsTitle")}
+                </h3>
               </div>
-
-              <div className="prose prose-lg max-w-none text-slate-700 dark:text-slate-300 leading-relaxed mb-9">
-                <p>{selectedAnnouncement.fullDescription}</p>
+              <div className="space-y-4">
+                {recentPosts.map((post) => (
+                  <button
+                    key={post.id}
+                    onClick={() => onSelect(post)}
+                    className="cursor-pointer w-full flex gap-3 group text-left"
+                  >
+                    <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-blue-100/60 dark:border-blue-800/40">
+                      <Image
+                        src={post.image}
+                        alt={t(post.titleKey)}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-center min-w-0">
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-200 line-clamp-2 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                        {t(post.titleKey)}
+                      </p>
+                      <div className="flex items-center gap-1 mt-1.5 text-xs text-slate-500 dark:text-slate-400">
+                        <Clock size={12} />
+                        {post.date}
+                      </div>
+                    </div>
+                  </button>
+                ))}
               </div>
+            </div>
 
-              <div className="mb-9">
-                <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-3">
-                  Categories
-                </h4>
-                <div className="flex flex-wrap gap-2.5">
-                  {selectedAnnouncement.categories.map((cat, idx) => (
-                    <span
-                      key={idx}
-                      className={`px-3.5 py-1.5 rounded-full text-sm font-medium border backdrop-blur-sm ${
-                        cat.name === "Finance"
-                          ? "bg-blue-50/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border-blue-200/60 dark:border-blue-700/50"
-                          : cat.name === "Insurance"
-                            ? "bg-purple-50/80 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border-purple-200/60 dark:border-purple-700/50"
-                            : cat.name === "Help"
-                              ? "bg-emerald-50/80 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-200/60 dark:border-emerald-700/50"
-                              : cat.name === "Taxes"
-                                ? "bg-amber-50/80 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 border-amber-200/60 dark:border-amber-700/50"
-                                : "bg-rose-50/80 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 border-rose-200/60 dark:border-rose-700/50"
-                      }`}
-                    >
-                      {cat.name}{" "}
-                      <span className="ml-1 opacity-80">({cat.count})</span>
-                    </span>
-                  ))}
-                </div>
+            {/* Tags sidebar */}
+            <div className="bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg shadow-blue-200/10 dark:shadow-blue-500/5 border border-blue-100/60 dark:border-blue-800/50 p-6">
+              <div className="flex items-center gap-2 mb-5">
+                <Tag size={16} className="text-blue-600 dark:text-blue-400" />
+                <h3 className="font-bold text-slate-900 dark:text-slate-100 text-base uppercase tracking-wide">
+                  {t("detail.tagsTitle")}
+                </h3>
               </div>
-
-              <div className="mb-10">
-                <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-3">
-                  Tags
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {selectedAnnouncement.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3.5 py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium border border-indigo-100/70 dark:border-indigo-800/50"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-2">
+                {item.tags.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-xs font-medium border border-indigo-100/70 dark:border-indigo-800/50 cursor-pointer hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                  >
+                    #{tag}
+                  </span>
+                ))}
               </div>
-
-              <button
-                onClick={() => setSelectedAnnouncement(null)}
-                className="cursor-pointer flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 hover:from-blue-100 hover:to-indigo-100 dark:hover:from-blue-800/50 dark:hover:to-indigo-800/50 text-indigo-700 dark:text-indigo-300 font-medium rounded-xl transition-all border border-indigo-200/50 dark:border-indigo-700/50 shadow-sm hover:shadow"
-              >
-                <ArrowLeft size={18} />
-                Back to Announcements
-              </button>
             </div>
           </div>
         </div>
-      )}
-    </>
+      </div>
+    </section>
   );
+}
+
+// ─── List Page ────────────────────────────────────────────────────────────────
+function AnnouncementList({ onSelect }) {
+  const t = useTranslations("Announcements");
+
+  return (
+    <section className="relative pt-8 pb-12 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20 dark:from-gray-800 dark:via-indigo-850 dark:to-purple-950 overflow-hidden">
+      {/* Decorative blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-16 left-10 md:left-20 w-64 h-64 md:w-72 md:h-72 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-12 right-10 md:right-20 w-80 h-80 md:w-96 md:h-96 bg-indigo-400/10 dark:bg-indigo-500/5 rounded-full blur-3xl animate-pulse" />
+      </div>
+
+      <div className="relative container mx-auto px-5 sm:px-6 lg:px-8 max-w-7xl -mt-4 md:-mt-6 lg:-mt-8">
+        {/* Header */}
+        <div className="text-center mb-6 md:mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm shadow-lg shadow-blue-500/10 dark:shadow-blue-500/5 border border-blue-100 dark:border-blue-800/50 mx-auto mb-4">
+            <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+            <span className="text-xs uppercase tracking-widest bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent font-semibold">
+              {t("list.badge")}
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 leading-tight">
+            {t("list.title.part1")}{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+              {t("list.title.highlight")}
+            </span>
+          </h2>
+        </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+          {announcements.map((item) => (
+            <div
+              key={item.id}
+              className="group relative bg-white/75 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl shadow-lg shadow-blue-200/10 dark:shadow-blue-500/5 border border-blue-100/60 dark:border-blue-800/50 overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-300/20 dark:hover:shadow-blue-500/10 hover:-translate-y-2 hover:border-blue-200/70 dark:hover:border-blue-700 flex flex-col cursor-pointer"
+              onClick={() => onSelect(item)}
+            >
+              <div className="relative h-48 overflow-hidden shrink-0">
+                <Image
+                  src={item.image}
+                  alt={t(item.titleKey)}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </div>
+
+              <div className="p-5 md:p-6 flex flex-col grow">
+                <h3 className="text-lg md:text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2.5 line-clamp-2 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">
+                  {t(item.titleKey)}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300 mb-5 line-clamp-3 grow text-[15px] leading-relaxed">
+                  {t(item.previewKey)}
+                </p>
+                <div className="flex items-center justify-between text-sm mt-auto pt-4 border-t border-slate-100/80 dark:border-gray-700">
+                  <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-300 font-medium">
+                    <Clock size={16} />
+                    {item.date}
+                  </div>
+                  <span className="text-blue-600 dark:text-blue-400 font-semibold flex items-center gap-1.5 group-hover:gap-2 transition-all">
+                    {t("list.readMore")}
+                    <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Root Component ───────────────────────────────────────────────────────────
+export default function RecentAnnouncement() {
+  const [selectedAnnouncement, setSelectedAnnouncement] = useState(null);
+
+  if (selectedAnnouncement) {
+    return (
+      <AnnouncementDetail
+        item={selectedAnnouncement}
+        onSelect={setSelectedAnnouncement}
+        onBack={() => setSelectedAnnouncement(null)}
+      />
+    );
+  }
+
+  return <AnnouncementList onSelect={setSelectedAnnouncement} />;
 }

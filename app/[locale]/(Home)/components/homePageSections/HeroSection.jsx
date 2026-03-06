@@ -22,7 +22,7 @@ export default function HeroSection() {
         <div className="relative z-[1] w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left – Text */}
-            <div className="flex flex-col gap-7">
+            <div className="flex flex-col gap-5">
               {/* Badge */}
               <div className="animate-[--animate-fade-up]">
                 <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/85 backdrop-blur-xl border border-indigo-500/15 shadow-[0_2px_16px_rgb(99_102_241/0.12)] text-sm font-semibold text-indigo-700 dark:bg-slate-900/80 dark:border-indigo-400/20 dark:text-indigo-300">

@@ -16,9 +16,11 @@ import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast from "react-hot-toast";
 import { loginUser } from "../../../utils/api";
-
+import { useTranslations } from "next-intl";
 
 export default function LoginPage() {
+  const t = useTranslations("Login");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -50,7 +52,7 @@ export default function LoginPage() {
 
     if (!captchaValue) {
       setCaptchaError(true);
-      toast.error("Please complete the CAPTCHA verification");
+      toast.error(t("form.recaptchaError"));
       return;
     }
 
@@ -75,7 +77,7 @@ export default function LoginPage() {
       const user = response?.data?.user;
 
       if (!token || !user) {
-        toast.error("Invalid response from server");
+        toast.error(t("form.invalidResponse"));
         setLoading(false);
         return;
       }
@@ -122,7 +124,7 @@ export default function LoginPage() {
         }, 600);
       }
     } catch (error) {
-      let errorMessage = "Something went wrong. Please try again later.";
+      let errorMessage = t("form.genericError");
 
       if (error.response?.data?.message) {
         errorMessage = getMessageString(error.response.data.message);
@@ -149,7 +151,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-950 dark:via-gray-900 dark:to-indigo-950/30 flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="min-h-screen dark:from-gray-750 dark:via-gray-850 dark:to-indigo-950/30 flex items-center justify-center p-4 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-20 w-72 h-72 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
@@ -157,19 +159,19 @@ export default function LoginPage() {
       </div>
 
       {/* Grid Pattern Overlay */}
-      <div
+      {/* <div
         className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
-      />
+      /> */}
 
       <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl shadow-2xl w-full max-w-lg p-8 md:p-10 border border-blue-100/50 dark:border-blue-800/50">
         {/* Logo and Header */}
         <div className="text-center mb-8">
           <Image
             src="/logo-dark.png"
-            alt="StripCard Logo"
+            alt={t("logoAlt")}
             width={150}
             height={32}
             className="mx-auto mb-4"
@@ -178,10 +180,10 @@ export default function LoginPage() {
         </div>
 
         <h2 className="text-2xl md:text-3xl font-bold text-center text-slate-900 dark:text-slate-100 mb-2">
-          Welcome Back
+          {t("title")}
         </h2>
         <p className="text-center text-slate-600 dark:text-slate-300 text-sm mb-8">
-          Log in to access your account securely
+          {t("subtitle")}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -191,7 +193,7 @@ export default function LoginPage() {
               htmlFor="email"
               className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
             >
-              Email Address <span className="text-red-500">*</span>
+              {t("form.labels.email")} <span className="text-red-500">*</span>
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -202,7 +204,7 @@ export default function LoginPage() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Username OR Email Address"
+                placeholder={t("form.placeholders.email")}
                 required
                 className="w-full pl-12 pr-4 py-3 border-2 text-slate-900 dark:text-slate-100 border-slate-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-none focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-all hover:border-slate-300 dark:hover:border-gray-600 bg-white dark:bg-gray-800 placeholder-slate-400 dark:placeholder-slate-500"
               />
@@ -215,7 +217,7 @@ export default function LoginPage() {
               htmlFor="password"
               className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2"
             >
-              Password <span className="text-red-500">*</span>
+              {t("form.labels.password")} <span className="text-red-500">*</span>
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -226,7 +228,7 @@ export default function LoginPage() {
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
+                placeholder={t("form.placeholders.password")}
                 required
                 className="w-full pl-12 pr-12 text-slate-900 dark:text-slate-100 py-3 border-2 border-slate-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-none focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-blue-500 dark:focus:border-blue-400 transition-all hover:border-slate-300 dark:hover:border-gray-600 bg-white dark:bg-gray-800 placeholder-slate-400 dark:placeholder-slate-500"
               />
@@ -258,14 +260,14 @@ export default function LoginPage() {
                 htmlFor="rememberMe"
                 className="ml-2 block text-sm text-slate-700 dark:text-slate-300 cursor-pointer"
               >
-                Remember me
+                {t("form.rememberMe")}
               </label>
             </div>
             <Link
               href="/forgot-password"
               className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-colors font-medium"
             >
-              Forgot Password?
+              {t("form.forgotPassword")}
             </Link>
           </div>
 
@@ -273,7 +275,7 @@ export default function LoginPage() {
           <div className="space-y-3">
             <div className="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300">
               <Shield className="h-4 w-4 text-blue-600 dark:text-blue-400" />
-              <span>Security Verification</span>
+              <span>{t("form.securityVerification")}</span>
             </div>
 
             <div className="flex justify-start">
@@ -289,7 +291,7 @@ export default function LoginPage() {
             {captchaValue && (
               <div className="flex items-center justify-center gap-2 text-green-600 dark:text-green-400 text-sm font-semibold">
                 <CheckCircle2 className="h-4 w-4" />
-                <span>Verification successful</span>
+                <span>{t("form.verificationSuccess")}</span>
               </div>
             )}
 
@@ -308,12 +310,12 @@ export default function LoginPage() {
                     d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <span>Please complete the verification</span>
+                <span>{t("form.verificationRequired")}</span>
               </div>
             )}
 
             <p className="text-xs text-slate-500 dark:text-slate-300 text-center">
-              This helps us protect your account from unauthorized access
+              {t("form.securityHelpText")}
             </p>
           </div>
 
@@ -330,7 +332,7 @@ export default function LoginPage() {
             {loading ? (
               <span className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
             ) : (
-              "Log In"
+              t("form.button")
             )}
           </button>
         </form>
@@ -338,22 +340,22 @@ export default function LoginPage() {
         {/* Footer Links */}
         <div className="mt-8 text-center text-sm text-slate-600 dark:text-slate-300 space-y-3">
           <p>
-            Don&apos;t have an account?{" "}
+            {t("footer.noAccount")}{" "}
             <Link
               href="/register"
               className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold hover:underline transition-colors"
             >
-              Sign Up
+              {t("footer.signUp")}
             </Link>
           </p>
 
           <p>
-            Go back to{" "}
+            {t("footer.goBack")}{" "}
             <Link
               href="/"
               className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold hover:underline transition-colors"
             >
-              Home
+              {t("footer.home")}
             </Link>
           </p>
         </div>

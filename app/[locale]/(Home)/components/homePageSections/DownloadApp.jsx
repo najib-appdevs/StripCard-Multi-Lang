@@ -6,8 +6,11 @@ import {
   AppStoreIcon,
   GooglePlayIcon,
 } from "../../../../components/StoreButtonsIcon";
+import { useTranslations } from "next-intl";
 
 export default function DownloadApp() {
+  const t = useTranslations("DownloadApp");
+
   return (
     <section className="relative w-full py-16 md:py-24 lg:py-32 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-950 dark:via-indigo-950 dark:to-purple-950 overflow-hidden">
       {/* Background Decorative Elements */}
@@ -15,14 +18,6 @@ export default function DownloadApp() {
         <div className="absolute top-20 right-20 w-72 h-72 bg-blue-400/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 left-20 w-96 h-96 bg-indigo-400/10 dark:bg-indigo-500/5 rounded-full blur-3xl animate-pulse" />
       </div>
-
-      {/* Grid Pattern Overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 md:gap-12 lg:gap-16 items-center">
@@ -32,7 +27,7 @@ export default function DownloadApp() {
               {/* Main Image */}
               <img
                 src="https://mehedi.appdevs.team/stripcard/public/frontend/images/site-section/a590766c-61d7-40ae-a6fd-d1f1d56f5a8a.webp"
-                alt="StripCard Mobile App"
+                alt={t("imageAlt")}
                 className="w-full h-auto object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-500"
               />
 
@@ -42,7 +37,7 @@ export default function DownloadApp() {
 
             {/* Floating decorative elements */}
             <div className="absolute -top-6 -right-6 w-32 h-32 bg-gradient-to-br from-blue-500 to-indigo-600 dark:from-blue-600 dark:to-indigo-700 rounded-2xl shadow-xl rotate-12 opacity-20 blur-sm hidden lg:block" />
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-violet-500 to-purple-600 dark:from-violet-600 dark:to-purple-700 rounded-2xl shadow-xl -rotate-12 opacity-20 blur-sm hidden lg:block" />
+            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-violet-500 to-purple-600 dark:from-violet-600 dark:to-violet-700 rounded-2xl shadow-xl -rotate-12 opacity-20 blur-sm hidden lg:block" />
 
             {/* Floating badge */}
             <div className="absolute top-6 left-6 bg-white/95 dark:bg-gray-800/90 backdrop-blur-md rounded-xl shadow-lg p-3 border border-blue-100 dark:border-blue-800/50 hidden sm:block">
@@ -52,10 +47,10 @@ export default function DownloadApp() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-900 dark:text-slate-100">
-                    Available Now
+                    {t("floatingBadge.available")}
                   </p>
                   <p className="text-[10px] text-slate-600 dark:text-slate-300">
-                    iOS & Android
+                    {t("floatingBadge.platforms")}
                   </p>
                 </div>
               </div>
@@ -67,36 +62,29 @@ export default function DownloadApp() {
             {/* Small caption with badge style */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg shadow-blue-500/10 dark:shadow-blue-500/5 border border-blue-100 dark:border-blue-800/50">
               <Smartphone className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-              <span className="text-sm uppercase tracking-widest bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent font-semibold">
-                Download App
+              <span className="text-sm uppercase tracking-widest bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent font-semibold">
+                {t("sectionBadge")}
               </span>
             </div>
 
             {/* Main title with gradient accent */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
               <span className="text-slate-900 dark:text-slate-100">
-                Here Is{" "}
+                {t("title.part1")}{" "}
               </span>
               <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">
-                Realtime Apk.
+                {t("title.part2")}
               </span>
             </h2>
 
             {/* First paragraph */}
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-              Work with the pro, talented people at the most affordable price to
-              get the most out of your time and cost using mobile apps.
+              {t("paragraph1")}
             </p>
 
             {/* Second paragraph */}
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-              The internet is saturated with applications from developers and
-              creators worldwide. Sometimes it can be hard to tell which are the
-              best downloaded apps on the market. Our list features an
-              assortment of social media, antivirus, VPN, game, and emulator
-              apps, to name a few. Don&apos;t miss out on the latest Chrome,
-              Bluetooth, Office, Youtube, and Web-cam file versions available
-              today.
+              {t("paragraph2")}
             </p>
 
             {/* Feature highlights */}
@@ -107,10 +95,10 @@ export default function DownloadApp() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-900 dark:text-slate-100">
-                    Fast
+                    {t("features.fast.title")}
                   </p>
                   <p className="text-[10px] text-slate-600 dark:text-slate-300">
-                    Lightning speed
+                    {t("features.fast.subtitle")}
                   </p>
                 </div>
               </div>
@@ -121,10 +109,10 @@ export default function DownloadApp() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-900 dark:text-slate-100">
-                    Secure
+                    {t("features.secure.title")}
                   </p>
                   <p className="text-[10px] text-slate-600 dark:text-slate-300">
-                    Protected data
+                    {t("features.secure.subtitle")}
                   </p>
                 </div>
               </div>
@@ -135,10 +123,10 @@ export default function DownloadApp() {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-900 dark:text-slate-100">
-                    Free
+                    {t("features.free.title")}
                   </p>
                   <p className="text-[10px] text-slate-600 dark:text-slate-300">
-                    No hidden fees
+                    {t("features.free.subtitle")}
                   </p>
                 </div>
               </div>
@@ -147,7 +135,7 @@ export default function DownloadApp() {
             {/* Official Download Buttons */}
             <div className="pt-6">
               <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-4">
-                Download now on your favorite platform
+                {t("downloadPrompt")}
               </p>
               <div className="flex flex-wrap items-center gap-6">
                 {/* Google Play */}
@@ -170,7 +158,7 @@ export default function DownloadApp() {
                     <div className="bg-white p-3 rounded-xl shadow-2xl border w-44 text-center">
                       <img
                         src="https://qrcode.tec-it.com/API/QRCode?data=https://play.google.com/store"
-                        alt="Google Play QR"
+                        alt={t("qr.googleAlt")}
                         className="w-36 h-36 mx-auto"
                       />
                     </div>
@@ -197,7 +185,7 @@ export default function DownloadApp() {
                     <div className="bg-white p-3 rounded-xl shadow-2xl border w-44 text-center">
                       <img
                         src="https://qrcode.tec-it.com/API/QRCode?data=https://www.apple.com/app-store"
-                        alt="App Store QR"
+                        alt={t("qr.appStoreAlt")}
                         className="w-36 h-36 mx-auto"
                       />
                     </div>
@@ -215,9 +203,9 @@ export default function DownloadApp() {
                   </div>
                   <p className="text-sm text-slate-600 dark:text-slate-300 font-medium">
                     <span className="text-slate-900 dark:text-slate-100 font-bold">
-                      50K+
+                      {t("stats.downloads.count")}
                     </span>{" "}
-                    downloads
+                    {t("stats.downloads.text")}
                   </p>
                 </div>
 
@@ -232,7 +220,7 @@ export default function DownloadApp() {
                     </svg>
                   ))}
                   <span className="ml-2 text-sm text-slate-600 dark:text-slate-300 font-medium">
-                    4.8/5
+                    {t("stats.rating")}
                   </span>
                 </div>
               </div>

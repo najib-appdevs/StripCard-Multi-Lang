@@ -1,220 +1,456 @@
 /* eslint-disable @next/next/no-img-element */
+"use client";
+
+import { useTranslations } from "next-intl";
+
+function Card({ step, delay }) {
+  return (
+    <div className="hiw-card hiw-fade" style={{ animationDelay: `${delay}ms` }}>
+      <div
+        className="hiw-card-bg"
+        style={{
+          background: `linear-gradient(135deg, ${step.color1}08, ${step.color2}10)`,
+        }}
+      />
+      <div
+        className="hiw-card-topbar"
+        style={{
+          background: `linear-gradient(90deg, ${step.color1}, ${step.color2})`,
+        }}
+      />
+      <div
+        className="hiw-icon"
+        style={{
+          background: `linear-gradient(135deg, ${step.color1}1a, ${step.color2}28)`,
+          border: `1px solid ${step.color1}28`,
+        }}
+      >
+        <img src={step.image} alt={step.title} loading="lazy" />
+      </div>
+      <div>
+        <span
+          className="hiw-tag"
+          style={{ color: step.color1, background: `${step.color1}18` }}
+        >
+          {step.tag}
+        </span>
+        <h3 className="hiw-title">{step.title}</h3>
+        <p className="hiw-desc">{step.description}</p>
+      </div>
+    </div>
+  );
+}
+
 function HowItWorks() {
+  const t = useTranslations("HowItWorks");
+
   const steps = [
     {
       id: 1,
-      number: "01",
       image: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
-      title: "Create Your Account",
-      description:
-        "Sign up easily by providing your details, verifying your email, and completing KYC verification for secure access.",
-      gradient: "from-blue-500 to-cyan-500",
+      title: t("steps.0.title"),
+      description: t("steps.0.description"),
+      color1: "#3b82f6",
+      color2: "#06b6d4",
+      tag: t("steps.0.tag"),
     },
     {
       id: 2,
-      number: "02",
       image: "https://cdn-icons-png.flaticon.com/512/4290/4290854.png",
-      title: "Loading Funds",
-      description:
-        "Deposit money into your digital wallet through multiple payment methods for a seamless experience.",
-      gradient: "from-indigo-500 to-purple-500",
+      title: t("steps.1.title"),
+      description: t("steps.1.description"),
+      color1: "#6366f1",
+      color2: "#a855f7",
+      tag: t("steps.1.tag"),
     },
     {
       id: 3,
-      number: "03",
       image: "https://cdn-icons-png.flaticon.com/512/3515/3515469.png",
-      title: "Buy a Virtual Card",
-      description:
-        "Purchase a virtual card tailored to your needs for online shopping, gaming, or subscriptions.",
-      gradient: "from-violet-500 to-fuchsia-500",
+      title: t("steps.2.title"),
+      description: t("steps.2.description"),
+      color1: "#8b5cf6",
+      color2: "#ec4899",
+      tag: t("steps.2.tag"),
     },
     {
       id: 4,
-      number: "04",
       image: "https://cdn-icons-png.flaticon.com/512/1087/1087815.png",
-      title: "Manage Your Virtual Card",
-      description:
-        "Top up your card balance, track transactions, and use it across various platforms securely.",
-      gradient: "from-cyan-500 to-blue-500",
+      title: t("steps.3.title"),
+      description: t("steps.3.description"),
+      color1: "#06b6d4",
+      color2: "#3b82f6",
+      tag: t("steps.3.tag"),
     },
     {
       id: 5,
-      number: "05",
       image: "https://cdn-icons-png.flaticon.com/512/3062/3062634.png",
-      title: "Make Transactions",
-      description:
-        "Transfer money, pay bills, and shop online with confidence using your virtual card.",
-      gradient: "from-purple-500 to-pink-500",
+      title: t("steps.4.title"),
+      description: t("steps.4.description"),
+      color1: "#a855f7",
+      color2: "#6366f1",
+      tag: t("steps.4.tag"),
     },
     {
       id: 6,
-      number: "06",
       image: "https://cdn-icons-png.flaticon.com/512/747/747376.png",
-      title: "Stay Secure",
-      description:
-        "Leverage services like biometric login, 2FA, and detailed transaction logs to protect your account.",
-      gradient: "from-indigo-500 to-violet-500",
+      title: t("steps.5.title"),
+      description: t("steps.5.description"),
+      color1: "#6366f1",
+      color2: "#8b5cf6",
+      tag: t("steps.5.tag"),
     },
     {
       id: 7,
-      number: "07",
       image: "https://cdn-icons-png.flaticon.com/512/4290/4290853.png",
-      title: "Access Support",
-      description:
-        "Reach out via the support ticket system for quick resolutions and assistance anytime.",
-      gradient: "from-blue-500 to-purple-500",
+      title: t("steps.6.title"),
+      description: t("steps.6.description"),
+      color1: "#3b82f6",
+      color2: "#a855f7",
+      tag: t("steps.6.tag"),
     },
     {
       id: 8,
-      number: "08",
       image: "https://cdn-icons-png.flaticon.com/512/2919/2919600.png",
-      title: "Enjoy Global Flexibility",
-      description:
-        "Use multi-language support and gift card options for a versatile, global experience.",
-      gradient: "from-cyan-500 to-indigo-500",
+      title: t("steps.7.title"),
+      description: t("steps.7.description"),
+      color1: "#06b6d4",
+      color2: "#6366f1",
+      tag: t("steps.7.tag"),
     },
   ];
 
-  return (
-    <section className="relative w-full py-20 md:py-24 overflow-hidden bg-white dark:bg-gray-950">
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-40 right-0 w-[400px] h-[400px] bg-gradient-to-bl from-blue-100/40 to-transparent dark:from-blue-900/10 dark:to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-40 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-100/40 to-transparent dark:from-indigo-900/10 dark:to-transparent rounded-full blur-3xl" />
-      </div>
+  const ArrowRight = () => (
+    <div className="hiw-arrow">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path
+          d="M3 9h12M11 5l4 4-4 4"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
+  );
 
-      {/* Subtle Dots Pattern */}
+  const ArrowLeft = () => (
+    <div className="hiw-arrow">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path
+          d="M15 9H3M7 5L3 9l4 4"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
+  );
+
+  return (
+    <section className="hiw-root relative w-full py-20 md:py-28 overflow-hidden">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+        .hiw-root {
+          font-family: 'Outfit', sans-serif;
+          background: #f8faff;
+        }
+        .dark .hiw-root { background: #060a14; }
+
+        .hiw-root::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-image:
+            linear-gradient(rgba(99,102,241,0.055) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(99,102,241,0.055) 1px, transparent 1px);
+          background-size: 52px 52px;
+          mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+          pointer-events: none;
+        }
+        .dark .hiw-root::before {
+          background-image:
+            linear-gradient(rgba(99,102,241,0.09) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(99,102,241,0.09) 1px, transparent 1px);
+        }
+
+        .hiw-blob {
+          position: absolute; border-radius: 50%;
+          pointer-events: none; filter: blur(90px);
+        }
+
+        /* Badge */
+        .hiw-badge {
+          display: inline-flex; align-items: center; gap: 9px;
+          padding: 7px 18px 7px 9px; border-radius: 100px;
+          background: white; border: 1px solid rgba(99,102,241,0.2);
+          box-shadow: 0 2px 16px rgba(99,102,241,0.1);
+        }
+        .dark .hiw-badge { background: rgba(13,18,40,0.9); border-color: rgba(99,102,241,0.3); }
+        .hiw-badge-icon {
+          width: 30px; height: 30px; border-radius: 50%;
+          background: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6);
+          display: flex; align-items: center; justify-content: center; font-size: 13px;
+        }
+        .hiw-badge-text {
+          font-size: 11px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+          background: linear-gradient(90deg, #3b82f6, #6366f1, #8b5cf6);
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* Card */
+        .hiw-card {
+          background: white;
+          border-radius: 20px;
+          border: 1px solid rgba(226,232,240,0.9);
+          padding: 24px 20px 20px;
+          display: flex; flex-direction: column; gap: 14px;
+          box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+          transition: all 0.32s cubic-bezier(0.4,0,0.2,1);
+          position: relative; overflow: hidden; cursor: default;
+          flex: 1;
+        }
+        .dark .hiw-card {
+          background: rgba(11,17,35,0.85);
+          border-color: rgba(99,102,241,0.12);
+          box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+        }
+        .hiw-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 50px rgba(99,102,241,0.13);
+          border-color: rgba(99,102,241,0.22);
+        }
+        .dark .hiw-card:hover {
+          box-shadow: 0 20px 50px rgba(99,102,241,0.22);
+          border-color: rgba(99,102,241,0.3);
+        }
+        .hiw-card-bg {
+          position: absolute; inset: 0; opacity: 0;
+          transition: opacity 0.32s ease; pointer-events: none;
+        }
+        .hiw-card:hover .hiw-card-bg { opacity: 1; }
+        .hiw-card-topbar {
+          position: absolute; top: 0; left: 0; right: 0; height: 3px;
+          border-radius: 20px 20px 0 0;
+          transform: scaleX(0); transform-origin: left;
+          transition: transform 0.38s ease;
+        }
+        .hiw-card:hover .hiw-card-topbar { transform: scaleX(1); }
+
+        /* Icon */
+        .hiw-icon {
+          width: 52px; height: 52px; border-radius: 14px;
+          display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0; transition: transform 0.32s ease; position: relative;
+        }
+        .hiw-card:hover .hiw-icon { transform: scale(1.1) rotate(-4deg); }
+        .hiw-icon img {
+          width: 28px; height: 28px; object-fit: contain;
+          filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12));
+          position: relative; z-index: 1;
+        }
+
+        .hiw-tag {
+          display: inline-block; font-size: 9px; font-weight: 800;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          padding: 3px 9px; border-radius: 100px; margin-bottom: 5px;
+        }
+        .hiw-title {
+          font-size: 15px; font-weight: 800; color: #0f172a;
+          margin: 0 0 6px; line-height: 1.3; letter-spacing: -0.01em;
+        }
+        .dark .hiw-title { color: #f1f5f9; }
+        .hiw-desc { font-size: 13px; color: #64748b; line-height: 1.65; margin: 0; }
+        .dark .hiw-desc { color: #94a3b8; }
+
+        /* Arrow connector */
+        .hiw-arrow {
+          display: none;
+        }
+        @media (min-width: 1024px) {
+          .hiw-arrow {
+            display: flex; align-items: center; justify-content: center;
+            width: 32px; flex-shrink: 0; align-self: center;
+            color: #cbd5e1; margin-top: -10px;
+          }
+          .dark .hiw-arrow { color: #1e293b; }
+        }
+
+        /* Snake row */
+        .hiw-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+        }
+        @media (min-width: 1024px) {
+          .hiw-row {
+            display: flex; align-items: stretch; gap: 0;
+          }
+        }
+
+        /* Bend connector between rows */
+        .hiw-bend {
+          display: none;
+        }
+        @media (min-width: 1024px) {
+          .hiw-bend {
+            display: flex; align-items: center;
+            justify-content: flex-end;
+            padding-right: 16px; margin: 4px 0;
+            color: #e2e8f0; gap: 6px;
+          }
+          .dark .hiw-bend { color: #1e293b; }
+          .hiw-bend span {
+            font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+            color: #cbd5e1; text-transform: uppercase;
+          }
+          .dark .hiw-bend span { color: #1e293b; }
+        }
+
+        /* Fade */
+        .hiw-fade { animation: hiw-up 0.5s ease both; }
+        @keyframes hiw-up {
+          from { opacity: 0; transform: translateY(16px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Divider */
+        .hiw-div { display: flex; align-items: center; gap: 6px; justify-content: center; }
+        .hiw-div-line { height: 2px; border-radius: 2px; background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+        .hiw-div-dot { width: 5px; height: 5px; border-radius: 50%; background: #6366f1; }
+      `}</style>
+
       <div
-        className="absolute inset-0 opacity-[0.015] dark:opacity-[0.03]"
+        className="hiw-blob"
         style={{
-          backgroundImage: `radial-gradient(circle, #4F46E5 1px, transparent 1px)`,
-          backgroundSize: "30px 30px",
+          width: 500,
+          height: 500,
+          top: -80,
+          right: -80,
+          background:
+            "radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 65%)",
+        }}
+      />
+      <div
+        className="hiw-blob"
+        style={{
+          width: 400,
+          height: 400,
+          bottom: -60,
+          left: -80,
+          background:
+            "radial-gradient(circle, rgba(59,130,246,0.09) 0%, transparent 65%)",
         }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        {/* Header Section */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          {/* Section Badge */}
-          <div className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 border border-blue-100 dark:border-blue-800/50 mb-6">
-            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-500 dark:from-blue-400 dark:to-indigo-400 rounded-full animate-pulse-slow" />
-            <span className="text-sm font-bold tracking-wide bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent uppercase">
-              How It Works
-            </span>
+        {/* Header */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 16,
+            textAlign: "center",
+            marginBottom: 52,
+          }}
+        >
+          <div className="hiw-badge">
+            <div className="hiw-badge-icon">⚡</div>
+            <span className="hiw-badge-text">{t("badge")}</span>
           </div>
 
-          {/* Title */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-slate-100 mb-6 leading-tight">
-            <span className="block">How It Works</span>
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">
-              Step-by-Step Process Explained
+          <h2
+            className="dark:text-slate-50"
+            style={{
+              fontSize: "clamp(28px, 4.5vw, 50px)",
+              fontWeight: 900,
+              lineHeight: 1.1,
+              color: "#0f172a",
+              letterSpacing: "-0.025em",
+              margin: 0,
+            }}
+          >
+            {t("title.main")}
+            <br />
+            <span
+              style={{
+                background:
+                  "linear-gradient(135deg, #3b82f6 0%, #6366f1 45%, #8b5cf6 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              {t("title.highlight")}
             </span>
           </h2>
 
-          {/* Description */}
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-            Discover how StripCard empowers you with an easy step-by-step
-            process to manage virtual cards, add funds, transfer money, and
-            ensure secure transactions—all designed for convenience,
-            flexibility, and seamless financial management.
+          <div className="hiw-div">
+            <div className="hiw-div-line" style={{ width: 28 }} />
+            <div className="hiw-div-dot" />
+            <div className="hiw-div-line" style={{ width: 48 }} />
+            <div className="hiw-div-dot" />
+            <div className="hiw-div-line" style={{ width: 28 }} />
+          </div>
+
+          <p
+            className="dark:text-slate-400"
+            style={{
+              fontSize: 16,
+              color: "#64748b",
+              lineHeight: 1.75,
+              maxWidth: 640,
+              margin: 0,
+            }}
+          >
+            {t("description")}
           </p>
         </div>
 
-        {/* Steps Grid - 2 Columns with Process Flow Design */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 relative">
-          {/* Connecting Line (hidden on mobile) */}
-          <div className="hidden md:block absolute top-0 left-1/2 w-0.5 h-full bg-gradient-to-b from-blue-200 via-indigo-200 to-violet-200 dark:from-blue-800 dark:via-indigo-800 dark:to-violet-800 -translate-x-1/2 opacity-30" />
+        {/* Row 1: steps 1–4 → left to right */}
+        <div className="hiw-row">
+          {steps
+            .slice(0, 4)
+            .map((step, i) => [
+              <Card key={step.id} step={step} delay={i * 70} />,
+              i < 3 ? <ArrowRight key={`arrow-${step.id}`} /> : null,
+            ])}
+        </div>
 
-          {steps.map((step, index) => {
-            const isLeft = index % 2 === 0;
+        {/* Bend connector */}
+        <div className="hiw-bend">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path
+              d="M24 6 Q24 22 8 22 L6 22"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              fill="none"
+            />
+            <path
+              d="M10 18l-4 4 4 4"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          <span>{t("continueLabel")}</span>
+        </div>
 
-            return (
-              <div
-                key={step.id}
-                className={`relative group animate-fade-in-up ${
-                  isLeft ? "md:pr-12" : "md:pl-12"
-                }`}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Step Number Badge - Positioned at center line on desktop */}
-                <div
-                  className={`absolute top-8 ${isLeft ? "md:right-0 md:-mr-6" : "md:left-0 md:-ml-6"} hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br ${step.gradient} text-white font-bold text-lg shadow-lg z-10`}
-                >
-                  {step.number}
-                </div>
-
-                {/* Card */}
-                <div className="relative bg-white dark:bg-gray-800 rounded-2xl border-2 border-slate-100 dark:border-gray-700 shadow-md hover:shadow-xl transition-all duration-500 overflow-hidden group-hover:-translate-y-1">
-                  {/* Gradient Border Effect on Hover */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-100 dark:group-hover:opacity-70 transition-opacity duration-500 -z-10`}
-                    style={{ padding: "2px", borderRadius: "1rem" }}
-                  >
-                    <div className="w-full h-full bg-white dark:bg-gray-800 rounded-2xl" />
-                  </div>
-
-                  {/* Subtle Gradient Overlay */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-0 group-hover:opacity-5 dark:group-hover:opacity-15 transition-opacity duration-500`}
-                  />
-
-                  <div className="relative p-6 flex items-start gap-5">
-                    {/* Icon Container */}
-                    <div className="shrink-0">
-                      <div className="relative">
-                        {/* Glow Effect */}
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-br ${step.gradient} rounded-xl opacity-20 blur-lg group-hover:opacity-40 group-hover:blur-xl dark:group-hover:opacity-50 transition-all duration-500`}
-                        />
-
-                        {/* Icon Background */}
-                        <div
-                          className={`relative w-16 h-16 bg-gradient-to-br ${step.gradient} bg-opacity-10 dark:bg-opacity-20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}
-                        >
-                          <img
-                            src={step.image}
-                            alt={step.title}
-                            className="w-10 h-10 object-contain"
-                          />
-                        </div>
-
-                        {/* Mobile Step Number (inside icon on mobile) */}
-                        <div className="md:hidden absolute -top-2 -right-2 w-7 h-7 rounded-full bg-gradient-to-br from-slate-700 to-slate-900 dark:from-slate-600 dark:to-slate-800 text-white text-xs font-bold flex items-center justify-center shadow-lg">
-                          {step.number}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="flex-1 pt-1">
-                      <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-indigo-600 dark:group-hover:from-blue-400 dark:group-hover:to-indigo-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Bottom Accent Line */}
-                  <div
-                    className={`h-1 bg-gradient-to-r ${step.gradient} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}
-                  />
-                </div>
-
-                {/* Connector Dot for Mobile */}
-                <div className="md:hidden flex justify-center my-4">
-                  {index < steps.length - 1 && (
-                    <div className="flex flex-col items-center gap-1">
-                      <div className="w-1.5 h-1.5 bg-blue-400 dark:bg-blue-500 rounded-full" />
-                      <div className="w-1.5 h-1.5 bg-indigo-400 dark:bg-indigo-500 rounded-full" />
-                      <div className="w-1.5 h-1.5 bg-violet-400 dark:bg-violet-500 rounded-full" />
-                    </div>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+        {/* Row 2: steps 5–8 → right to left */}
+        <div className="hiw-row" style={{ marginTop: 14 }}>
+          {steps.slice(4, 8).map((step, i) => (
+            <div
+              key={step.id}
+              className="hiw-row-item"
+              style={{ display: "flex", alignItems: "stretch", gap: 0 }}
+            >
+              {i > 0 && <ArrowLeft />}
+              <Card step={step} delay={(i + 4) * 70} />
+            </div>
+          ))}
         </div>
       </div>
     </section>

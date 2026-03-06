@@ -1,18 +1,23 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { CheckCircle2, Mail, Shield } from "lucide-react";
+import {
+  CheckCircle2,
+  Mail,
+  Shield,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import toast from "react-hot-toast";
-import { forgotPassword, verifyOtp } from "../../utils/api";
+import { forgotPassword, verifyOtp } from "../../../utils/api";
+import { useTranslations } from "next-intl";
 
-// ============================================================================
-// MAIN COMPONENT
-// ============================================================================
 export default function ForgotPasswordPage() {
+  const t = useTranslations("ForgotPassword");
+
   const router = useRouter();
 
   // --------------------------------------------------------------------------
@@ -36,19 +41,14 @@ export default function ForgotPasswordPage() {
   // --------------------------------------------------------------------------
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate CAPTCHA
     if (!captchaValue) {
       setCaptchaError(true);
-      toast.error("Please complete the CAPTCHA verification");
+      toast.error(t("emailStage.recaptchaError"));
       return;
     }
-
     setLoading(true);
-
     try {
       const data = await forgotPassword(email);
-
       if (data.message.success) {
         toast.success(data.message.success[0]);
         setStage("otp");
@@ -58,24 +58,20 @@ export default function ForgotPasswordPage() {
         toast.error(data.message.error[0]);
       }
     } catch (error) {
-      const errorMsg = error.message || "An unexpected error occurred.";
-      toast.error(errorMsg);
+      toast.error(error.message || t("emailStage.genericError"));
     } finally {
       setLoading(false);
     }
   };
 
   // --------------------------------------------------------------------------
-  // OTP Input Handlers
+  // OTP Handlers
   // --------------------------------------------------------------------------
   const handleOtpChange = (index, value) => {
-    if (!/^\d*$/.test(value)) return; // Only digits
-
+    if (!/^\d*$/.test(value)) return;
     const newOtp = [...otp];
-    newOtp[index] = value.slice(-1); // Only last digit
+    newOtp[index] = value.slice(-1);
     setOtp(newOtp);
-
-    // Auto-focus next input
     if (value && index < 5) {
       document.getElementById(`otp-${index + 1}`).focus();
     }
@@ -87,52 +83,37 @@ export default function ForgotPasswordPage() {
     }
   };
 
-  // --------------------------------------------------------------------------
-  // OTP Submit Handler
-  // --------------------------------------------------------------------------
   const handleOtpSubmit = async (e) => {
     e.preventDefault();
     const enteredOtp = otp.join("");
-
-    // Validate OTP length
     if (enteredOtp.length !== 6) {
-      toast.error("Please enter the complete 6-digit OTP");
+      toast.error(t("otpStage.invalidOtp"));
       return;
     }
-
     setLoading(true);
-
     try {
       const data = await verifyOtp(enteredOtp);
-
       if (data.message.success) {
         toast.success(data.message.success[0]);
-        // Store in sessionStorage (disappears when tab closes)
         sessionStorage.setItem("reset_otp", enteredOtp);
         router.push("/Password-Reset");
       } else {
         toast.error(data.message.error[0]);
       }
     } catch (error) {
-      const errorMsg =
-        error.message ||
-        "An unexpected error occurred during OTP verification.";
-      toast.error(errorMsg);
+      toast.error(
+        error.message || t("otpStage.verificationError")
+      );
     } finally {
       setLoading(false);
     }
   };
 
-  // --------------------------------------------------------------------------
-  // Resend OTP Handler
-  // --------------------------------------------------------------------------
   const handleResend = async () => {
     if (!canResend) return;
     setLoading(true);
-
     try {
       const data = await forgotPassword(email);
-
       if (data.message.success) {
         toast.success(data.message.success[0]);
         setCountdown(60);
@@ -141,16 +122,13 @@ export default function ForgotPasswordPage() {
         toast.error(data.message.error[0]);
       }
     } catch (error) {
-      const errorMsg = error.message || "An unexpected error occurred.";
-      toast.error(errorMsg);
+      toast.error(error.message || t("otpStage.resendError"));
     } finally {
       setLoading(false);
     }
   };
 
-  // --------------------------------------------------------------------------
-  // Countdown Timer Effect
-  // --------------------------------------------------------------------------
+  // Countdown Effect
   useEffect(() => {
     if (countdown > 0) {
       const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
@@ -160,9 +138,7 @@ export default function ForgotPasswordPage() {
     }
   }, [countdown, stage]);
 
-  // --------------------------------------------------------------------------
   // CAPTCHA Handlers
-  // --------------------------------------------------------------------------
   const onCaptchaChange = (value) => {
     setCaptchaValue(value);
     setCaptchaError(false);
@@ -174,32 +150,31 @@ export default function ForgotPasswordPage() {
   };
 
   // --------------------------------------------------------------------------
-  // Main Render
+  // RENDER
   // --------------------------------------------------------------------------
   return (
-    <div className="min-h-screen bg-linear-to-br from-emerald-50 via-teal-50 to-green-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-3xl shadow-2xl w-full max-w-lg p-10 border border-gray-100">
-        {/* Logo Section */}
+    <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-950 transition-colors">
+      <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl w-full max-w-lg p-8 md:p-10 border border-gray-200 dark:border-gray-700 transition-colors">
+        {/* Logo */}
         <div className="text-center mb-8">
           <Image
             src="/logo-dark.png"
-            alt="StripCard Logo"
+            alt={t("logoAlt")}
             width={128}
             height={32}
             className="mx-auto mb-2"
           />
-          <div className="h-1 w-20 bg-linear-to-r from-emerald-400 to-green-400 mx-auto rounded-full"></div>
+          <div className="h-1 w-20 bg-gradient-to-r from-emerald-500 to-green-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* Email Input Stage */}
+        {/* EMAIL STAGE */}
         {stage === "email" && (
           <>
-            <h2 className="text-2xl font-bold text-center text-gray-800 mb-2">
-              Forgot Password?
+            <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-gray-100 mb-2">
+              {t("emailStage.title")}
             </h2>
-            <p className="text-center text-gray-500 text-sm mb-8">
-              Enter your email address and we&apos;ll send you a One-Time
-              Password (OTP) to reset it.
+            <p className="text-center text-gray-600 dark:text-gray-400 text-sm mb-8">
+              {t("emailStage.description")}
             </p>
 
             <form onSubmit={handleEmailSubmit} className="space-y-6">
@@ -207,52 +182,51 @@ export default function ForgotPasswordPage() {
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-semibold text-gray-700 mb-1"
+                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5"
                 >
-                  Email Address <span className="text-red-500">*</span>
+                  {t("emailStage.emailLabel")} <span className="text-red-500">*</span>
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <Mail className="h-5 w-5 text-gray-400" />
+                    <Mail className="h-5 w-5 text-gray-400 dark:text-gray-500" />
                   </div>
                   <input
                     type="email"
                     id="email"
-                    placeholder="Enter Email Address"
+                    placeholder={t("emailStage.emailPlaceholder")}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full pl-12 pr-4 py-3 border text-gray-900 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
+                    className="w-full pl-12 pr-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 focus:border-transparent transition-all placeholder-gray-400 dark:placeholder-gray-500"
                   />
                 </div>
               </div>
 
-              {/* reCAPTCHA Section */}
+              {/* reCAPTCHA */}
               <div className="space-y-3">
-                <div className="flex items-center gap-2 text-sm font-medium text-gray-700">
-                  <Shield className="h-4 w-4 text-emerald-600" />
-                  <span>Security Verification</span>
+                <div className="flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <Shield className="h-4 w-4 text-emerald-600 dark:text-emerald-500" />
+                  <span>{t("emailStage.securityVerification")}</span>
                 </div>
 
-                <ReCAPTCHA
-                  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-                  onChange={onCaptchaChange}
-                  onExpired={onCaptchaExpired}
-                  theme="light"
-                  size="normal"
-                />
+                <div className="flex justify-center">
+                  <ReCAPTCHA
+                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                    onChange={onCaptchaChange}
+                    onExpired={onCaptchaExpired}
+                    theme="light"
+                  />
+                </div>
 
-                {/* CAPTCHA Success Message */}
                 {captchaValue && (
-                  <div className="mt-3 flex items-center justify-center gap-2 text-emerald-600 text-sm font-semibold">
+                  <div className="flex items-center justify-center gap-2 text-emerald-600 dark:text-emerald-400 text-sm font-semibold">
                     <CheckCircle2 className="h-4 w-4" />
-                    <span>Verification successful</span>
+                    <span>{t("emailStage.verificationSuccess")}</span>
                   </div>
                 )}
 
-                {/* CAPTCHA Error Message */}
                 {captchaError && !captchaValue && (
-                  <div className="mt-3 flex items-center justify-center gap-2 text-red-600 text-sm font-semibold">
+                  <div className="flex items-center justify-center gap-2 text-red-600 dark:text-red-400 text-sm font-semibold">
                     <svg
                       className="h-4 w-4"
                       fill="none"
@@ -266,103 +240,105 @@ export default function ForgotPasswordPage() {
                         d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    <span>Please complete the verification</span>
+                    <span>{t("emailStage.verificationRequired")}</span>
                   </div>
                 )}
 
-                <p className="text-xs text-gray-500 text-center">
-                  This helps prevent automated requests
+                <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                  {t("emailStage.securityHelpText")}
                 </p>
               </div>
 
-              {/* Submit Button */}
+              {/* Submit */}
               <button
                 type="submit"
                 disabled={loading}
-                className="cursor-pointer w-full bg-linear-to-r from-emerald-500 to-green-500 text-white font-semibold py-3.5 rounded-xl hover:shadow-lg hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3.5 rounded-xl shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed dark:from-blue-500 dark:to-indigo-500 dark:hover:from-blue-600 dark:hover:to-indigo-600"
               >
-                {loading ? "Sending..." : "Send OTP"}
+                {loading ? t("emailStage.loading") : t("emailStage.button")}
               </button>
             </form>
           </>
         )}
 
-        {/* OTP Verification Stage */}
+        {/* OTP STAGE */}
         {stage === "otp" && (
           <>
-            <h2 className="text-2xl font-bold text-center text-gray-800 mb-2">
-              Please Enter the Code
+            <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-gray-100 mb-2">
+              {t("otpStage.title")}
             </h2>
-            <p className="text-center text-gray-500 text-sm mb-8">
-              We&apos;ve sent a 6-digit code to{" "}
-              <span className="font-bold text-gray-700">{email}</span>
+            <p className="text-center text-gray-600 dark:text-gray-400 text-sm mb-8">
+              {t("otpStage.description")}{" "}
+              <span className="font-semibold text-gray-800 dark:text-gray-200">
+                {email}
+              </span>
             </p>
 
             <form onSubmit={handleOtpSubmit} className="space-y-8">
-              {/* OTP Input Fields */}
-              <div className="flex justify-center gap-3">
+              {/* OTP Inputs */}
+              <div className="flex justify-center gap-3 sm:gap-4">
                 {otp.map((digit, index) => (
                   <input
                     key={index}
                     id={`otp-${index}`}
                     type="text"
-                    maxLength="1"
+                    maxLength={1}
                     value={digit}
                     onChange={(e) => handleOtpChange(index, e.target.value)}
                     onKeyDown={(e) => handleOtpKeyDown(index, e)}
-                    className="w-12 h-12 text-center text-2xl font-semibold text-gray-900 border-2 border-gray-300 rounded-xl focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all"
+                    className="w-11 h-11 sm:w-12 sm:h-12 text-center text-2xl font-semibold bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500 dark:focus:border-emerald-400 dark:focus:ring-emerald-400 transition-all"
                     required
                   />
                 ))}
               </div>
 
-              {/* Countdown & Resend Section */}
+              {/* Resend */}
               <div className="text-center">
                 {countdown > 0 ? (
-                  <p className="text-sm text-gray-600">
-                    You can resend the code after{" "}
-                    <span className="font-bold text-emerald-600">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {t("otpStage.resendCountdown.part1")}{" "}
+                    <span className="font-bold text-emerald-600 dark:text-emerald-400">
                       {countdown}s
                     </span>
                   </p>
                 ) : (
-                  <p className="text-sm text-gray-600">
-                    Didn&apos;t get the code?{" "}
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    {t("otpStage.resendPrompt")}{" "}
                     <button
                       type="button"
                       onClick={handleResend}
                       disabled={!canResend || loading}
-                      className="cursor-pointer text-emerald-600 font-semibold hover:text-emerald-700 hover:underline transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="text-emerald-600 dark:text-emerald-400 font-semibold hover:text-emerald-700 dark:hover:text-emerald-300 hover:underline transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {loading ? "Resending..." : "Resend Code"}
+                      {loading ? t("otpStage.resending") : t("otpStage.resendButton")}
                     </button>
                   </p>
                 )}
               </div>
 
-              {/* Submit Button */}
+              {/* Verify Button */}
               <button
                 type="submit"
                 disabled={loading}
-                className="cursor-pointer w-full bg-linear-to-r from-emerald-500 to-green-500 text-white font-semibold py-3.5 rounded-xl hover:shadow-lg hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-600 hover:to-green-700 text-white font-semibold py-3.5 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.01] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed dark:from-emerald-600 dark:to-green-700 dark:hover:from-emerald-700 dark:hover:to-green-800"
               >
-                {loading ? "Verifying..." : "Verify OTP"}
+                {loading ? t("otpStage.verifying") : t("otpStage.button")}
               </button>
             </form>
           </>
         )}
 
-        {/* Bottom Links Section */}
-        <div className="mt-8 text-center text-sm text-gray-600 space-y-2">
+        {/* Bottom Links */}
+        <div className="mt-8 text-center text-sm text-gray-600 dark:text-gray-400 space-y-2">
           <p>
             {stage === "email"
-              ? "Remember your password?"
-              : "Already have an account?"}{" "}
+              ? t("footer.emailStage")
+              : t("footer.otpStage")}{" "}
             <Link
               href="/login"
-              className="text-emerald-600 hover:text-emerald-700 font-semibold hover:underline transition-colors cursor-pointer"
+              className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-semibold hover:underline transition-colors"
             >
-              {stage === "email" ? "Log In" : "Login Now"}
+              {t("footer.loginLink")}
             </Link>
           </p>
         </div>
