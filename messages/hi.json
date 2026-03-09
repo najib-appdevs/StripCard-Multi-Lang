@@ -664,5 +664,147 @@
       "otpStage": "पहले से खाता है?",
       "loginLink": "लॉग इन करें"
     }
+  },
+  "Sidebar": {
+    "logoAlt": "StripCard लोगो",
+    "closeMenu": "मेनू बंद करें",
+    "main": {
+      "title": "मुख्य",
+      "dashboard": "डैशबोर्ड"
+    },
+    "moneyManagement": {
+      "title": "धन प्रबंधन",
+      "addMoney": "पैसे जोड़ें",
+      "transferMoney": "पैसे ट्रांसफर करें",
+      "withdrawMoney": "पैसे निकालें"
+    },
+    "services": {
+      "title": "सेवाएँ",
+      "virtualCard": "वर्चुअल कार्ड",
+      "giftCard": "गिफ्ट कार्ड",
+      "transactions": "लेन-देन"
+    },
+    "account": {
+      "title": "खाता",
+      "profile": "मेरा प्रोफाइल",
+      "kyc": "KYC सत्यापन",
+      "twoFactor": "2FA सुरक्षा"
+    }
+  },
+  "addMoney": {
+    "title": "पैसे जोड़ें",
+    "fields": {
+      "gateway": {
+        "label": "पेमेंट गेटवे",
+        "placeholder": "गेटवे चुनें"
+      },
+      "amount": {
+        "label": "राशि दर्ज करें",
+        "placeholder": "राशि दर्ज करें"
+      }
+    },
+    "info": {
+      "availableBalance": "उपलब्ध बैलेंस",
+      "charge": "शुल्क"
+    },
+    "button": {
+      "confirm": "पुष्टि करें",
+      "processing": "प्रोसेस हो रहा है..."
+    },
+    "errors": {
+      "loadFailed": "पेमेंट गेटवे लोड करने में विफल",
+      "loadGeneric": "डेटा लोड करते समय कुछ गलत हो गया",
+      "selectGateway": "कृपया एक पेमेंट गेटवे चुनें",
+      "invalidAmount": "कृपया एक मान्य राशि दर्ज करें",
+      "submitFailed": "सबमिशन विफल",
+      "approvalLinkUnavailable": "पेमेंट अनुमोदन लिंक उपलब्ध नहीं है। कृपया फिर से प्रयास करें।",
+      "invalidGatewayResponse": "गेटवे की प्रतिक्रिया मान्य नहीं है",
+      "processGeneric": "अनुरोध को प्रोसेस करने में विफल"
+    },
+    "success": {
+      "submitted": "पैसे जोड़ने का अनुरोध सफलतापूर्वक भेजा गया!"
+    }
+  },
+  "addMoneyPreview": {
+    "title": "पैसे जोड़ने का प्रीव्यू",
+    "rows": {
+      "enterAmount": "दर्ज की गई राशि",
+      "exchangeRate": "विनिमय दर",
+      "feesCharges": "फीस और शुल्क",
+      "conversionAmount": "रूपांतरण राशि",
+      "willGet": "आपको प्राप्त होगा",
+      "totalPayable": "कुल देय राशि"
+    }
+  },
+  "addMoneyLog": {
+    "title": "पैसे जोड़ने का लॉग",
+    "viewMore": "और देखें",
+    "empty": "कोई लेनदेन नहीं मिला",
+    "columns": {
+      "addBalanceVia": "इसके माध्यम से बैलेंस जोड़ें",
+      "status": "स्थिति",
+      "transactionId": "लेनदेन आईडी",
+      "exchangeRate": "विनिमय दर",
+      "feesCharges": "फीस और शुल्क",
+      "currentBalance": "वर्तमान बैलेंस",
+      "timeDate": "समय और तारीख"
+    },
+    "rows": {
+      "addBalanceVia": "इसके माध्यम से बैलेंस जोड़ें {gateway}"
+    },
+    "errors": {
+      "loadFailed": "लॉग लोड करने में विफल",
+      "loadGeneric": "पैसे जोड़ने के लॉग लोड करने में विफल"
+    }
+  },
+  "limitInformation": {
+    "title": "सीमा जानकारी",
+    "rows": {
+      "transactionLimit": "लेनदेन सीमा",
+      "dailyLimit": "दैनिक सीमा",
+      "remainingDaily": "शेष दैनिक सीमा",
+      "monthlyLimit": "मासिक सीमा",
+      "remainingMonthly": "शेष मासिक सीमा"
+    },
+    "errors": {
+      "loadRemainingFailed": "शेष सीमाएँ लोड करने में विफल",
+      "errorShort": "त्रुटि"
+    }
+  },
+  "manualPayment": {
+    "title": "{gateway} के माध्यम से मैनुअल भुगतान",
+    "fallbackGateway": "मैनुअल गेटवे",
+    "loading": "भुगतान विवरण लोड हो रहा है...",
+    "noFieldsRequired": "इस गेटवे के लिए कोई अतिरिक्त जानकारी आवश्यक नहीं है",
+    "fieldPlaceholder": "{label} दर्ज करें",
+    "button": {
+      "confirm": "भुगतान की पुष्टि करें",
+      "submitting": "सबमिट किया जा रहा है..."
+    },
+    "errors": {
+      "invalidData": "अमान्य भुगतान डेटा",
+      "noPending": "कोई लंबित मैनुअल भुगतान नहीं मिला",
+      "submitFailed": "भुगतान विवरण सबमिट करने में विफल",
+      "unexpectedResponse": "सर्वर से अप्रत्याशित प्रतिक्रिया",
+      "submissionFailed": "सबमिशन विफल। कृपया भुगतान प्रमाण फिर से अपलोड करें"
+    },
+    "success": {
+      "submitted": "भुगतान प्रमाण सफलतापूर्वक सबमिट किया गया!"
+    }
+  },
+  "paymentInformation": {
+    "title": "भुगतान जानकारी",
+    "empty": "कोई भुगतान जानकारी उपलब्ध नहीं है",
+    "rows": {
+      "enteredAmount": "दर्ज की गई राशि",
+      "exchangeRate": "विनिमय दर",
+      "feesCharges": "फीस और शुल्क",
+      "conversionAmount": "रूपांतरण राशि",
+      "willGet": "आपको प्राप्त होगा",
+      "totalPayable": "कुल देय राशि"
+    },
+    "errors": {
+      "conversionFailed": "रूपांतरण गणना विफल"
+    }
   }
 }

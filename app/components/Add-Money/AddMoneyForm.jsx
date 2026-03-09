@@ -6,6 +6,7 @@ import { ChevronDown } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; // ← adjust to your i18n import if different
 import { getAddMoneyInformation, submitAddMoney } from "../../utils/api";
 
 // ============================================================================
@@ -13,6 +14,7 @@ import { getAddMoneyInformation, submitAddMoney } from "../../utils/api";
 // ============================================================================
 export default function AddMoneyForm({ onFormUpdate }) {
   const router = useRouter();
+  const t = useTranslations("addMoney"); // ← namespace: "addMoney"
 
   // --------------------------------------------------------------------------
   // State Management
@@ -81,7 +83,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
 
         if (response?.message?.error) {
           const errorMsg =
-            response.message.error[0] || "Failed to load payment gateways";
+            response.message.error[0] || t("errors.loadFailed");
           toast.error(errorMsg);
           setLoading(false);
           return;
@@ -94,9 +96,9 @@ export default function AddMoneyForm({ onFormUpdate }) {
         (data.gateways || []).forEach((gw) => {
           (gw.currencies || []).forEach((curr) => {
             options.push({
-              id: curr.id, 
+              id: curr.id,
               name: curr.name,
-              alias: curr.alias, 
+              alias: curr.alias,
               fixed_charge: Number(curr.fixed_charge) || 0,
               percent_charge: Number(curr.percent_charge) || 0,
               min_limit: Number(curr.min_limit) || 0,
@@ -132,7 +134,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
         setLoading(false);
       } catch (err) {
         const errorMsg =
-          err.message || "Something went wrong while loading data";
+          err.message || t("errors.loadGeneric");
         toast.error(errorMsg);
         setLoading(false);
       }
@@ -170,19 +172,19 @@ export default function AddMoneyForm({ onFormUpdate }) {
   const handleConfirm = async () => {
     // Validate gateway selection
     if (!selectedGateway) {
-      toast.error("Please select a payment gateway");
+      toast.error(t("errors.selectGateway"));
       return;
     }
 
     // Validate amount
     if (!amount || Number(amount) <= 0) {
-      toast.error("Please enter a valid amount");
+      toast.error(t("errors.invalidAmount"));
       return;
     }
 
     // Validate gateway alias
     if (!selectedGateway.alias) {
-      toast.error("Please select a payment gateway");
+      toast.error(t("errors.selectGateway"));
       return;
     }
 
@@ -198,13 +200,13 @@ export default function AddMoneyForm({ onFormUpdate }) {
 
       // Handle error response
       if (response?.message?.error) {
-        toast.error(response.message.error[0] || "Submission failed");
+        toast.error(response.message.error[0] || t("errors.submitFailed"));
         return;
       }
 
       // Show success message
       toast.success(
-        response.message?.success?.[0] || "Add money request submitted!",
+        response.message?.success?.[0] || t("success.submitted"),
       );
 
       // Handle Automatic Gateway Redirect
@@ -218,9 +220,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
           if (approveLink?.href) {
             window.location.href = approveLink.href;
           } else {
-            toast.error(
-              "Payment approval link not available. Please try again.",
-            );
+            toast.error(t("errors.approvalLinkUnavailable"));
           }
         } else if (
           typeof response.data?.url === "string" &&
@@ -229,7 +229,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
           // Standard automatic gateway with plain URL
           window.location.href = response.data.url;
         } else {
-          toast.error("Gateway response is not valid");
+          toast.error(t("errors.invalidGatewayResponse"));
         }
       }
       // Handle Manual Gateway - Redirect to Manual Payment Page
@@ -255,7 +255,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
         router.push("/dashboard/ManualPayment");
       }
     } catch (err) {
-      const errorMsg = err.message || "Failed to process request";
+      const errorMsg = err.message || t("errors.processGeneric");
       toast.error(errorMsg);
     } finally {
       setSubmitLoading(false);
@@ -271,7 +271,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
         {/* Form Header */}
         <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4">
           <h2 className="text-base text-center font-semibold text-white">
-            Add Money
+            {t("title")}
           </h2>
         </div>
 
@@ -280,7 +280,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
           {/* Payment Gateway Selection */}
           <div>
             <label className="mb-2 block text-sm font-medium text-gray-600 dark:text-gray-300">
-              Payment Gateway <span className="text-red-500">*</span>
+              {t("fields.gateway.label")} <span className="text-red-500">*</span>
             </label>
 
             <Listbox
@@ -294,7 +294,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
                     <span className="block truncate">
                       {selectedGateway
                         ? selectedGateway.name
-                        : "Select Gateway"}
+                        : t("fields.gateway.placeholder")}
                     </span>
                     <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
                       <ChevronDown
@@ -332,7 +332,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
           {/* Amount Input with Currency Selector */}
           <div>
             <label className="mb-2 block text-sm font-medium text-gray-600 dark:text-gray-300">
-              Enter Amount <span className="text-red-500">*</span>
+              {t("fields.amount.label")} <span className="text-red-500">*</span>
             </label>
 
             <div className="relative rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus-within:border-emerald-500 dark:focus-within:border-emerald-500 focus-within:ring-emerald-200 dark:focus-within:ring-emerald-500/30">
@@ -341,7 +341,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
                   type="number"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
-                  placeholder="Enter Amount"
+                  placeholder={t("fields.amount.placeholder")}
                   className="flex-1 bg-transparent px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 focus:outline-none no-spinner"
                 />
 
@@ -385,7 +385,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
           {/* Information Box */}
           <div className="space-y-2 rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3 text-sm">
             <p className="flex justify-between text-gray-600 dark:text-gray-300">
-              <span>Available Balance</span>
+              <span>{t("info.availableBalance")}</span>
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 {balance !== null
                   ? `${Number(balance).toFixed(4)} ${walletCurrency}`
@@ -393,7 +393,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
               </span>
             </p>
             <p className="flex justify-between text-gray-600 dark:text-gray-300">
-              <span>Charge</span>
+              <span>{t("info.charge")}</span>
               <span className="font-medium text-gray-800 dark:text-gray-200">
                 {formatCharge()}
               </span>
@@ -412,7 +412,7 @@ export default function AddMoneyForm({ onFormUpdate }) {
             disabled={submitLoading}
             className="cursor-pointer w-full rounded-xl px-4 py-4 text-base font-bold text-white transition bg-[linear-gradient(76.84deg,#0EBE98_-2.66%,#50C631_105.87%)] dark:bg-[linear-gradient(76.84deg,#0D9A7E_-2.66%,#3E9F28_105.87%)] hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-emerald-400 dark:focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {submitLoading ? "Processing..." : "Confirm"}
+            {submitLoading ? t("button.processing") : t("button.confirm")}
           </button>
         </div>
       </div>

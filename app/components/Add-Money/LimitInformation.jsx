@@ -2,9 +2,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; // ← adjust to your i18n import if different
 import { getAddMoneyInformation, getRemainingLimits } from "../../utils/api";
 
 const LimitInformation = ({ selectedGateway = null, walletCurrency }) => {
+  const t = useTranslations("limitInformation"); // ← namespace: "limitInformation"
+
   const [remainingDaily, setRemainingDaily] = useState(null);
   const [remainingMonthly, setRemainingMonthly] = useState(null);
   const [loadingRemaining, setLoadingRemaining] = useState(false);
@@ -86,12 +89,12 @@ const LimitInformation = ({ selectedGateway = null, walletCurrency }) => {
           setRemainingMonthly(res.data.remainingMonthly ?? null);
         } else {
           toast.error(
-            res?.message?.error?.[0] || "Failed to load remaining limits",
+            res?.message?.error?.[0] || t("errors.loadRemainingFailed"),
           );
         }
       } catch (err) {
         // console.error("[AddMoney Limits] Error:", err);
-        setError(err.message || "Failed to load remaining limits");
+        setError(err.message || t("errors.loadRemainingFailed"));
         setRemainingDaily(null);
         setRemainingMonthly(null);
       } finally {
@@ -111,33 +114,33 @@ const LimitInformation = ({ selectedGateway = null, walletCurrency }) => {
     loadingRemaining
       ? "--"
       : error
-        ? "Error"
+        ? t("errors.errorShort")
         : value !== null
           ? formatValue(value)
           : fallback;
 
   const limits = [
     {
-      label: "Transaction Limit",
+      label: t("rows.transactionLimit"),
       value: isLoadingBase
         ? "--"
         : `${minLimit} ${walletCurrency} – ${maxLimit} ${walletCurrency}`,
     },
     {
-      label: "Daily Limit",
+      label: t("rows.dailyLimit"),
       value: show(dailyLimit),
     },
     {
-      label: "Remaining Daily",
+      label: t("rows.remainingDaily"),
       value: show(remainingDaily, "--"),
       highlight: "info",
     },
     {
-      label: "Monthly Limit",
+      label: t("rows.monthlyLimit"),
       value: show(monthlyLimit),
     },
     {
-      label: "Remaining Monthly",
+      label: t("rows.remainingMonthly"),
       value: show(remainingMonthly, "--"),
       highlight: "success",
     },
@@ -148,7 +151,7 @@ const LimitInformation = ({ selectedGateway = null, walletCurrency }) => {
       <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
         <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4">
           <h2 className="text-base text-center font-semibold text-white">
-            Limit Information
+            {t("title")}
           </h2>
         </div>
 

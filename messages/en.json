@@ -665,5 +665,148 @@
       "otpStage": "Already have an account?",
       "loginLink": "Log In"
     }
+  },
+
+  "Sidebar": {
+    "logoAlt": "StripCard Logo",
+    "closeMenu": "Close menu",
+    "main": {
+      "title": "Main",
+      "dashboard": "Dashboard"
+    },
+    "moneyManagement": {
+      "title": "Money Management",
+      "addMoney": "Add Money",
+      "transferMoney": "Transfer Money",
+      "withdrawMoney": "Withdraw Money"
+    },
+    "services": {
+      "title": "Services",
+      "virtualCard": "Virtual Card",
+      "giftCard": "Gift Card",
+      "transactions": "Transactions"
+    },
+    "account": {
+      "title": "Account",
+      "profile": "My Profile",
+      "kyc": "KYC Verification",
+      "twoFactor": "2FA Security"
+    }
+  },
+  "addMoney": {
+    "title": "Add Money",
+    "fields": {
+      "gateway": {
+        "label": "Payment Gateway",
+        "placeholder": "Select Gateway"
+      },
+      "amount": {
+        "label": "Enter Amount",
+        "placeholder": "Enter Amount"
+      }
+    },
+    "info": {
+      "availableBalance": "Available Balance",
+      "charge": "Charge"
+    },
+    "button": {
+      "confirm": "Confirm",
+      "processing": "Processing..."
+    },
+    "errors": {
+      "loadFailed": "Failed to load payment gateways",
+      "loadGeneric": "Something went wrong while loading data",
+      "selectGateway": "Please select a payment gateway",
+      "invalidAmount": "Please enter a valid amount",
+      "submitFailed": "Submission failed",
+      "approvalLinkUnavailable": "Payment approval link not available. Please try again.",
+      "invalidGatewayResponse": "Gateway response is not valid",
+      "processGeneric": "Failed to process request"
+    },
+    "success": {
+      "submitted": "Add money request submitted!"
+    }
+  },
+  "addMoneyPreview": {
+    "title": "Add Money Preview",
+    "rows": {
+      "enterAmount": "Enter Amount",
+      "exchangeRate": "Exchange Rate",
+      "feesCharges": "Fees & Charges",
+      "conversionAmount": "Conversion Amount",
+      "willGet": "Will Get",
+      "totalPayable": "Total Payable Amount"
+    }
+  },
+  "addMoneyLog": {
+    "title": "Add Money Log",
+    "viewMore": "View More",
+    "empty": "No transactions found",
+    "columns": {
+      "addBalanceVia": "Add Balance via",
+      "status": "Status",
+      "transactionId": "Transaction ID",
+      "exchangeRate": "Exchange Rate",
+      "feesCharges": "Fees & Charges",
+      "currentBalance": "Current Balance",
+      "timeDate": "Time & Date"
+    },
+    "rows": {
+      "addBalanceVia": "Add Balance via {gateway}"
+    },
+    "errors": {
+      "loadFailed": "Failed to load logs",
+      "loadGeneric": "Failed to load add money logs"
+    }
+  },
+  "limitInformation": {
+    "title": "Limit Information",
+    "rows": {
+      "transactionLimit": "Transaction Limit",
+      "dailyLimit": "Daily Limit",
+      "remainingDaily": "Remaining Daily",
+      "monthlyLimit": "Monthly Limit",
+      "remainingMonthly": "Remaining Monthly"
+    },
+    "errors": {
+      "loadRemainingFailed": "Failed to load remaining limits",
+      "errorShort": "Error"
+    }
+  },
+  "manualPayment": {
+    "title": "Manual Payment Via {gateway}",
+    "fallbackGateway": "Manual Gateway",
+    "loading": "Loading payment details...",
+    "noFieldsRequired": "No additional information required for this gateway",
+    "fieldPlaceholder": "Enter {label}",
+    "button": {
+      "confirm": "Confirm Payment",
+      "submitting": "Submitting..."
+    },
+    "errors": {
+      "invalidData": "Invalid payment data",
+      "noPending": "No pending manual payment found",
+      "submitFailed": "Failed to submit payment details",
+      "unexpectedResponse": "Unexpected response from server",
+      "submissionFailed": "Submission failed. Please re-upload the payment proof"
+    },
+    "success": {
+      "submitted": "Payment proof submitted successfully!"
+    }
+  },
+  "paymentInformation": {
+    "title": "Payment Information",
+    "empty": "No payment information available",
+    "rows": {
+      "enteredAmount": "Entered Amount",
+      "exchangeRate": "Exchange Rate",
+      "feesCharges": "Fees & Charges",
+      "conversionAmount": "Conversion Amount",
+      "willGet": "You Will Get",
+      "totalPayable": "Total Payable Amount"
+    },
+    "errors": {
+      "conversionFailed": "Conversion calculation failed"
+    }
   }
 }

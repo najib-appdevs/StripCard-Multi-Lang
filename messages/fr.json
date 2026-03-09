@@ -664,5 +664,147 @@
       "otpStage": "Vous avez déjà un compte ?",
       "loginLink": "Se connecter"
     }
+  },
+  "Sidebar": {
+    "logoAlt": "Logo StripCard",
+    "closeMenu": "Fermer le menu",
+    "main": {
+      "title": "Principal",
+      "dashboard": "Tableau de bord"
+    },
+    "moneyManagement": {
+      "title": "Gestion d'argent",
+      "addMoney": "Ajouter de l'argent",
+      "transferMoney": "Transférer de l'argent",
+      "withdrawMoney": "Retirer de l'argent"
+    },
+    "services": {
+      "title": "Services",
+      "virtualCard": "Carte virtuelle",
+      "giftCard": "Carte cadeau",
+      "transactions": "Transactions"
+    },
+    "account": {
+      "title": "Compte",
+      "profile": "Mon profil",
+      "kyc": "Vérification KYC",
+      "twoFactor": "Sécurité 2FA"
+    }
+  },
+  "addMoney": {
+    "title": "Ajouter de l'argent",
+    "fields": {
+      "gateway": {
+        "label": "Passerelle de paiement",
+        "placeholder": "Sélectionner une passerelle"
+      },
+      "amount": {
+        "label": "Entrer le montant",
+        "placeholder": "Entrer le montant"
+      }
+    },
+    "info": {
+      "availableBalance": "Solde disponible",
+      "charge": "Frais"
+    },
+    "button": {
+      "confirm": "Confirmer",
+      "processing": "Traitement en cours..."
+    },
+    "errors": {
+      "loadFailed": "Échec du chargement des passerelles de paiement",
+      "loadGeneric": "Une erreur s'est produite lors du chargement des données",
+      "selectGateway": "Veuillez sélectionner une passerelle de paiement",
+      "invalidAmount": "Veuillez entrer un montant valide",
+      "submitFailed": "Échec de la soumission",
+      "approvalLinkUnavailable": "Lien d'approbation du paiement non disponible. Veuillez réessayer.",
+      "invalidGatewayResponse": "La réponse de la passerelle n'est pas valide",
+      "processGeneric": "Échec du traitement de la demande"
+    },
+    "success": {
+      "submitted": "La demande d'ajout d'argent a été soumise !"
+    }
+  },
+  "addMoneyPreview": {
+    "title": "Aperçu de l'ajout d'argent",
+    "rows": {
+      "enterAmount": "Montant saisi",
+      "exchangeRate": "Taux de change",
+      "feesCharges": "Frais et charges",
+      "conversionAmount": "Montant de conversion",
+      "willGet": "Vous recevrez",
+      "totalPayable": "Montant total à payer"
+    }
+  },
+  "addMoneyLog": {
+    "title": "Historique des ajouts d'argent",
+    "viewMore": "Voir plus",
+    "empty": "Aucune transaction trouvée",
+    "columns": {
+      "addBalanceVia": "Ajouter du solde via",
+      "status": "Statut",
+      "transactionId": "ID de transaction",
+      "exchangeRate": "Taux de change",
+      "feesCharges": "Frais et charges",
+      "currentBalance": "Solde actuel",
+      "timeDate": "Heure et date"
+    },
+    "rows": {
+      "addBalanceVia": "Ajouter du solde via {gateway}"
+    },
+    "errors": {
+      "loadFailed": "Échec du chargement des journaux",
+      "loadGeneric": "Échec du chargement des journaux d'ajout d'argent"
+    }
+  },
+  "limitInformation": {
+    "title": "Informations sur les limites",
+    "rows": {
+      "transactionLimit": "Limite de transaction",
+      "dailyLimit": "Limite quotidienne",
+      "remainingDaily": "Reste quotidien",
+      "monthlyLimit": "Limite mensuelle",
+      "remainingMonthly": "Reste mensuel"
+    },
+    "errors": {
+      "loadRemainingFailed": "Échec du chargement des limites restantes",
+      "errorShort": "Erreur"
+    }
+  },
+  "manualPayment": {
+    "title": "Paiement manuel via {gateway}",
+    "fallbackGateway": "Passerelle manuelle",
+    "loading": "Chargement des détails du paiement...",
+    "noFieldsRequired": "Aucune information supplémentaire requise pour cette passerelle",
+    "fieldPlaceholder": "Entrer {label}",
+    "button": {
+      "confirm": "Confirmer le paiement",
+      "submitting": "Soumission en cours..."
+    },
+    "errors": {
+      "invalidData": "Données de paiement invalides",
+      "noPending": "Aucun paiement manuel en attente trouvé",
+      "submitFailed": "Échec de la soumission des détails du paiement",
+      "unexpectedResponse": "Réponse inattendue du serveur",
+      "submissionFailed": "Échec de la soumission. Veuillez téléverser à nouveau la preuve de paiement"
+    },
+    "success": {
+      "submitted": "La preuve de paiement a été soumise avec succès !"
+    }
+  },
+  "paymentInformation": {
+    "title": "Informations de paiement",
+    "empty": "Aucune information de paiement disponible",
+    "rows": {
+      "enteredAmount": "Montant saisi",
+      "exchangeRate": "Taux de change",
+      "feesCharges": "Frais et charges",
+      "conversionAmount": "Montant de conversion",
+      "willGet": "Vous recevrez",
+      "totalPayable": "Montant total à payer"
+    },
+    "errors": {
+      "conversionFailed": "Échec du calcul de conversion"
+    }
   }
 }

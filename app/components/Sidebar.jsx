@@ -14,64 +14,77 @@ import {
   UserCircle,
   X,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname } from "../../i18n/navigation";
 
 const navigationGroups = [
   {
-    title: "Main",
-    items: [{ icon: Home, label: "Dashboard", href: "/dashboard" }],
+    titleKey: "main.title",
+    items: [{ icon: Home, labelKey: "main.dashboard", href: "/dashboard" }],
   },
   {
-    title: "Money Management",
+    titleKey: "moneyManagement.title",
     items: [
-      { icon: PlusCircle, label: "Add Money", href: "/dashboard/add-money" },
+      {
+        icon: PlusCircle,
+        labelKey: "moneyManagement.addMoney",
+        href: "/dashboard/add-money",
+      },
       {
         icon: Send,
-        label: "Transfer Money",
+        labelKey: "moneyManagement.transferMoney",
         href: "/dashboard/transfer-money",
       },
       {
         icon: ArrowDownCircle,
-        label: "Withdraw Money",
+        labelKey: "moneyManagement.withdrawMoney",
         href: "/dashboard/withdraw-money",
       },
     ],
   },
   {
-    title: "Services",
+    titleKey: "services.title",
     items: [
       {
         icon: CreditCard,
-        label: "Virtual Card",
+        labelKey: "services.virtualCard",
         href: "/dashboard/Virtual-Card",
       },
-      { icon: Gift, label: "Gift Card", href: "/dashboard/gift-card" },
+      {
+        icon: Gift,
+        labelKey: "services.giftCard",
+        href: "/dashboard/gift-card",
+      },
       {
         icon: Receipt,
-        label: "Transactions",
+        labelKey: "services.transactions",
         href: "/dashboard/transactions",
       },
     ],
   },
   {
-    title: "Account",
+    titleKey: "account.title",
     items: [
-      { icon: UserCircle, label: "My Profile", href: "/dashboard/profile" },
-      { icon: ShieldCheck, label: "KYC Verification", href: "/dashboard/kyc" },
-      { icon: Lock, label: "2FA Security", href: "/dashboard/2fa" },
+      {
+        icon: UserCircle,
+        labelKey: "account.profile",
+        href: "/dashboard/profile",
+      },
+      { icon: ShieldCheck, labelKey: "account.kyc", href: "/dashboard/kyc" },
+      { icon: Lock, labelKey: "account.twoFactor", href: "/dashboard/2fa" },
     ],
   },
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
+  const t = useTranslations("Sidebar");
   const pathname = usePathname();
 
   const isActive = (href) => pathname === href;
 
   return (
     <>
-      {/* Add custom styles for gradient */}
       <style jsx>{`
         .gradient-text {
           background: linear-gradient(
@@ -121,7 +134,7 @@ export default function Sidebar({ isOpen, onClose }) {
           <div className="flex items-center gap-3">
             <img
               src="/logo-dark.png"
-              alt="StripCard Logo"
+              alt={t("logoAlt")}
               className="w-40 h-10 rounded-lg object-contain"
             />
           </div>
@@ -130,7 +143,7 @@ export default function Sidebar({ isOpen, onClose }) {
           <button
             onClick={onClose}
             className="lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            aria-label="Close menu"
+            aria-label={t("closeMenu")}
           >
             <X size={20} className="text-gray-600 dark:text-gray-400" />
           </button>
@@ -140,12 +153,12 @@ export default function Sidebar({ isOpen, onClose }) {
         <nav className="p-4">
           {navigationGroups.map((group, groupIndex) => (
             <div
-              key={group.title}
+              key={group.titleKey}
               className={groupIndex < navigationGroups.length - 1 ? "mb-6" : ""}
             >
-              {group.title !== "Main" && (
+              {group.titleKey !== "main.title" && (
                 <h3 className="px-3 mb-2 text-xs font-semibold text-gray-500 uppercase">
-                  {group.title}
+                  {t(group.titleKey)}
                 </h3>
               )}
               <div className="space-y-1">
@@ -158,13 +171,17 @@ export default function Sidebar({ isOpen, onClose }) {
                       href={item.href}
                       onClick={onClose}
                       className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
-                        active ? "bg-blue-50 dark:bg-gray-800" : "text-black dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        active
+                          ? "bg-blue-50 dark:bg-gray-800"
+                          : "text-black dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
                       }`}
                     >
                       <span className={active ? "gradient-icon" : ""}>
                         <Icon
                           size={20}
-                          className={active ? "" : "text-gray-600 dark:text-gray-400"}
+                          className={
+                            active ? "" : "text-gray-600 dark:text-gray-400"
+                          }
                           strokeWidth={2}
                         />
                       </span>
@@ -173,7 +190,7 @@ export default function Sidebar({ isOpen, onClose }) {
                           active ? "gradient-text" : ""
                         }`}
                       >
-                        {item.label}
+                        {t(item.labelKey)}
                       </span>
                     </Link>
                   );

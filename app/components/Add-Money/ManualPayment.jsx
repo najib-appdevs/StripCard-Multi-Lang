@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl";
 import { submitManualPaymentProof } from "../../utils/api";
 import PaymentInformation from "./PaymentInformation";
 
@@ -11,6 +12,7 @@ import PaymentInformation from "./PaymentInformation";
 // ============================================================================
 export default function ManualPaymentPage() {
   const router = useRouter();
+  const t = useTranslations("manualPayment");
 
   // --------------------------------------------------------------------------
   // State Management
@@ -31,11 +33,11 @@ export default function ManualPaymentPage() {
         const parsed = JSON.parse(stored);
         setManualData(parsed);
       } catch (e) {
-        toast.error("Invalid payment data");
+        toast.error(t("errors.invalidData"));
         router.push("/dashboard");
       }
     } else {
-      toast.error("No pending manual payment found");
+      toast.error(t("errors.noPending"));
       router.push("/dashboard");
     }
   }, [router]);
@@ -82,7 +84,7 @@ export default function ManualPaymentPage() {
       // Handle success response
       if (result?.message?.success) {
         toast.success(
-          result.message.success[0] || "Payment proof submitted successfully!",
+          result.message.success[0] || t("success.submitted"),
         );
         sessionStorage.removeItem("pendingManualPayment");
         router.push("/dashboard");
@@ -92,16 +94,16 @@ export default function ManualPaymentPage() {
       // Handle error response
       if (result?.message?.error) {
         const errorMsg =
-          result.message.error[0] || "Failed to submit payment details";
+          result.message.error[0] || t("errors.submitFailed");
         toast.error(errorMsg);
         return;
       }
 
       // Fallback
-      toast.error("Unexpected response from server");
+      toast.error(t("errors.unexpectedResponse"));
     } catch (err) {
       toast.error(
-        err.message || "Submission failed. Please re-upload the payment proof",
+        err.message || t("errors.submissionFailed"),
       );
     } finally {
       setLoading(false);
@@ -115,7 +117,7 @@ export default function ManualPaymentPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
         <p className="text-gray-600 dark:text-gray-400 text-lg animate-pulse">
-          Loading payment details...
+          {t("loading")}
         </p>
       </div>
     );
@@ -143,7 +145,7 @@ export default function ManualPaymentPage() {
         {/* Header Section */}
         <div className="text-center mb-5">
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-100 mb-4">
-            Manual Payment Via {gateway_currency_name || "Manual Gateway"}
+            {t("title", { gateway: gateway_currency_name || t("fallbackGateway") })}
           </h1>
 
           {details && (
@@ -188,7 +190,7 @@ export default function ManualPaymentPage() {
                     onChange={(e) =>
                       handleInputChange(field.name, e.target.value)
                     }
-                    placeholder={`Enter ${field.label.toLowerCase()}`}
+                    placeholder={t("fieldPlaceholder", { label: field.label.toLowerCase() })}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-1 focus:ring-emerald-500 dark:focus:ring-emerald-600 focus:border-emerald-500 dark:focus:border-emerald-600 transition text-gray-800 dark:text-gray-200 bg-white dark:bg-gray-800 placeholder-gray-400 dark:placeholder-gray-500"
                   />
                 )}
@@ -196,7 +198,7 @@ export default function ManualPaymentPage() {
             ))
           ) : (
             <p className="text-center text-gray-500 dark:text-gray-400 py-6">
-              No additional information required for this gateway
+              {t("noFieldsRequired")}
             </p>
           )}
 
@@ -222,10 +224,10 @@ export default function ManualPaymentPage() {
                     fill="none"
                   />
                 </svg>
-                Submitting...
+                {t("button.submitting")}
               </span>
             ) : (
-              "Confirm Payment"
+              t("button.confirm")
             )}
           </button>
         </form>

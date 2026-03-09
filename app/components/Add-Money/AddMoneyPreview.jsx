@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl"; // ← adjust to your i18n import if different
+
 const AddMoneyPreview = ({
   amount = "",
   walletCurrency = "",
@@ -9,6 +11,8 @@ const AddMoneyPreview = ({
   chargeCurrency = "",
   rate = 1,
 }) => {
+  const t = useTranslations("addMoneyPreview"); // ← namespace: "addMoneyPreview"
+
   const enteredAmount = Number(amount) || 0;
 
   // Exchange rate
@@ -46,14 +50,14 @@ const AddMoneyPreview = ({
     <div className="w-full max-w-3xl rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
       <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4">
         <h2 className="text-base text-center font-semibold text-white">
-          Add Money Preview
+          {t("title")}
         </h2>
       </div>
 
       <div className="p-6 space-y-4 min-h-[400px] flex flex-col">
         {/* Enter Amount */}
         <div className="flex justify-between rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3">
-          <span className="text-sm text-gray-600 dark:text-gray-300">Enter Amount</span>
+          <span className="text-sm text-gray-600 dark:text-gray-300">{t("rows.enterAmount")}</span>
           <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
             {isLoading ? (
               <span className="animate-pulse text-gray-400 dark:text-gray-500">--</span>
@@ -65,7 +69,7 @@ const AddMoneyPreview = ({
 
         {/* Exchange Rate */}
         <div className="flex justify-between rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3">
-          <span className="text-sm text-gray-600 dark:text-gray-300">Exchange Rate</span>
+          <span className="text-sm text-gray-600 dark:text-gray-300">{t("rows.exchangeRate")}</span>
           <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
             {isLoading ? (
               <span className="animate-pulse text-gray-400 dark:text-gray-500">--</span>
@@ -77,7 +81,7 @@ const AddMoneyPreview = ({
 
         {/* Fees */}
         <div className="flex justify-between rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3">
-          <span className="text-sm text-gray-600 dark:text-gray-300">Fees & Charges</span>
+          <span className="text-sm text-gray-600 dark:text-gray-300">{t("rows.feesCharges")}</span>
           <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
             {show(totalFee, chargeCurrency)}
           </span>
@@ -85,7 +89,7 @@ const AddMoneyPreview = ({
 
         {/* Conversion Amount */}
         <div className="flex justify-between rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3">
-          <span className="text-sm text-gray-600 dark:text-gray-300">Conversion Amount</span>
+          <span className="text-sm text-gray-600 dark:text-gray-300">{t("rows.conversionAmount")}</span>
           <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
             {show(convertedAmount, chargeCurrency)}
           </span>
@@ -96,7 +100,7 @@ const AddMoneyPreview = ({
 
         {/* Will Get */}
         <div className="flex justify-between rounded-xl bg-green-50 dark:bg-green-950/40 px-4 py-3">
-          <span className="text-sm font-medium text-green-700 dark:text-green-400">Will Get</span>
+          <span className="text-sm font-medium text-green-700 dark:text-green-400">{t("rows.willGet")}</span>
           <span className="text-sm font-semibold text-green-700 dark:text-green-400">
             {isLoading ? (
               <span className="animate-pulse">--</span>
@@ -109,7 +113,7 @@ const AddMoneyPreview = ({
         {/* Total Payable */}
         <div className="flex justify-between rounded-xl px-4 py-4 bg-[linear-gradient(76.84deg,#0EBE98_-2.66%,#50C631_105.87%)] dark:bg-[linear-gradient(76.84deg,#0D9A7E_-2.66%,#3E9F28_105.87%)]">
           <span className="text-base font-medium text-white">
-            Total Payable Amount
+            {t("rows.totalPayable")}
           </span>
           <span className="text-base font-bold text-white">
             {show(totalPayable, chargeCurrency)}

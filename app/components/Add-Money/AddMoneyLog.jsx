@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; // ← adjust to your i18n import if different
 import { getAddMoneyInformation } from "../../utils/api";
 import AddMoneyLogSkeleton from "./AddMoneyLogSkeleton";
 
 const AddMoneyLog = () => {
+  const t = useTranslations("addMoneyLog"); // ← namespace: "addMoneyLog"
+
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -18,7 +21,7 @@ const AddMoneyLog = () => {
         const response = await getAddMoneyInformation();
 
         if (response?.message?.error) {
-          toast.error(response.message.error[0] || "Failed to load logs");
+          toast.error(response.message.error[0] || t("errors.loadFailed"));
           return;
         }
 
@@ -50,7 +53,7 @@ const AddMoneyLog = () => {
 
         setLogs(formattedLogs);
       } catch (err) {
-        toast.error("Failed to load add money logs");
+        toast.error(t("errors.loadGeneric"));
         // console.error(err);
       } finally {
         setLoading(false);
@@ -69,7 +72,7 @@ const AddMoneyLog = () => {
       <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
         {/* Header */}
         <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          <h2 className="text-base font-semibold text-white">Add Money Log</h2>
+          <h2 className="text-base font-semibold text-white">{t("title")}</h2>
 
           {/* View More Button - Desktop */}
           <div className="hidden md:flex flex-col gap-2 sm:flex-row md:gap-2">
@@ -77,7 +80,7 @@ const AddMoneyLog = () => {
               href="/dashboard/transactions"
               className="cursor-pointer flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 text-white dark:text-gray-100 rounded-lg hover:text-gray-300 dark:hover:text-gray-300 transition-colors w-full sm:w-auto"
             >
-              <span className="font-medium">View More</span>
+              <span className="font-medium">{t("viewMore")}</span>
             </Link>
           </div>
         </div>
@@ -86,20 +89,20 @@ const AddMoneyLog = () => {
         <div className="overflow-x-auto">
           {/* Table Header */}
           <div className="hidden md:grid min-w-[900px] grid-cols-7 gap-4 px-6 py-3 bg-gray-50 dark:bg-gray-900 text-sm font-semibold text-gray-600 dark:text-gray-300">
-            <span>Add Balance via</span>
-            <span>Status</span>
-            <span>Transaction ID</span>
-            <span>Exchange Rate</span>
-            <span>Fees & Charges</span>
-            <span>Current Balance</span>
-            <span>Time & Date</span>
+            <span>{t("columns.addBalanceVia")}</span>
+            <span>{t("columns.status")}</span>
+            <span>{t("columns.transactionId")}</span>
+            <span>{t("columns.exchangeRate")}</span>
+            <span>{t("columns.feesCharges")}</span>
+            <span>{t("columns.currentBalance")}</span>
+            <span>{t("columns.timeDate")}</span>
           </div>
 
           {/* Rows */}
           <div className="divide-y divide-gray-200 dark:divide-gray-700 min-w-[900px]">
             {logs.length === 0 ? (
               <div className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
-                No transactions found
+                {t("empty")}
               </div>
             ) : (
               logs.map((log, index) => (
@@ -108,7 +111,7 @@ const AddMoneyLog = () => {
                   className="grid grid-cols-1 md:grid-cols-7 gap-3 px-6 py-4 text-sm"
                 >
                   <span className="font-medium text-gray-900 dark:text-gray-100">
-                    Add Balance via {log.gateway}
+                    {t("rows.addBalanceVia", { gateway: log.gateway })}
                   </span>
 
                   <span className="inline-flex items-center gap-2 text-xs font-medium">
@@ -151,7 +154,7 @@ const AddMoneyLog = () => {
             href="/dashboard/transactions"
             className="cursor-pointer flex items-center justify-center gap-2 w-full rounded-xl border border-gray-300 dark:border-gray-600 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
           >
-            <span className="font-medium">View More</span>
+            <span className="font-medium">{t("viewMore")}</span>
           </Link>
         </div>
       </div>

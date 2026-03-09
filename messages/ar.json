@@ -665,5 +665,147 @@
       "otpStage": "لديك حساب بالفعل؟",
       "loginLink": "تسجيل الدخول"
     }
+  },
+  "Sidebar": {
+    "logoAlt": "شعار StripCard",
+    "closeMenu": "إغلاق القائمة",
+    "main": {
+      "title": "الرئيسية",
+      "dashboard": "لوحة التحكم"
+    },
+    "moneyManagement": {
+      "title": "إدارة الأموال",
+      "addMoney": "إضافة أموال",
+      "transferMoney": "تحويل الأموال",
+      "withdrawMoney": "سحب الأموال"
+    },
+    "services": {
+      "title": "الخدمات",
+      "virtualCard": "بطاقة افتراضية",
+      "giftCard": "بطاقة هدايا",
+      "transactions": "المعاملات"
+    },
+    "account": {
+      "title": "الحساب",
+      "profile": "ملفي الشخصي",
+      "kyc": "التحقق من الهوية (KYC)",
+      "twoFactor": "أمان التحقق بخطوتين (2FA)"
+    }
+  },
+  "addMoney": {
+    "title": "إضافة رصيد",
+    "fields": {
+      "gateway": {
+        "label": "بوابة الدفع",
+        "placeholder": "اختر بوابة الدفع"
+      },
+      "amount": {
+        "label": "أدخل المبلغ",
+        "placeholder": "أدخل المبلغ"
+      }
+    },
+    "info": {
+      "availableBalance": "الرصيد المتاح",
+      "charge": "الرسوم"
+    },
+    "button": {
+      "confirm": "تأكيد",
+      "processing": "جارٍ المعالجة..."
+    },
+    "errors": {
+      "loadFailed": "فشل تحميل بوابات الدفع",
+      "loadGeneric": "حدث خطأ أثناء تحميل البيانات",
+      "selectGateway": "يرجى اختيار بوابة دفع",
+      "invalidAmount": "يرجى إدخال مبلغ صحيح",
+      "submitFailed": "فشل الإرسال",
+      "approvalLinkUnavailable": "رابط الموافقة على الدفع غير متوفر. يرجى المحاولة مرة أخرى.",
+      "invalidGatewayResponse": "استجابة البوابة غير صالحة",
+      "processGeneric": "فشل في معالجة الطلب"
+    },
+    "success": {
+      "submitted": "تم إرسال طلب إضافة الرصيد!"
+    }
+  },
+  "addMoneyPreview": {
+    "title": "معاينة إضافة الرصيد",
+    "rows": {
+      "enterAmount": "المبلغ المُدخل",
+      "exchangeRate": "سعر الصرف",
+      "feesCharges": "الرسوم والتكاليف",
+      "conversionAmount": "مبلغ التحويل",
+      "willGet": "المبلغ الذي ستحصل عليه",
+      "totalPayable": "إجمالي المبلغ المستحق"
+    }
+  },
+  "addMoneyLog": {
+    "title": "سجل إضافة الرصيد",
+    "viewMore": "عرض المزيد",
+    "empty": "لم يتم العثور على معاملات",
+    "columns": {
+      "addBalanceVia": "إضافة رصيد عبر",
+      "status": "الحالة",
+      "transactionId": "معرّف المعاملة",
+      "exchangeRate": "سعر الصرف",
+      "feesCharges": "الرسوم والتكاليف",
+      "currentBalance": "الرصيد الحالي",
+      "timeDate": "الوقت والتاريخ"
+    },
+    "rows": {
+      "addBalanceVia": "إضافة رصيد عبر {gateway}"
+    },
+    "errors": {
+      "loadFailed": "فشل تحميل السجلات",
+      "loadGeneric": "فشل تحميل سجل إضافة الرصيد"
+    }
+  },
+  "limitInformation": {
+    "title": "معلومات الحدود",
+    "rows": {
+      "transactionLimit": "حد المعاملة",
+      "dailyLimit": "الحد اليومي",
+      "remainingDaily": "المتبقي اليومي",
+      "monthlyLimit": "الحد الشهري",
+      "remainingMonthly": "المتبقي الشهري"
+    },
+    "errors": {
+      "loadRemainingFailed": "فشل تحميل الحدود المتبقية",
+      "errorShort": "خطأ"
+    }
+  },
+  "manualPayment": {
+    "title": "الدفع اليدوي عبر {gateway}",
+    "fallbackGateway": "بوابة يدوية",
+    "loading": "جارٍ تحميل تفاصيل الدفع...",
+    "noFieldsRequired": "لا توجد معلومات إضافية مطلوبة لهذه البوابة",
+    "fieldPlaceholder": "أدخل {label}",
+    "button": {
+      "confirm": "تأكيد الدفع",
+      "submitting": "جارٍ الإرسال..."
+    },
+    "errors": {
+      "invalidData": "بيانات الدفع غير صالحة",
+      "noPending": "لا يوجد دفع يدوي معلق",
+      "submitFailed": "فشل إرسال تفاصيل الدفع",
+      "unexpectedResponse": "استجابة غير متوقعة من الخادم",
+      "submissionFailed": "فشل الإرسال. يرجى إعادة رفع إثبات الدفع"
+    },
+    "success": {
+      "submitted": "تم إرسال إثبات الدفع بنجاح!"
+    }
+  },
+  "paymentInformation": {
+    "title": "معلومات الدفع",
+    "empty": "لا توجد معلومات دفع متاحة",
+    "rows": {
+      "enteredAmount": "المبلغ المُدخل",
+      "exchangeRate": "سعر الصرف",
+      "feesCharges": "الرسوم والتكاليف",
+      "conversionAmount": "مبلغ التحويل",
+      "willGet": "المبلغ الذي ستحصل عليه",
+      "totalPayable": "إجمالي المبلغ المستحق"
+    },
+    "errors": {
+      "conversionFailed": "فشل حساب التحويل"
+    }
   }
 }

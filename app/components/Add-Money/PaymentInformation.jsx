@@ -1,4 +1,5 @@
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; // ← adjust to your i18n import if different
 
 export default function PaymentInformation({
   paymentInformations,
@@ -6,13 +7,15 @@ export default function PaymentInformation({
   trx = "—",
   className = "",
 }) {
+  const t = useTranslations("paymentInformation"); // ← namespace: "paymentInformation"
+
   if (!paymentInformations || Object.keys(paymentInformations).length === 0) {
     return (
       <div
         className={`bg-gray-50 dark:bg-gray-800/60 p-5 rounded-xl border border-gray-200 dark:border-gray-700 ${className}`}
       >
         <p className="text-gray-500 dark:text-gray-300 text-center">
-          No payment information available
+          {t("empty")}
         </p>
       </div>
     );
@@ -69,7 +72,7 @@ export default function PaymentInformation({
       conversionAmount = (requestValue * rate).toFixed(4);
     }
   } catch (error) {
-    toast.error("Conversion calculation failed");
+    toast.error(t("errors.conversionFailed"));
   }
 
   // ────────────────────────────────────────────────
@@ -80,13 +83,13 @@ export default function PaymentInformation({
       className={`bg-gray-50 dark:bg-gray-800/60 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm ${className}`}
     >
       <h3 className="text-lg font-semibold text-center text-gray-800 dark:text-gray-100 mb-5 border-b border-gray-200 dark:border-gray-700 pb-3">
-        Payment Information
+        {t("title")}
       </h3>
 
       <div className="space-y-4 text-sm">
         <div className="flex justify-between">
           <span className="text-gray-600 dark:text-gray-300">
-            Entered Amount
+            {t("rows.enteredAmount")}
           </span>
           <span className="font-medium text-gray-900 dark:text-gray-100">
             {formatAmount(request_amount)} {extractCurrency(request_amount)}
@@ -95,7 +98,7 @@ export default function PaymentInformation({
 
         <div className="flex justify-between">
           <span className="text-gray-600 dark:text-gray-300">
-            Exchange Rate
+            {t("rows.exchangeRate")}
           </span>
           <span className="font-medium text-gray-900 dark:text-gray-100">
             {exchange_rate}
@@ -104,7 +107,7 @@ export default function PaymentInformation({
 
         <div className="flex justify-between">
           <span className="text-gray-600 dark:text-gray-300">
-            Fees & Charges
+            {t("rows.feesCharges")}
           </span>
           <span className="font-medium text-red-600 dark:text-red-400">
             {formatAmount(total_charge)} {extractCurrency(total_charge)}
@@ -113,7 +116,7 @@ export default function PaymentInformation({
 
         <div className="flex justify-between pt-2">
           <span className="text-gray-700 dark:text-gray-200 font-medium">
-            Conversion Amount
+            {t("rows.conversionAmount")}
           </span>
           <span className="font-bold text-emerald-700 dark:text-emerald-400 text-base">
             {conversionAmount} {conversionCurrency}
@@ -122,7 +125,7 @@ export default function PaymentInformation({
 
         <div className="flex justify-between">
           <span className="text-gray-700 dark:text-gray-200 font-medium">
-            You Will Get
+            {t("rows.willGet")}
           </span>
           <span className="font-bold text-emerald-600 dark:text-emerald-400 text-lg">
             {formatAmount(will_get)} {extractCurrency(will_get)}
@@ -131,7 +134,7 @@ export default function PaymentInformation({
 
         <div className="flex justify-between pt-3 border-t border-gray-200 dark:border-gray-700">
           <span className="text-gray-700 dark:text-gray-200 font-medium">
-            Total Payable Amount
+            {t("rows.totalPayable")}
           </span>
           <span className="font-bold text-emerald-600 dark:text-emerald-400 text-lg">
             {formatAmount(payable_amount)} {extractCurrency(payable_amount)}

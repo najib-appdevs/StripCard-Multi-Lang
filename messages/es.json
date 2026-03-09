@@ -667,5 +667,149 @@
       "otpStage": "¿Ya tienes una cuenta?",
       "loginLink": "Iniciar Sesión"
     }
+  },
+
+  "Sidebar": {
+    "logoAlt": "Logo de StripCard",
+    "closeMenu": "Cerrar menú",
+    "main": {
+      "title": "Principal",
+      "dashboard": "Panel de Control"
+    },
+    "moneyManagement": {
+      "title": "Gestión de Dinero",
+      "addMoney": "Agregar Dinero",
+      "transferMoney": "Transferir Dinero",
+      "withdrawMoney": "Retirar Dinero"
+    },
+    "services": {
+      "title": "Servicios",
+      "virtualCard": "Tarjeta Virtual",
+      "giftCard": "Tarjeta de Regalo",
+      "transactions": "Transacciones"
+    },
+    "account": {
+      "title": "Cuenta",
+      "profile": "Mi Perfil",
+      "kyc": "Verificación KYC",
+      "twoFactor": "Seguridad 2FA"
+    }
+  },
+  "addMoney": {
+    "title": "Agregar Dinero",
+    "fields": {
+      "gateway": {
+        "label": "Pasarela de Pago",
+        "placeholder": "Seleccionar Pasarela"
+      },
+      "amount": {
+        "label": "Ingresar Monto",
+        "placeholder": "Ingresar Monto"
+      }
+    },
+    "info": {
+      "availableBalance": "Saldo Disponible",
+      "charge": "Cargo"
+    },
+    "button": {
+      "confirm": "Confirmar",
+      "processing": "Procesando..."
+    },
+    "errors": {
+      "loadFailed": "Error al cargar las pasarelas de pago",
+      "loadGeneric": "Algo salió mal al cargar los datos",
+      "selectGateway": "Por favor selecciona una pasarela de pago",
+      "invalidAmount": "Por favor ingresa un monto válido",
+      "submitFailed": "Error al enviar",
+      "approvalLinkUnavailable": "Enlace de aprobación de pago no disponible. Inténtalo de nuevo.",
+      "invalidGatewayResponse": "La respuesta de la pasarela no es válida",
+      "processGeneric": "Error al procesar la solicitud"
+    },
+    "success": {
+      "submitted": "¡Solicitud de depósito enviada!"
+    }
+  },
+
+  "addMoneyPreview": {
+    "title": "Vista Previa de Depósito",
+    "rows": {
+      "enterAmount": "Monto Ingresado",
+      "exchangeRate": "Tipo de Cambio",
+      "feesCharges": "Tarifas y Cargos",
+      "conversionAmount": "Monto Convertido",
+      "willGet": "Recibirás",
+      "totalPayable": "Total a Pagar"
+    }
+  },
+  "addMoneyLog": {
+    "title": "Historial de Depósitos",
+    "viewMore": "Ver Más",
+    "empty": "No se encontraron transacciones",
+    "columns": {
+      "addBalanceVia": "Depósito vía",
+      "status": "Estado",
+      "transactionId": "ID de Transacción",
+      "exchangeRate": "Tipo de Cambio",
+      "feesCharges": "Tarifas y Cargos",
+      "currentBalance": "Saldo Actual",
+      "timeDate": "Fecha y Hora"
+    },
+    "rows": {
+      "addBalanceVia": "Depósito vía {gateway}"
+    },
+    "errors": {
+      "loadFailed": "Error al cargar el historial",
+      "loadGeneric": "Error al cargar el historial de depósitos"
+    }
+  },
+  "limitInformation": {
+    "title": "Información de Límites",
+    "rows": {
+      "transactionLimit": "Límite por Transacción",
+      "dailyLimit": "Límite Diario",
+      "remainingDaily": "Restante Diario",
+      "monthlyLimit": "Límite Mensual",
+      "remainingMonthly": "Restante Mensual"
+    },
+    "errors": {
+      "loadRemainingFailed": "Error al cargar los límites restantes",
+      "errorShort": "Error"
+    }
+  },
+  "manualPayment": {
+    "title": "Pago Manual vía {gateway}",
+    "fallbackGateway": "Pasarela Manual",
+    "loading": "Cargando detalles del pago...",
+    "noFieldsRequired": "No se requiere información adicional para esta pasarela",
+    "fieldPlaceholder": "Ingresa {label}",
+    "button": {
+      "confirm": "Confirmar Pago",
+      "submitting": "Enviando..."
+    },
+    "errors": {
+      "invalidData": "Datos de pago no válidos",
+      "noPending": "No se encontró ningún pago manual pendiente",
+      "submitFailed": "Error al enviar los detalles del pago",
+      "unexpectedResponse": "Respuesta inesperada del servidor",
+      "submissionFailed": "Error al enviar. Por favor, vuelve a subir el comprobante de pago"
+    },
+    "success": {
+      "submitted": "¡Comprobante de pago enviado correctamente!"
+    }
+  },
+  "paymentInformation": {
+    "title": "Información del Pago",
+    "empty": "No hay información de pago disponible",
+    "rows": {
+      "enteredAmount": "Monto Ingresado",
+      "exchangeRate": "Tipo de Cambio",
+      "feesCharges": "Tarifas y Cargos",
+      "conversionAmount": "Monto Convertido",
+      "willGet": "Recibirás",
+      "totalPayable": "Total a Pagar"
+    },
+    "errors": {
+      "conversionFailed": "Error al calcular la conversión"
+    }
   }
 }
