@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl"; 
 import { getWithdrawInfo } from "../../utils/api";
 import WithdrawMoneyLogSkeleton from "./WithdrawMoneyLogSkeleton";
 
 const WithdrawMoneyLog = () => {
+  const t = useTranslations("withdrawMoneyLog"); 
+
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -45,10 +48,10 @@ const WithdrawMoneyLog = () => {
 
           setLogs(formattedLogs);
         } else {
-          setError("No transaction data available");
+          setError(t("errors.noData"));
         }
       } catch (err) {
-        setError("Failed to load withdrawal history");
+        setError(t("errors.loadFailed"));
       } finally {
         setLoading(false);
       }
@@ -75,7 +78,7 @@ const WithdrawMoneyLog = () => {
         {/* Header */}
         <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <h2 className="text-base font-semibold text-white">
-            Withdraw Money Log
+            {t("title")}
           </h2>
 
           {/* View More Button - Desktop */}
@@ -84,7 +87,7 @@ const WithdrawMoneyLog = () => {
               href="/dashboard/transactions"
               className="cursor-pointer flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 text-white dark:text-gray-100 rounded-lg hover:text-gray-300 dark:hover:text-gray-300 transition-colors w-full sm:w-auto"
             >
-              <span className="font-medium">View More</span>
+              <span className="font-medium">{t("viewMore")}</span>
             </Link>
           </div>
         </div>
@@ -93,21 +96,21 @@ const WithdrawMoneyLog = () => {
         <div className="overflow-x-auto">
           {/* Table Header - Desktop */}
           <div className="hidden md:grid min-w-[1000px] grid-cols-8 gap-4 px-6 py-3 bg-gray-50 dark:bg-gray-900 text-sm font-semibold text-gray-600 dark:text-gray-300">
-            <span>Withdraw Money by</span>
-            <span>Status</span>
-            <span>Transaction ID</span>
-            <span>Exchange Rate</span>
-            <span>Fees & Charges</span>
-            <span>Will Get</span>
-            <span>Current Balance</span>
-            <span>Time & Date</span>
+            <span>{t("columns.withdrawBy")}</span>
+            <span>{t("columns.status")}</span>
+            <span>{t("columns.transactionId")}</span>
+            <span>{t("columns.exchangeRate")}</span>
+            <span>{t("columns.feesCharges")}</span>
+            <span>{t("columns.willGet")}</span>
+            <span>{t("columns.currentBalance")}</span>
+            <span>{t("columns.timeDate")}</span>
           </div>
 
           {/* Rows */}
           <div className="divide-y divide-gray-200 dark:divide-gray-700 min-w-[1000px]">
             {logs.length === 0 ? (
               <div className="px-6 py-10 text-center text-gray-500 dark:text-gray-400">
-                No withdrawal transactions found
+                {t("empty")}
               </div>
             ) : (
               logs.map((log, index) => (
@@ -186,7 +189,7 @@ const WithdrawMoneyLog = () => {
             href="/dashboard/transactions"
             className="cursor-pointer flex items-center justify-center gap-2 w-full rounded-xl border border-gray-300 dark:border-gray-600 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
           >
-            <span className="font-medium">View More</span>
+            <span className="font-medium">{t("viewMore")}</span>
           </Link>
         </div>
       </div>

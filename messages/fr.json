@@ -806,5 +806,203 @@
     "errors": {
       "conversionFailed": "Échec du calcul de conversion"
     }
+  },
+
+  "transferMoney": {
+    "title": "Transférer de l'argent",
+    "fields": {
+      "email": {
+        "label": "Email du destinataire",
+        "placeholder": "Email du destinataire"
+      },
+      "amount": {
+        "label": "Entrer le montant",
+        "placeholder": "Entrer le montant"
+      }
+    },
+    "info": {
+      "availableBalance": "Solde disponible",
+      "transferFee": "Frais de transfert"
+    },
+    "button": {
+      "confirm": "Confirmer",
+      "processing": "Traitement en cours..."
+    },
+    "errors": {
+      "loadInfoFailed": "Échec du chargement des informations de transfert",
+      "unexpectedResponse": "Réponse inattendue du serveur",
+      "checkReceiverFailed": "Échec de la vérification du destinataire",
+      "emailRequired": "L'email du destinataire est requis",
+      "invalidAmount": "Veuillez entrer un montant valide",
+      "insufficientBalance": "Solde insuffisant",
+      "selectCurrency": "Sélectionnez la devise",
+      "transferFailed": "Le transfert a échoué. Veuillez réessayer."
+    }
+  },
+
+  "transferMoneyPreview": {
+    "title": "Aperçu du transfert d'argent",
+    "rows": {
+      "enterAmount": "Montant saisi",
+      "transferFee": "Frais de transfert",
+      "recipientReceived": "Montant reçu par le destinataire",
+      "totalPayable": "Montant total à payer"
+    }
+  },
+
+  "moneyTransferLimit": {
+    "title": "Informations sur les limites",
+    "rows": {
+      "transactionLimit": "Limite de transaction",
+      "dailyLimit": "Limite quotidienne",
+      "remainingDaily": "Restant quotidien",
+      "monthlyLimit": "Limite mensuelle",
+      "remainingMonthly": "Restant mensuel"
+    },
+    "errors": {
+      "noChargeFound": "Aucun frais de transfert trouvé",
+      "updateFailed": "La mise à jour a échoué. Veuillez actualiser ou réessayer",
+      "loadFailed": "Erreur lors du chargement des limites / restants"
+    }
+  },
+
+  "transferMoneyLog": {
+    "title": "Historique des transferts",
+    "viewMore": "Voir plus",
+    "columns": {
+      "transferTo": "Transférer de l'argent à",
+      "status": "Statut",
+      "transactionId": "ID de transaction",
+      "feesCharges": "Frais et charges",
+      "recipientReceived": "Montant reçu",
+      "currentBalance": "Solde actuel",
+      "timeDate": "Heure et date"
+    },
+    "empty": {
+      "title": "Aucune donnée trouvée",
+      "subtitle": "Aucun enregistrement de transfert disponible pour le moment"
+    },
+    "errors": {
+      "loadFailed": "Échec de la récupération des journaux de transfert"
+    }
+  },
+  "withdrawMoney": {
+    "title": "Retirer de l'argent",
+    "fields": {
+      "gateway": {
+        "label": "Passerelle de paiement",
+        "placeholder": "Sélectionner la passerelle"
+      },
+      "amount": {
+        "label": "Entrer le montant",
+        "placeholder": "Entrer le montant"
+      }
+    },
+    "info": {
+      "availableBalance": "Solde disponible",
+      "charge": "Frais"
+    },
+    "button": {
+      "confirm": "Confirmer",
+      "processing": "Traitement en cours..."
+    },
+    "errors": {
+      "loadDataFailed": "Échec du chargement des données",
+      "loadInfoFailed": "Échec du chargement des informations de retrait",
+      "invalidAmount": "Entrez un montant valide",
+      "selectGateway": "Sélectionnez une passerelle de paiement",
+      "withdrawFailed": "Échec du retrait",
+      "genericError": "Une erreur est survenue. Veuillez réessayer."
+    },
+    "success": {
+      "initiated": "Retrait initié avec succès"
+    }
+  },
+
+  "withdrawMoneyPreview": {
+    "title": "Aperçu du retrait",
+    "rows": {
+      "enterAmount": "Montant saisi",
+      "exchangeRate": "Taux de change",
+      "feesCharges": "Frais et charges",
+      "conversionAmount": "Montant de conversion",
+      "willGet": "Vous recevrez",
+      "totalPayable": "Montant total à payer"
+    },
+    "errors": {
+      "loadDataFailed": "Échec du chargement des données",
+      "loadGeneric": "Une erreur est survenue lors du chargement des informations de retrait"
+    }
+  },
+
+  "moneyWithdrawalLimit": {
+    "title": "Informations sur les limites",
+    "rows": {
+      "transactionLimit": "Limite par transaction",
+      "dailyLimit": "Limite quotidienne",
+      "remainingDaily": "Restant quotidien",
+      "monthlyLimit": "Limite mensuelle",
+      "remainingMonthly": "Restant mensuel"
+    },
+    "errors": {
+      "unavailable": "Les informations demandées sont actuellement indisponibles"
+    }
+  },
+  "withdrawMoneyLog": {
+    "title": "Journal des retraits",
+    "viewMore": "Voir plus",
+    "empty": "Aucune transaction de retrait trouvée",
+    "columns": {
+      "withdrawBy": "Retrait effectué par",
+      "status": "Statut",
+      "transactionId": "Identifiant de transaction",
+      "exchangeRate": "Taux de change",
+      "feesCharges": "Frais et charges",
+      "willGet": "Vous recevrez",
+      "currentBalance": "Solde actuel",
+      "timeDate": "Heure et date"
+    },
+    "errors": {
+      "noData": "Aucune donnée de transaction disponible",
+      "loadFailed": "Échec du chargement de l'historique des retraits"
+    }
+  },
+  "manualWithdraw": {
+    "title": "Retrait via {gateway}",
+    "loading": "Chargement des détails du retrait...",
+    "button": {
+      "confirm": "Confirmer",
+      "submitting": "Envoi en cours..."
+    },
+    "errors": {
+      "loadFailed": "Échec du chargement des détails du retrait. Veuillez réessayer.",
+      "loadFailedToast": "Échec du chargement des détails du retrait",
+      "noPending": "Aucun retrait en attente trouvé.",
+      "fillField": "Veuillez remplir {label}",
+      "submitFailed": "Échec de la finalisation de la demande de retrait",
+      "unexpected": "Une erreur inattendue s'est produite. Veuillez réessayer ultérieurement.",
+      "submissionFailed": "Échec de la soumission du retrait"
+    },
+    "success": {
+      "submitted": "Demande de retrait envoyée avec succès !"
+    }
+  },
+  "withdrawPaymentInformation": {
+    "title": "Informations de paiement",
+    "subtitle": "Veuillez vérifier les détails de votre demande de retrait ci-dessous.",
+    "loading": "Chargement des informations de paiement...",
+    "fields": {
+      "enterAmount": "Montant saisi",
+      "exchangeRate": "Taux de change",
+      "feesCharges": "Frais et charges",
+      "conversionAmount": "Montant de conversion",
+      "willGet": "Vous recevrez",
+      "totalPayable": "Montant total à payer"
+    },
+    "errors": {
+      "noPending": "Aucun retrait en attente trouvé. Veuillez initier un nouveau retrait.",
+      "loadSummaryFailed": "Échec du chargement du récapitulatif de paiement. Veuillez réessayer.",
+      "unableToLoad": "Impossible de charger les détails du paiement"
+    }
   }
 }

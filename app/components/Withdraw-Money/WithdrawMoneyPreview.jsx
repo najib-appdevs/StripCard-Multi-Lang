@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl"; 
 import { getWithdrawInfo } from "../../utils/api";
 
 const WithdrawMoneyPreview = ({ amount = 0 }) => {
+  const t = useTranslations("withdrawMoneyPreview"); 
+
   // ============================================================================
   // STATE MANAGEMENT
   // ============================================================================
@@ -23,10 +26,10 @@ const WithdrawMoneyPreview = ({ amount = 0 }) => {
         if (response?.data) {
           setWithdrawData(response.data);
         } else if (response?.message?.error) {
-          setError(response.message.error[0] || "Failed to load data");
+          setError(response.message.error[0] || t("errors.loadDataFailed"));
         }
       } catch (err) {
-        setError("Something went wrong while loading withdrawal info");
+        setError(t("errors.loadGeneric"));
       } finally {
         setLoading(false);
       }
@@ -78,7 +81,7 @@ const WithdrawMoneyPreview = ({ amount = 0 }) => {
       {/* Header */}
       <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4">
         <h2 className="text-base text-center font-semibold text-white">
-          Withdraw Money Preview
+          {t("title")}
         </h2>
       </div>
 
@@ -86,7 +89,7 @@ const WithdrawMoneyPreview = ({ amount = 0 }) => {
       <div className="p-6 space-y-4 min-h-[400px] flex flex-col">
         {/* Enter Amount */}
         <div className="flex items-center justify-between rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3">
-          <span className="text-sm text-gray-600 dark:text-gray-200">Enter Amount</span>
+          <span className="text-sm text-gray-600 dark:text-gray-200">{t("rows.enterAmount")}</span>
           <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
             {isLoading ? "--" : `${inputAmount.toFixed(4)} ${baseCurr}`}
           </span>
@@ -94,7 +97,7 @@ const WithdrawMoneyPreview = ({ amount = 0 }) => {
 
         {/* Exchange Rate */}
         <div className="flex items-center justify-between rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3">
-          <span className="text-sm text-gray-600 dark:text-gray-200">Exchange Rate</span>
+          <span className="text-sm text-gray-600 dark:text-gray-200">{t("rows.exchangeRate")}</span>
           <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
             {isLoading ? "--" : exchangeRateText}
           </span>
@@ -102,7 +105,7 @@ const WithdrawMoneyPreview = ({ amount = 0 }) => {
 
         {/* Fees & Charges */}
         <div className="flex items-center justify-between rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3">
-          <span className="text-sm text-gray-600 dark:text-gray-200">Fees & Charges</span>
+          <span className="text-sm text-gray-600 dark:text-gray-200">{t("rows.feesCharges")}</span>
           <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
             {isLoading ? "--" : `${totalFees.toFixed(4)} ${baseCurr}`}
           </span>
@@ -110,7 +113,7 @@ const WithdrawMoneyPreview = ({ amount = 0 }) => {
 
         {/* Conversion Amount */}
         <div className="flex items-center justify-between rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3">
-          <span className="text-sm text-gray-600 dark:text-gray-200">Conversion Amount</span>
+          <span className="text-sm text-gray-600 dark:text-gray-200">{t("rows.conversionAmount")}</span>
           <span className="text-sm font-medium text-gray-900 dark:text-gray-100">
             {isLoading ? "--" : `${willGetAmount.toFixed(4)} ${baseCurr}`}
           </span>
@@ -124,7 +127,7 @@ const WithdrawMoneyPreview = ({ amount = 0 }) => {
 
         {/* Will Get */}
         <div className="flex items-center justify-between rounded-xl bg-green-50 dark:bg-green-950/40 px-4 py-3">
-          <span className="text-sm font-medium text-green-700 dark:text-green-400">Will Get</span>
+          <span className="text-sm font-medium text-green-700 dark:text-green-400">{t("rows.willGet")}</span>
           <span className="text-sm font-semibold text-green-700 dark:text-green-400">
             {isLoading ? "--" : `${willGetAmount.toFixed(4)} ${baseCurr}`}
           </span>
@@ -133,7 +136,7 @@ const WithdrawMoneyPreview = ({ amount = 0 }) => {
         {/* Total Payable */}
         <div className="flex items-center justify-between rounded-xl px-4 py-4 bg-[linear-gradient(76.84deg,#0EBE98_-2.66%,#50C631_105.87%)] dark:bg-[linear-gradient(76.84deg,#0D9A7E_-2.66%,#3E9F28_105.87%)]">
           <span className="text-base font-medium text-white">
-            Total Payable Amount
+            {t("rows.totalPayable")}
           </span>
           <span className="text-base font-bold text-white">
             {isLoading ? "--" : `${payableAmount.toFixed(4)} ${baseCurr}`}

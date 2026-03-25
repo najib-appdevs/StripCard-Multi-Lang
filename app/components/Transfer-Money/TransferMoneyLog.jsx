@@ -5,8 +5,11 @@ import { useEffect, useState } from "react";
 import { getTransferMoneyInfo } from "../../utils/api";
 import TransferLogSkeleton from "./TransferLogSkeleton";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; 
 
 const TransferMoneyLog = () => {
+  const t = useTranslations("transferMoneyLog"); 
+
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,7 +24,7 @@ const TransferMoneyLog = () => {
         }
       } catch (error) {
         // console.error("Failed to fetch transfer logs:", error);
-        toast.error("Failed to fetch transfer logs");
+        toast.error(t("errors.loadFailed"));
       } finally {
         setLoading(false);
       }
@@ -52,7 +55,7 @@ const TransferMoneyLog = () => {
         {/* Header */}
         <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <h2 className="text-base font-semibold text-white">
-            Transfer Money Log
+            {t("title")}
           </h2>
 
           {/* View More Button - Desktop */}
@@ -61,7 +64,7 @@ const TransferMoneyLog = () => {
               href="/dashboard/transactions"
               className="cursor-pointer flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 dark:border-gray-600 text-white dark:text-gray-100 rounded-lg hover:text-gray-300 dark:hover:text-gray-300 transition-colors w-full sm:w-auto"
             >
-              <span className="font-medium">View More</span>
+              <span className="font-medium">{t("viewMore")}</span>
             </Link>
           </div>
         </div>
@@ -74,13 +77,13 @@ const TransferMoneyLog = () => {
             <>
               {/* Table Header */}
               <div className="hidden md:grid min-w-[900px] grid-cols-7 gap-4 px-6 py-3 bg-gray-50 dark:bg-gray-900 text-sm font-semibold text-gray-600 dark:text-gray-200">
-                <span>Transfer Money to</span>
-                <span>Status</span>
-                <span>Transaction ID</span>
-                <span>Fees & Charges</span>
-                <span>Recipient Received</span>
-                <span>Current Balance</span>
-                <span>Time & Date</span>
+                <span>{t("columns.transferTo")}</span>
+                <span>{t("columns.status")}</span>
+                <span>{t("columns.transactionId")}</span>
+                <span>{t("columns.feesCharges")}</span>
+                <span>{t("columns.recipientReceived")}</span>
+                <span>{t("columns.currentBalance")}</span>
+                <span>{t("columns.timeDate")}</span>
               </div>
 
               {/* Table Body */}
@@ -136,8 +139,8 @@ const TransferMoneyLog = () => {
             </>
           ) : (
             <div className="px-6 py-12 text-center text-gray-500 dark:text-gray-200 min-h-[200px] flex flex-col items-center justify-center">
-              <p className="text-lg font-medium">No data found</p>
-              <p className="mt-1 text-sm">No transfer records available yet</p>
+              <p className="text-lg font-medium">{t("empty.title")}</p>
+              <p className="mt-1 text-sm">{t("empty.subtitle")}</p>
             </div>
           )}
         </div>
@@ -148,7 +151,7 @@ const TransferMoneyLog = () => {
             href="/dashboard/transactions"
             className="cursor-pointer flex items-center justify-center gap-2 w-full rounded-xl border border-gray-300 dark:border-gray-600 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700"
           >
-            <span className="font-medium">View More</span>
+            <span className="font-medium">{t("viewMore")}</span>
           </Link>
         </div>
       </div>

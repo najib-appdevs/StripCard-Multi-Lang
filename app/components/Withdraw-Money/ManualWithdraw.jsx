@@ -3,10 +3,12 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; 
 import { submitFinalWithdraw } from "../../utils/api";
 
 export default function ManualWithdraw() {
   const router = useRouter();
+  const t = useTranslations("manualWithdraw"); 
 
   const [withdrawData, setWithdrawData] = useState(null);
   const [formValues, setFormValues] = useState({});
@@ -29,11 +31,11 @@ export default function ManualWithdraw() {
         });
         setFormValues(initial);
       } catch (err) {
-        setPageError("Failed to load withdrawal details. Please try again.");
-        toast.error("Failed to load withdrawal details");
+        setPageError(t("errors.loadFailed"));
+        toast.error(t("errors.loadFailedToast"));
       }
     } else {
-      setPageError("No pending withdrawal found.");
+      setPageError(t("errors.noPending"));
 
       router.replace("/dashboard/withdraw-money"); // redirect back to withdraw page
     }
@@ -51,7 +53,7 @@ export default function ManualWithdraw() {
     const missing = requiredFields.find((f) => !formValues[f.name]?.trim());
 
     if (missing) {
-      return toast.error(`Please fill ${missing.label}`);
+      return toast.error(t("errors.fillField", { label: missing.label }));
     }
 
     setSubmitting(true);
@@ -69,7 +71,7 @@ export default function ManualWithdraw() {
         // Show success message exactly from server
         const successMsg =
           response.message.success[0] ||
-          "Withdrawal request sent successfully!";
+          t("success.submitted");
         toast.success(successMsg);
 
         // Clean up
@@ -81,16 +83,16 @@ export default function ManualWithdraw() {
         // Show server error message exactly as received
         const errorMsg =
           response?.message?.error?.[0] ||
-          "Failed to complete withdrawal request";
+          t("errors.submitFailed");
         toast.error(errorMsg);
         setPageError(errorMsg);
       }
     } catch (err) {
-      const fallback = "An unexpected error occurred. Please try again later.";
+      const fallback = t("errors.unexpected");
       toast.error(fallback);
       setPageError(fallback);
       // console.error("Final withdrawal submission error:", err);
-      toast.error("Failed to withdrawal submission");
+      toast.error(t("errors.submissionFailed"));
     } finally {
       setSubmitting(false);
     }
@@ -100,7 +102,7 @@ export default function ManualWithdraw() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
         <p className="text-gray-600 dark:text-gray-400 text-lg">
-          Loading withdrawal details...
+          {t("loading")}
         </p>
       </div>
     );
@@ -111,8 +113,9 @@ export default function ManualWithdraw() {
       {/* Header */}
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
-          Withdraw Via{" "}
-          {withdrawData.gateway_currency_name.split(" ").slice(0, -1).join(" ")}
+          {t("title", {
+            gateway: withdrawData.gateway_currency_name.split(" ").slice(0, -1).join(" "),
+          })}
         </h1>
 
         <div
@@ -154,7 +157,7 @@ export default function ManualWithdraw() {
             disabled:opacity-50 disabled:cursor-not-allowed
             focus:outline-none focus:ring-2 focus:ring-emerald-400 dark:focus:ring-emerald-600 focus:ring-offset-2 dark:focus:ring-offset-gray-900`}
       >
-        {submitting ? "Submitting..." : "Confirm"}
+        {submitting ? t("button.submitting") : t("button.confirm")}
       </button>
     </div>
   );

@@ -807,5 +807,202 @@
     "errors": {
       "conversionFailed": "فشل حساب التحويل"
     }
+  },
+  "transferMoney": {
+    "title": "تحويل الأموال",
+    "fields": {
+      "email": {
+        "label": "بريد المستلم الإلكتروني",
+        "placeholder": "بريد المستلم الإلكتروني"
+      },
+      "amount": {
+        "label": "أدخل المبلغ",
+        "placeholder": "أدخل المبلغ"
+      }
+    },
+    "info": {
+      "availableBalance": "الرصيد المتاح",
+      "transferFee": "رسوم التحويل"
+    },
+    "button": {
+      "confirm": "تأكيد",
+      "processing": "جارٍ المعالجة..."
+    },
+    "errors": {
+      "loadInfoFailed": "فشل في تحميل معلومات التحويل",
+      "unexpectedResponse": "استجابة غير متوقعة من الخادم",
+      "checkReceiverFailed": "فشل في التحقق من المستلم",
+      "emailRequired": "بريد المستلم الإلكتروني مطلوب",
+      "invalidAmount": "أدخل مبلغًا صالحًا",
+      "insufficientBalance": "الرصيد غير كافٍ",
+      "selectCurrency": "اختر العملة",
+      "transferFailed": "فشل التحويل. يرجى المحاولة مرة أخرى."
+    }
+  },
+
+  "transferMoneyPreview": {
+    "title": "معاينة تحويل الأموال",
+    "rows": {
+      "enterAmount": "المبلغ المدخل",
+      "transferFee": "رسوم التحويل",
+      "recipientReceived": "المبلغ المستلم",
+      "totalPayable": "إجمالي المبلغ المستحق"
+    }
+  },
+
+  "moneyTransferLimit": {
+    "title": "معلومات الحد",
+    "rows": {
+      "transactionLimit": "حد المعاملة",
+      "dailyLimit": "الحد اليومي",
+      "remainingDaily": "المتبقي اليومي",
+      "monthlyLimit": "الحد الشهري",
+      "remainingMonthly": "المتبقي الشهري"
+    },
+    "errors": {
+      "noChargeFound": "لم يتم العثور على رسوم تحويل الأموال",
+      "updateFailed": "لم ينجح التحديث. يرجى التحديث أو المحاولة مرة أخرى",
+      "loadFailed": "خطأ في تحميل حدود التحويل / المتبقي"
+    }
+  },
+
+  "transferMoneyLog": {
+    "title": "سجل تحويل الأموال",
+    "viewMore": "عرض المزيد",
+    "columns": {
+      "transferTo": "تحويل الأموال إلى",
+      "status": "الحالة",
+      "transactionId": "معرف المعاملة",
+      "feesCharges": "الرسوم والتكاليف",
+      "recipientReceived": "المبلغ المستلم",
+      "currentBalance": "الرصيد الحالي",
+      "timeDate": "الوقت والتاريخ"
+    },
+    "empty": {
+      "title": "لا توجد بيانات",
+      "subtitle": "لا توجد سجلات تحويل متاحة بعد"
+    },
+    "errors": {
+      "loadFailed": "فشل في جلب سجلات التحويل"
+    }
+  },
+  "withdrawMoney": {
+    "title": "سحب الأموال",
+    "fields": {
+      "gateway": {
+        "label": "بوابة الدفع",
+        "placeholder": "اختر البوابة"
+      },
+      "amount": {
+        "label": "أدخل المبلغ",
+        "placeholder": "أدخل المبلغ"
+      }
+    },
+    "info": {
+      "availableBalance": "الرصيد المتاح",
+      "charge": "الرسوم"
+    },
+    "button": {
+      "confirm": "تأكيد",
+      "processing": "جارٍ المعالجة..."
+    },
+    "errors": {
+      "loadDataFailed": "فشل تحميل البيانات",
+      "loadInfoFailed": "فشل تحميل معلومات السحب",
+      "invalidAmount": "أدخل مبلغًا صالحًا",
+      "selectGateway": "اختر بوابة الدفع",
+      "withdrawFailed": "فشل السحب",
+      "genericError": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
+    },
+    "success": {
+      "initiated": "تم بدء عملية السحب بنجاح"
+    }
+  },
+
+  "withdrawMoneyPreview": {
+    "title": "معاينة سحب الأموال",
+    "rows": {
+      "enterAmount": "أدخل المبلغ",
+      "exchangeRate": "سعر الصرف",
+      "feesCharges": "الرسوم والمصاريف",
+      "conversionAmount": "مبلغ التحويل",
+      "willGet": "ستحصل على",
+      "totalPayable": "إجمالي المبلغ المستحق"
+    },
+    "errors": {
+      "loadDataFailed": "فشل تحميل البيانات",
+      "loadGeneric": "حدث خطأ أثناء تحميل معلومات السحب"
+    }
+  },
+
+  "moneyWithdrawalLimit": {
+    "title": "معلومات الحد",
+    "rows": {
+      "transactionLimit": "حد المعاملة",
+      "dailyLimit": "الحد اليومي",
+      "remainingDaily": "المتبقي اليومي",
+      "monthlyLimit": "الحد الشهري",
+      "remainingMonthly": "المتبقي الشهري"
+    },
+    "errors": {
+      "unavailable": "المعلومات المطلوبة غير متاحة حاليًا"
+    }
+  },
+  "withdrawMoneyLog": {
+    "title": "سجل سحب الأموال",
+    "viewMore": "عرض المزيد",
+    "empty": "لم يتم العثور على معاملات سحب",
+    "columns": {
+      "withdrawBy": "سحب الأموال بواسطة",
+      "status": "الحالة",
+      "transactionId": "رقم المعاملة",
+      "exchangeRate": "سعر الصرف",
+      "feesCharges": "الرسوم والمصاريف",
+      "willGet": "ستحصل على",
+      "currentBalance": "الرصيد الحالي",
+      "timeDate": "الوقت والتاريخ"
+    },
+    "errors": {
+      "noData": "لا توجد بيانات معاملات متاحة",
+      "loadFailed": "فشل تحميل سجل السحب"
+    }
+  },
+  "manualWithdraw": {
+    "title": "السحب عبر {gateway}",
+    "loading": "جارٍ تحميل تفاصيل السحب...",
+    "button": {
+      "confirm": "تأكيد",
+      "submitting": "جارٍ الإرسال..."
+    },
+    "errors": {
+      "loadFailed": "فشل تحميل تفاصيل السحب. يرجى المحاولة مرة أخرى.",
+      "loadFailedToast": "فشل تحميل تفاصيل السحب",
+      "noPending": "لم يتم العثور على سحب معلق.",
+      "fillField": "يرجى تعبئة {label}",
+      "submitFailed": "فشل إتمام طلب السحب",
+      "unexpected": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى لاحقًا.",
+      "submissionFailed": "فشل إرسال طلب السحب"
+    },
+    "success": {
+      "submitted": "تم إرسال طلب السحب بنجاح!"
+    }
+  },
+  "withdrawPaymentInformation": {
+    "title": "معلومات الدفع",
+    "subtitle": "يرجى مراجعة تفاصيل طلب السحب الخاص بك أدناه.",
+    "loading": "جارٍ تحميل معلومات الدفع...",
+    "fields": {
+      "enterAmount": "أدخل المبلغ",
+      "exchangeRate": "سعر الصرف",
+      "feesCharges": "الرسوم والمصاريف",
+      "conversionAmount": "مبلغ التحويل",
+      "willGet": "ستحصل على",
+      "totalPayable": "إجمالي المبلغ المستحق"
+    },
+    "errors": {
+      "noPending": "لم يتم العثور على سحب معلق. يرجى بدء عملية سحب جديدة.",
+      "loadSummaryFailed": "فشل تحميل ملخص الدفع. يرجى المحاولة مرة أخرى.",
+      "unableToLoad": "تعذر تحميل تفاصيل الدفع"
+    }
   }
 }

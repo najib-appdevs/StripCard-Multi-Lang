@@ -808,5 +808,204 @@
     "errors": {
       "conversionFailed": "Conversion calculation failed"
     }
+  },
+
+  "transferMoney": {
+    "title": "Transfer Money",
+    "fields": {
+      "email": {
+        "label": "Receiver Email",
+        "placeholder": "Receiver Email"
+      },
+      "amount": {
+        "label": "Enter Amount",
+        "placeholder": "Enter Amount"
+      }
+    },
+    "info": {
+      "availableBalance": "Available Balance",
+      "transferFee": "Transfer Fee"
+    },
+    "button": {
+      "confirm": "Confirm",
+      "processing": "Processing..."
+    },
+    "errors": {
+      "loadInfoFailed": "Failed to load transfer information",
+      "unexpectedResponse": "Unexpected response from server",
+      "checkReceiverFailed": "Failed to check receiver",
+      "emailRequired": "Receiver email is required",
+      "invalidAmount": "Enter a valid amount",
+      "insufficientBalance": "Insufficient balance",
+      "selectCurrency": "Select currency",
+      "transferFailed": "Transfer failed. Please try again."
+    }
+  },
+
+  "transferMoneyPreview": {
+    "title": "Transfer Money Preview",
+    "rows": {
+      "enterAmount": "Enter Amount",
+      "transferFee": "Transfer Fee",
+      "recipientReceived": "Recipient Received",
+      "totalPayable": "Total Payable Amount"
+    }
+  },
+
+  "moneyTransferLimit": {
+    "title": "Limit Information",
+    "rows": {
+      "transactionLimit": "Transaction Limit",
+      "dailyLimit": "Daily Limit",
+      "remainingDaily": "Remaining Daily",
+      "monthlyLimit": "Monthly Limit",
+      "remainingMonthly": "Remaining Monthly"
+    },
+    "errors": {
+      "noChargeFound": "No transfer Money Charge found",
+      "updateFailed": "Update didn't succeed. Please refresh or try again",
+      "loadFailed": "Error loading transfer limits / remaining"
+    }
+  },
+
+  "transferMoneyLog": {
+    "title": "Transfer Money Log",
+    "viewMore": "View More",
+    "columns": {
+      "transferTo": "Transfer Money to",
+      "status": "Status",
+      "transactionId": "Transaction ID",
+      "feesCharges": "Fees & Charges",
+      "recipientReceived": "Recipient Received",
+      "currentBalance": "Current Balance",
+      "timeDate": "Time & Date"
+    },
+    "empty": {
+      "title": "No data found",
+      "subtitle": "No transfer records available yet"
+    },
+    "errors": {
+      "loadFailed": "Failed to fetch transfer logs"
+    }
+  },
+
+  "withdrawMoney": {
+    "title": "Withdraw Money",
+    "fields": {
+      "gateway": {
+        "label": "Payment Gateway",
+        "placeholder": "Select Gateway"
+      },
+      "amount": {
+        "label": "Enter Amount",
+        "placeholder": "Enter Amount"
+      }
+    },
+    "info": {
+      "availableBalance": "Available Balance",
+      "charge": "Charge"
+    },
+    "button": {
+      "confirm": "Confirm",
+      "processing": "Processing..."
+    },
+    "errors": {
+      "loadDataFailed": "Failed to load data",
+      "loadInfoFailed": "Failed to load withdrawal information",
+      "invalidAmount": "Enter a valid amount",
+      "selectGateway": "Select payment gateway",
+      "withdrawFailed": "Withdrawal failed",
+      "genericError": "Something went wrong. Please try again."
+    },
+    "success": {
+      "initiated": "Withdrawal initiated successfully"
+    }
+  },
+
+  "withdrawMoneyPreview": {
+    "title": "Withdraw Money Preview",
+    "rows": {
+      "enterAmount": "Enter Amount",
+      "exchangeRate": "Exchange Rate",
+      "feesCharges": "Fees & Charges",
+      "conversionAmount": "Conversion Amount",
+      "willGet": "Will Get",
+      "totalPayable": "Total Payable Amount"
+    },
+    "errors": {
+      "loadDataFailed": "Failed to load data",
+      "loadGeneric": "Something went wrong while loading withdrawal info"
+    }
+  },
+
+  "moneyWithdrawalLimit": {
+    "title": "Limit Information",
+    "rows": {
+      "transactionLimit": "Transaction Limit",
+      "dailyLimit": "Daily Limit",
+      "remainingDaily": "Remaining Daily",
+      "monthlyLimit": "Monthly Limit",
+      "remainingMonthly": "Remaining Monthly"
+    },
+    "errors": {
+      "unavailable": "The requested information is currently unavailable"
+    }
+  },
+  "withdrawMoneyLog": {
+    "title": "Withdraw Money Log",
+    "viewMore": "View More",
+    "empty": "No withdrawal transactions found",
+    "columns": {
+      "withdrawBy": "Withdraw Money by",
+      "status": "Status",
+      "transactionId": "Transaction ID",
+      "exchangeRate": "Exchange Rate",
+      "feesCharges": "Fees & Charges",
+      "willGet": "Will Get",
+      "currentBalance": "Current Balance",
+      "timeDate": "Time & Date"
+    },
+    "errors": {
+      "noData": "No transaction data available",
+      "loadFailed": "Failed to load withdrawal history"
+    }
+  },
+  "manualWithdraw": {
+    "title": "Withdraw Via {gateway}",
+    "loading": "Loading withdrawal details...",
+    "button": {
+      "confirm": "Confirm",
+      "submitting": "Submitting..."
+    },
+    "errors": {
+      "loadFailed": "Failed to load withdrawal details. Please try again.",
+      "loadFailedToast": "Failed to load withdrawal details",
+      "noPending": "No pending withdrawal found.",
+      "fillField": "Please fill {label}",
+      "submitFailed": "Failed to complete withdrawal request",
+      "unexpected": "An unexpected error occurred. Please try again later.",
+      "submissionFailed": "Failed to withdrawal submission"
+    },
+    "success": {
+      "submitted": "Withdrawal request sent successfully!"
+    }
+  },
+  "withdrawPaymentInformation": {
+    "title": "Payment Information",
+    "subtitle": "Please review the details of your withdrawal request below.",
+    "loading": "Loading payment information...",
+    "fields": {
+      "enterAmount": "Enter Amount",
+      "exchangeRate": "Exchange Rate",
+      "feesCharges": "Fees & Charges",
+      "conversionAmount": "Conversion Amount",
+      "willGet": "Will Get",
+      "totalPayable": "Total Payable Amount"
+    },
+    "errors": {
+      "noPending": "No pending withdrawal found. Please start a new withdrawal.",
+      "loadSummaryFailed": "Failed to load payment summary. Please try again.",
+      "unableToLoad": "Unable to load payment details"
+    }
   }
 }

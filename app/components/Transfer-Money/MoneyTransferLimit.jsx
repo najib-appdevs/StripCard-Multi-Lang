@@ -2,9 +2,12 @@
 
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; 
 import { getRemainingLimits, getTransferMoneyInfo } from "../../utils/api";
 
 const MoneyTransferLimit = () => {
+  const t = useTranslations("moneyTransferLimit"); 
+
   const [limitInfo, setLimitInfo] = useState(null);
   const [currency, setCurrency] = useState("");
   const [remainingDaily, setRemainingDaily] = useState(null);
@@ -20,7 +23,7 @@ const MoneyTransferLimit = () => {
         const response = await getTransferMoneyInfo();
 
         if (!response?.data?.transferMoneyCharge) {
-          toast.error("No transfer Money Charge found");
+          toast.error(t("errors.noChargeFound"));
           return;
         }
 
@@ -45,22 +48,22 @@ const MoneyTransferLimit = () => {
           setRemainingDaily(remainingRes.data.remainingDaily ?? null);
           setRemainingMonthly(remainingRes.data.remainingMonthly ?? null);
         } else {
-          toast.error("Update didn’t succeed. Please refresh or try again");
+          toast.error(t("errors.updateFailed"));
         }
       } catch (err) {
         // console.error("Error loading transfer limits / remaining:", err);
-        toast.error("Error loading transfer limits / remaining");
+        toast.error(t("errors.loadFailed"));
       } finally {
         setLoading(false);
       }
     };
 
     fetchAll();
-  }, []); 
+  }, []);
 
   const data = [
     {
-      label: "Transaction Limit",
+      label: t("rows.transactionLimit"),
       value: limitInfo
         ? `${Number(limitInfo.min_limit || 0).toFixed(4)} ${currency} – ${Number(
             limitInfo.max_limit || 0,
@@ -68,13 +71,13 @@ const MoneyTransferLimit = () => {
         : "--",
     },
     {
-      label: "Daily Limit",
+      label: t("rows.dailyLimit"),
       value: limitInfo
         ? `${Number(limitInfo.daily_limit || 0).toFixed(4)} ${currency}`
         : "--",
     },
     {
-      label: "Remaining Daily",
+      label: t("rows.remainingDaily"),
       value: loading
         ? "--"
         : remainingDaily !== null
@@ -82,13 +85,13 @@ const MoneyTransferLimit = () => {
           : "--",
     },
     {
-      label: "Monthly Limit",
+      label: t("rows.monthlyLimit"),
       value: limitInfo
         ? `${Number(limitInfo.monthly_limit || 0).toFixed(4)} ${currency}`
         : "--",
     },
     {
-      label: "Remaining Monthly",
+      label: t("rows.remainingMonthly"),
       value: loading
         ? "--"
         : remainingMonthly !== null
@@ -102,7 +105,7 @@ const MoneyTransferLimit = () => {
       {/* Header */}
       <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4">
         <h2 className="text-base text-center font-semibold text-white">
-          Limit Information
+          {t("title")}
         </h2>
       </div>
 

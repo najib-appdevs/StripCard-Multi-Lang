@@ -806,5 +806,202 @@
     "errors": {
       "conversionFailed": "रूपांतरण गणना विफल"
     }
+  },
+  "transferMoney": {
+    "title": "पैसे ट्रांसफर करें",
+    "fields": {
+      "email": {
+        "label": "प्राप्तकर्ता का ईमेल",
+        "placeholder": "प्राप्तकर्ता का ईमेल"
+      },
+      "amount": {
+        "label": "राशि दर्ज करें",
+        "placeholder": "राशि दर्ज करें"
+      }
+    },
+    "info": {
+      "availableBalance": "उपलब्ध बैलेंस",
+      "transferFee": "ट्रांसफर शुल्क"
+    },
+    "button": {
+      "confirm": "पुष्टि करें",
+      "processing": "प्रोसेस हो रहा है..."
+    },
+    "errors": {
+      "loadInfoFailed": "ट्रांसफर जानकारी लोड करने में विफल",
+      "unexpectedResponse": "सर्वर से अप्रत्याशित प्रतिक्रिया",
+      "checkReceiverFailed": "प्राप्तकर्ता की जांच करने में विफल",
+      "emailRequired": "प्राप्तकर्ता का ईमेल आवश्यक है",
+      "invalidAmount": "कृपया वैध राशि दर्ज करें",
+      "insufficientBalance": "पर्याप्त बैलेंस नहीं है",
+      "selectCurrency": "मुद्रा चुनें",
+      "transferFailed": "ट्रांसफर विफल हुआ। कृपया पुनः प्रयास करें।"
+    }
+  },
+
+  "transferMoneyPreview": {
+    "title": "पैसे ट्रांसफर पूर्वावलोकन",
+    "rows": {
+      "enterAmount": "दर्ज राशि",
+      "transferFee": "ट्रांसफर शुल्क",
+      "recipientReceived": "प्राप्तकर्ता को प्राप्त",
+      "totalPayable": "कुल देय राशि"
+    }
+  },
+
+  "moneyTransferLimit": {
+    "title": "सीमा जानकारी",
+    "rows": {
+      "transactionLimit": "लेनदेन सीमा",
+      "dailyLimit": "दैनिक सीमा",
+      "remainingDaily": "शेष दैनिक",
+      "monthlyLimit": "मासिक सीमा",
+      "remainingMonthly": "शेष मासिक"
+    },
+    "errors": {
+      "noChargeFound": "कोई ट्रांसफर शुल्क नहीं मिला",
+      "updateFailed": "अपडेट सफल नहीं हुआ। कृपया रिफ्रेश करें या फिर से प्रयास करें",
+      "loadFailed": "ट्रांसफर सीमा / शेष लोड करने में त्रुटि"
+    }
+  },
+
+  "transferMoneyLog": {
+    "title": "पैसे ट्रांसफर लॉग",
+    "viewMore": "और देखें",
+    "columns": {
+      "transferTo": "को पैसे ट्रांसफर",
+      "status": "स्थिति",
+      "transactionId": "लेनदेन आईडी",
+      "feesCharges": "शुल्क और चार्ज",
+      "recipientReceived": "प्राप्तकर्ता को प्राप्त",
+      "currentBalance": "वर्तमान बैलेंस",
+      "timeDate": "समय और तारीख"
+    },
+    "empty": {
+      "title": "कोई डेटा नहीं मिला",
+      "subtitle": "अभी तक कोई ट्रांसफर रिकॉर्ड उपलब्ध नहीं है"
+    },
+    "errors": {
+      "loadFailed": "ट्रांसफर लॉग प्राप्त करने में विफल"
+    }
+  },
+  "withdrawMoney": {
+    "title": "पैसे निकालें",
+    "fields": {
+      "gateway": {
+        "label": "भुगतान गेटवे",
+        "placeholder": "गेटवे चुनें"
+      },
+      "amount": {
+        "label": "राशि दर्ज करें",
+        "placeholder": "राशि दर्ज करें"
+      }
+    },
+    "info": {
+      "availableBalance": "उपलब्ध शेष राशि",
+      "charge": "शुल्क"
+    },
+    "button": {
+      "confirm": "पुष्टि करें",
+      "processing": "प्रक्रिया जारी है..."
+    },
+    "errors": {
+      "loadDataFailed": "डेटा लोड करने में विफल",
+      "loadInfoFailed": "निकासी जानकारी लोड करने में विफल",
+      "invalidAmount": "एक वैध राशि दर्ज करें",
+      "selectGateway": "भुगतान गेटवे चुनें",
+      "withdrawFailed": "निकासी विफल हुई",
+      "genericError": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।"
+    },
+    "success": {
+      "initiated": "निकासी सफलतापूर्वक शुरू की गई"
+    }
+  },
+
+  "withdrawMoneyPreview": {
+    "title": "निकासी पूर्वावलोकन",
+    "rows": {
+      "enterAmount": "दर्ज की गई राशि",
+      "exchangeRate": "विनिमय दर",
+      "feesCharges": "शुल्क और प्रभार",
+      "conversionAmount": "रूपांतरण राशि",
+      "willGet": "आपको मिलेगा",
+      "totalPayable": "कुल देय राशि"
+    },
+    "errors": {
+      "loadDataFailed": "डेटा लोड करने में विफल",
+      "loadGeneric": "निकासी जानकारी लोड करते समय कुछ गलत हो गया"
+    }
+  },
+
+  "moneyWithdrawalLimit": {
+    "title": "सीमा जानकारी",
+    "rows": {
+      "transactionLimit": "लेनदेन सीमा",
+      "dailyLimit": "दैनिक सीमा",
+      "remainingDaily": "दैनिक शेष",
+      "monthlyLimit": "मासिक सीमा",
+      "remainingMonthly": "मासिक शेष"
+    },
+    "errors": {
+      "unavailable": "अनुरोधित जानकारी अभी उपलब्ध नहीं है"
+    }
+  },
+  "withdrawMoneyLog": {
+    "title": "निकासी लॉग",
+    "viewMore": "और देखें",
+    "empty": "कोई निकासी लेनदेन नहीं मिला",
+    "columns": {
+      "withdrawBy": "द्वारा निकासी",
+      "status": "स्थिति",
+      "transactionId": "लेनदेन आईडी",
+      "exchangeRate": "विनिमय दर",
+      "feesCharges": "शुल्क और प्रभार",
+      "willGet": "आपको मिलेगा",
+      "currentBalance": "वर्तमान शेष",
+      "timeDate": "समय और तारीख"
+    },
+    "errors": {
+      "noData": "कोई लेनदेन डेटा उपलब्ध नहीं है",
+      "loadFailed": "निकासी इतिहास लोड करने में विफल"
+    }
+  },
+  "manualWithdraw": {
+    "title": "{gateway} के माध्यम से निकासी",
+    "loading": "निकासी विवरण लोड हो रहा है...",
+    "button": {
+      "confirm": "पुष्टि करें",
+      "submitting": "सबमिट हो रहा है..."
+    },
+    "errors": {
+      "loadFailed": "निकासी विवरण लोड करने में विफल। कृपया पुनः प्रयास करें।",
+      "loadFailedToast": "निकासी विवरण लोड करने में विफल",
+      "noPending": "कोई लंबित निकासी नहीं मिली।",
+      "fillField": "कृपया {label} भरें",
+      "submitFailed": "निकासी अनुरोध पूरा करने में विफल",
+      "unexpected": "एक अप्रत्याशित त्रुटि हुई। कृपया बाद में पुनः प्रयास करें।",
+      "submissionFailed": "निकासी सबमिशन विफल हुई"
+    },
+    "success": {
+      "submitted": "निकासी अनुरोध सफलतापूर्वक भेजा गया!"
+    }
+  },
+  "withdrawPaymentInformation": {
+    "title": "भुगतान जानकारी",
+    "subtitle": "कृपया नीचे अपने निकासी अनुरोध का विवरण देखें।",
+    "loading": "भुगतान जानकारी लोड हो रही है...",
+    "fields": {
+      "enterAmount": "दर्ज की गई राशि",
+      "exchangeRate": "विनिमय दर",
+      "feesCharges": "शुल्क और प्रभार",
+      "conversionAmount": "रूपांतरण राशि",
+      "willGet": "आपको मिलेगा",
+      "totalPayable": "कुल देय राशि"
+    },
+    "errors": {
+      "noPending": "कोई लंबित निकासी नहीं मिली। कृपया नई निकासी शुरू करें।",
+      "loadSummaryFailed": "भुगतान सारांश लोड करने में विफल। कृपया पुनः प्रयास करें।",
+      "unableToLoad": "भुगतान विवरण लोड करने में असमर्थ"
+    }
   }
 }

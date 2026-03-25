@@ -1,11 +1,15 @@
 "use client";
 
+import { useTranslations } from "next-intl"; 
+
 const TransferMoneyPreview = ({
   amount,
   fixedCharge,
   percentCharge,
   currency,
 }) => {
+  const t = useTranslations("transferMoneyPreview"); 
+
   // =======================
   // SAFE NUMBERS
   // =======================
@@ -41,19 +45,19 @@ const TransferMoneyPreview = ({
   // =======================
   const rows = [
     {
-      label: "Enter Amount",
+      label: t("rows.enterAmount"),
       value: format(safeAmount),
     },
     {
-      label: "Transfer Fee",
+      label: t("rows.transferFee"),
       value: format(fee),
     },
     {
-      label: "Recipient Received",
+      label: t("rows.recipientReceived"),
       value: format(safeAmount),
     },
     {
-      label: "Total Payable Amount",
+      label: t("rows.totalPayable"),
       value: format(payable),
     },
   ];
@@ -63,7 +67,7 @@ const TransferMoneyPreview = ({
       {/* Header */}
       <div className="bg-gray-900 dark:bg-gray-950 px-6 py-4 rounded-t-2xl">
         <h2 className="text-base text-center font-semibold text-white">
-          Transfer Money Preview
+          {t("title")}
         </h2>
       </div>
 

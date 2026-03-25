@@ -811,5 +811,204 @@
     "errors": {
       "conversionFailed": "Error al calcular la conversión"
     }
+  },
+
+  "transferMoney": {
+    "title": "Transferir Dinero",
+    "fields": {
+      "email": {
+        "label": "Correo del Destinatario",
+        "placeholder": "Correo del Destinatario"
+      },
+      "amount": {
+        "label": "Ingresar Monto",
+        "placeholder": "Ingresar Monto"
+      }
+    },
+    "info": {
+      "availableBalance": "Saldo Disponible",
+      "transferFee": "Tarifa de Transferencia"
+    },
+    "button": {
+      "confirm": "Confirmar",
+      "processing": "Procesando..."
+    },
+    "errors": {
+      "loadInfoFailed": "Error al cargar la información de transferencia",
+      "unexpectedResponse": "Respuesta inesperada del servidor",
+      "checkReceiverFailed": "Error al verificar el destinatario",
+      "emailRequired": "El correo del destinatario es obligatorio",
+      "invalidAmount": "Ingresa un monto válido",
+      "insufficientBalance": "Saldo insuficiente",
+      "selectCurrency": "Selecciona una moneda",
+      "transferFailed": "Error en la transferencia. Por favor, inténtalo de nuevo."
+    }
+  },
+
+  "transferMoneyPreview": {
+    "title": "Vista Previa de Transferencia",
+    "rows": {
+      "enterAmount": "Monto Ingresado",
+      "transferFee": "Tarifa de Transferencia",
+      "recipientReceived": "Monto que Recibirá el Destinatario",
+      "totalPayable": "Total a Pagar"
+    }
+  },
+
+  "moneyTransferLimit": {
+    "title": "Información de Límites",
+    "rows": {
+      "transactionLimit": "Límite por Transacción",
+      "dailyLimit": "Límite Diario",
+      "remainingDaily": "Restante Diario",
+      "monthlyLimit": "Límite Mensual",
+      "remainingMonthly": "Restante Mensual"
+    },
+    "errors": {
+      "noChargeFound": "No se encontró cargo de transferencia",
+      "updateFailed": "La actualización falló. Por favor recarga o inténtalo de nuevo",
+      "loadFailed": "Error al cargar los límites de transferencia"
+    }
+  },
+
+  "transferMoneyLog": {
+    "title": "Historial de Transferencias",
+    "viewMore": "Ver Más",
+    "columns": {
+      "transferTo": "Transferencia a",
+      "status": "Estado",
+      "transactionId": "ID de Transacción",
+      "feesCharges": "Tarifas y Cargos",
+      "recipientReceived": "Monto Recibido",
+      "currentBalance": "Saldo Actual",
+      "timeDate": "Fecha y Hora"
+    },
+    "empty": {
+      "title": "No se encontraron datos",
+      "subtitle": "Aún no hay registros de transferencias disponibles"
+    },
+    "errors": {
+      "loadFailed": "Error al cargar el historial de transferencias"
+    }
+  },
+
+  "withdrawMoney": {
+    "title": "Retirar Dinero",
+    "fields": {
+      "gateway": {
+        "label": "Pasarela de Pago",
+        "placeholder": "Seleccionar Pasarela"
+      },
+      "amount": {
+        "label": "Ingresar Monto",
+        "placeholder": "Ingresar Monto"
+      }
+    },
+    "info": {
+      "availableBalance": "Saldo Disponible",
+      "charge": "Cargo"
+    },
+    "button": {
+      "confirm": "Confirmar",
+      "processing": "Procesando..."
+    },
+    "errors": {
+      "loadDataFailed": "Error al cargar los datos",
+      "loadInfoFailed": "Error al cargar la información de retiro",
+      "invalidAmount": "Ingresa un monto válido",
+      "selectGateway": "Selecciona una pasarela de pago",
+      "withdrawFailed": "El retiro falló",
+      "genericError": "Algo salió mal. Por favor, inténtalo de nuevo."
+    },
+    "success": {
+      "initiated": "Retiro iniciado correctamente"
+    }
+  },
+
+  "withdrawMoneyPreview": {
+    "title": "Vista Previa de Retiro",
+    "rows": {
+      "enterAmount": "Monto Ingresado",
+      "exchangeRate": "Tipo de Cambio",
+      "feesCharges": "Tarifas y Cargos",
+      "conversionAmount": "Monto Convertido",
+      "willGet": "Recibirás",
+      "totalPayable": "Total a Pagar"
+    },
+    "errors": {
+      "loadDataFailed": "Error al cargar los datos",
+      "loadGeneric": "Algo salió mal al cargar la información de retiro"
+    }
+  },
+
+  "moneyWithdrawalLimit": {
+    "title": "Información de Límites",
+    "rows": {
+      "transactionLimit": "Límite por Transacción",
+      "dailyLimit": "Límite Diario",
+      "remainingDaily": "Restante Diario",
+      "monthlyLimit": "Límite Mensual",
+      "remainingMonthly": "Restante Mensual"
+    },
+    "errors": {
+      "unavailable": "La información solicitada no está disponible actualmente"
+    }
+  },
+  "withdrawMoneyLog": {
+    "title": "Historial de Retiros",
+    "viewMore": "Ver Más",
+    "empty": "No se encontraron transacciones de retiro",
+    "columns": {
+      "withdrawBy": "Retiro vía",
+      "status": "Estado",
+      "transactionId": "ID de Transacción",
+      "exchangeRate": "Tipo de Cambio",
+      "feesCharges": "Tarifas y Cargos",
+      "willGet": "Recibirás",
+      "currentBalance": "Saldo Actual",
+      "timeDate": "Fecha y Hora"
+    },
+    "errors": {
+      "noData": "No hay datos de transacciones disponibles",
+      "loadFailed": "Error al cargar el historial de retiros"
+    }
+  },
+  "manualWithdraw": {
+    "title": "Retiro vía {gateway}",
+    "loading": "Cargando detalles del retiro...",
+    "button": {
+      "confirm": "Confirmar",
+      "submitting": "Enviando..."
+    },
+    "errors": {
+      "loadFailed": "Error al cargar los detalles del retiro. Por favor, inténtalo de nuevo.",
+      "loadFailedToast": "Error al cargar los detalles del retiro",
+      "noPending": "No se encontró ningún retiro pendiente.",
+      "fillField": "Por favor completa {label}",
+      "submitFailed": "Error al completar la solicitud de retiro",
+      "unexpected": "Ocurrió un error inesperado. Por favor, inténtalo más tarde.",
+      "submissionFailed": "Error al enviar el retiro"
+    },
+    "success": {
+      "submitted": "¡Solicitud de retiro enviada correctamente!"
+    }
+  },
+  "withdrawPaymentInformation": {
+    "title": "Información del Pago",
+    "subtitle": "Por favor revisa los detalles de tu solicitud de retiro a continuación.",
+    "loading": "Cargando información del pago...",
+    "fields": {
+      "enterAmount": "Monto Ingresado",
+      "exchangeRate": "Tipo de Cambio",
+      "feesCharges": "Tarifas y Cargos",
+      "conversionAmount": "Monto Convertido",
+      "willGet": "Recibirás",
+      "totalPayable": "Total a Pagar"
+    },
+    "errors": {
+      "noPending": "No se encontró ningún retiro pendiente. Por favor inicia un nuevo retiro.",
+      "loadSummaryFailed": "Error al cargar el resumen del pago. Por favor, inténtalo de nuevo.",
+      "unableToLoad": "No se pueden cargar los detalles del pago"
+    }
   }
 }

@@ -1,9 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; // ← adjust to your i18n import if different
 import { getRemainingLimits, getWithdrawInfo } from "../../utils/api";
 
 const MoneyWithdrawalLimit = () => {
+  const t = useTranslations("moneyWithdrawalLimit"); // ← namespace: "moneyWithdrawalLimit"
+
   const [limitInfo, setLimitInfo] = useState(null);
   const [currency, setCurrency] = useState("");
   const [remainingDaily, setRemainingDaily] = useState(null);
@@ -44,12 +47,12 @@ const MoneyWithdrawalLimit = () => {
           setRemainingMonthly(remainingRes.data.remainingMonthly ?? null);
         } else {
           toast.error(
-            "The requested information is currently unavailable",
+            t("errors.unavailable"),
             remainingRes,
           );
         }
       } catch (err) {
-        toast.error("The requested information is currently unavailable");
+        toast.error(t("errors.unavailable"));
       } finally {
         setLoading(false);
       }
@@ -60,19 +63,19 @@ const MoneyWithdrawalLimit = () => {
 
   const data = [
     {
-      label: "Transaction Limit",
+      label: t("rows.transactionLimit"),
       value: limitInfo
         ? `${Number(limitInfo.min_limit || 0).toFixed(4)} ${currency} – ${Number(limitInfo.max_limit || 0).toFixed(4)} ${currency}`
         : "--",
     },
     {
-      label: "Daily Limit",
+      label: t("rows.dailyLimit"),
       value: limitInfo
         ? `${Number(limitInfo.daily_limit || 0).toFixed(4)} ${currency}`
         : "--",
     },
     {
-      label: "Remaining Daily",
+      label: t("rows.remainingDaily"),
       value: loading
         ? "--"
         : remainingDaily !== null
@@ -80,13 +83,13 @@ const MoneyWithdrawalLimit = () => {
           : "--",
     },
     {
-      label: "Monthly Limit",
+      label: t("rows.monthlyLimit"),
       value: limitInfo
         ? `${Number(limitInfo.monthly_limit || 0).toFixed(4)} ${currency}`
         : "--",
     },
     {
-      label: "Remaining Monthly",
+      label: t("rows.remainingMonthly"),
       value: loading
         ? "--"
         : remainingMonthly !== null
@@ -100,7 +103,7 @@ const MoneyWithdrawalLimit = () => {
       {/* Header */}
       <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4">
         <h2 className="text-base text-center font-semibold text-white">
-          Limit Information
+          {t("title")}
         </h2>
       </div>
 

@@ -4,6 +4,7 @@ import { Listbox } from "@headlessui/react";
 import { ChevronDown } from "lucide-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; 
 import {
   checkTransferReceiverExist,
   getTransferMoneyInfo,
@@ -15,6 +16,8 @@ export default function TransferMoney({
   onChargesChange,
   onCurrencyChange,
 }) {
+  const t = useTranslations("transferMoney");
+
   // ============================================================================
   // STATE MANAGEMENT
   // ============================================================================
@@ -86,7 +89,7 @@ export default function TransferMoney({
         }
       } catch (error) {
         // console.error("Failed to load transfer info:", error);
-        toast.error("Failed to load transfer information");
+        toast.error(t("errors.loadInfoFailed"));
       } finally {
         setInfoLoading(false);
       }
@@ -119,11 +122,11 @@ export default function TransferMoney({
           setEmailMessage(response.message.error[0]);
         } else {
           setEmailStatus("error");
-          setEmailMessage("Unexpected response from server");
+          setEmailMessage(t("errors.unexpectedResponse"));
         }
       } catch (error) {
         setEmailStatus("error");
-        setEmailMessage("Failed to check receiver");
+        setEmailMessage(t("errors.checkReceiverFailed"));
       } finally {
         setCheckingEmail(false);
       }
@@ -155,19 +158,19 @@ export default function TransferMoney({
   const handleSubmit = async () => {
     // Validation
     if (!receiverEmail) {
-      return toast.error("Receiver email is required");
+      return toast.error(t("errors.emailRequired"));
     }
 
     if (!amount || Number(amount) <= 0) {
-      return toast.error("Enter a valid amount");
+      return toast.error(t("errors.invalidAmount"));
     }
 
     if (Number(amount) > Number(availableBalance)) {
-      return toast.error("Insufficient balance");
+      return toast.error(t("errors.insufficientBalance"));
     }
 
     if (!currency) {
-      return toast.error("Select currency");
+      return toast.error(t("errors.selectCurrency"));
     }
     if (emailStatus !== "success") return;
 
@@ -198,7 +201,7 @@ export default function TransferMoney({
         response.message.error.forEach((msg) => toast.error(msg));
       }
     } catch (error) {
-      toast.error("Transfer failed. Please try again.");
+      toast.error(t("errors.transferFailed"));
     } finally {
       setLoading(false);
     }
@@ -212,7 +215,7 @@ export default function TransferMoney({
       {/* Header */}
       <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4">
         <h2 className="text-base text-center font-semibold text-white">
-          Transfer Money
+          {t("title")}
         </h2>
       </div>
 
@@ -221,14 +224,14 @@ export default function TransferMoney({
         {/* Receiver Email */}
         <div>
           <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
-            Receiver Email <span className="text-red-500">*</span>
+            {t("fields.email.label")} <span className="text-red-500">*</span>
           </label>
 
           <input
             type="email"
             value={receiverEmail}
             onChange={(e) => setReceiverEmail(e.target.value)}
-            placeholder="Receiver Email"
+            placeholder={t("fields.email.placeholder")}
             required
             className="w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 focus:border-emerald-500 dark:focus:border-emerald-500 focus:bg-white dark:focus:bg-gray-800 focus:outline-none focus:ring-emerald-200 dark:focus:ring-emerald-500/30"
           />
@@ -249,7 +252,7 @@ export default function TransferMoney({
         {/* Amount & Currency */}
         <div>
           <label className="mb-2 block text-sm font-medium text-gray-600 dark:text-gray-300">
-            Enter Amount <span className="text-red-500">*</span>
+            {t("fields.amount.label")} <span className="text-red-500">*</span>
           </label>
 
           <div className="relative rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus-within:border-emerald-500 dark:focus-within:border-emerald-500 focus-within:ring-emerald-200 dark:focus-within:ring-emerald-500/30">
@@ -258,7 +261,7 @@ export default function TransferMoney({
                 type="number"
                 value={amount}
                 onChange={handleAmountChange}
-                placeholder="Enter Amount"
+                placeholder={t("fields.amount.placeholder")}
                 min="0"
                 step="0.01"
                 required
@@ -306,13 +309,13 @@ export default function TransferMoney({
         {/* Info Box */}
         <div className="rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3 text-sm space-y-2">
           <p className="flex justify-between text-gray-600 dark:text-gray-300">
-            <span>Available Balance</span>
+            <span>{t("info.availableBalance")}</span>
             <span className="font-medium text-gray-800 dark:text-gray-200">
               {infoLoading ? "--" : `${availableBalance} ${balanceCurrency}`}
             </span>
           </p>
           <p className="flex justify-between text-gray-600 dark:text-gray-300">
-            <span>Transfer Fee</span>
+            <span>{t("info.transferFee")}</span>
             <span className="font-medium text-gray-800 dark:text-gray-200">
               {infoLoading
                 ? "--"
@@ -335,7 +338,7 @@ export default function TransferMoney({
           // disabled={loading || emailStatus !== "success" || infoLoading}
           className="cursor-pointer w-full rounded-xl px-4 py-4 text-base font-bold text-white transition bg-[linear-gradient(76.84deg,#0EBE98_-2.66%,#50C631_105.87%)] dark:bg-[linear-gradient(76.84deg,#0D9A7E_-2.66%,#3E9F28_105.87%)] hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-emerald-400 dark:focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
         >
-          {loading ? "Processing..." : "Confirm"}
+          {loading ? t("button.processing") : t("button.confirm")}
         </button>
       </div>
     </div>

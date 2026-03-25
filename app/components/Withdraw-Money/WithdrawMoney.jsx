@@ -2,6 +2,7 @@
 
 import { Listbox } from "@headlessui/react";
 import { ChevronDown } from "lucide-react";
+import { useTranslations } from "next-intl"; 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -17,6 +18,7 @@ export default function WithdrawMoney({
   // HOOKS & ROUTER
   // ============================================================================
   const router = useRouter();
+  const t = useTranslations("withdrawMoney"); 
 
   // ============================================================================
   // STATE MANAGEMENT
@@ -65,11 +67,12 @@ export default function WithdrawMoney({
             setSelectedCurrencyCode(first.currency_code);
           }
         } else if (response?.message?.error) {
-          const errorMsg = response.message.error[0] || "Failed to load data";
+          const errorMsg =
+            response.message.error[0] || t("errors.loadDataFailed");
           toast.error(errorMsg);
         }
       } catch (err) {
-        toast.error("Failed to load withdrawal information");
+        toast.error(t("errors.loadInfoFailed"));
         // console.error(err);
       } finally {
         setLoading(false);
@@ -94,11 +97,11 @@ export default function WithdrawMoney({
   const handleConfirm = async () => {
     // Validation
     if (!amount || Number(amount) <= 0) {
-      return toast.error("Enter a valid amount");
+      return toast.error(t("errors.invalidAmount"));
     }
 
     if (!selectedGatewayCurrency) {
-      return toast.error("Select payment gateway");
+      return toast.error(t("errors.selectGateway"));
     }
 
     setSubmitLoading(true);
@@ -113,7 +116,7 @@ export default function WithdrawMoney({
 
       if (response?.message?.success) {
         const successMsg =
-          response.message.success[0] || "Withdrawal initiated successfully";
+          response.message.success[0] || t("success.initiated");
         toast.success(successMsg);
 
         // Store data for next step
@@ -134,16 +137,17 @@ export default function WithdrawMoney({
             method: response.data.method,
             details: response.data.details || "",
             currency_alias: selectedGatewayCurrency.alias,
-          })
+          }),
         );
 
         router.push("/dashboard/ManualWithdraw");
       } else if (response?.message?.error) {
-        const errorMsg = response.message.error[0] || "Withdrawal failed";
+        const errorMsg =
+          response.message.error[0] || t("errors.withdrawFailed");
         toast.error(errorMsg);
       }
     } catch (err) {
-      toast.error("Something went wrong. Please try again.");
+      toast.error(t("errors.genericError"));
       // console.error("Withdraw insert error:", err);
     } finally {
       setSubmitLoading(false);
@@ -158,7 +162,7 @@ export default function WithdrawMoney({
       {/* Header */}
       <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4">
         <h2 className="text-base text-center font-semibold text-white">
-          Withdraw Money
+          {t("title")}
         </h2>
       </div>
 
@@ -167,7 +171,7 @@ export default function WithdrawMoney({
         {/* Payment Gateway */}
         <div>
           <label className="mb-2 block text-sm font-medium text-gray-600 dark:text-gray-400">
-            Payment Gateway <span className="text-red-500">*</span>
+            {t("fields.gateway.label")} <span className="text-red-500">*</span>
           </label>
 
           <Listbox
@@ -178,7 +182,8 @@ export default function WithdrawMoney({
               <div className="relative">
                 <Listbox.Button className="relative w-full rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 px-4 py-2.5 text-left text-sm text-gray-900 dark:text-gray-100 hover:bg-white dark:hover:bg-gray-700 focus:border-emerald-500 focus:outline-none focus:ring-emerald-200 dark:focus:ring-emerald-500/30 cursor-pointer">
                   <span className="block truncate">
-                    {selectedGatewayCurrency?.name || "Select Gateway"}
+                    {selectedGatewayCurrency?.name ||
+                      t("fields.gateway.placeholder")}
                   </span>
                   <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center">
                     <ChevronDown
@@ -199,8 +204,8 @@ export default function WithdrawMoney({
                           active
                             ? "bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400"
                             : selected
-                            ? "bg-gray-100 dark:bg-gray-700 font-medium text-gray-900 dark:text-gray-100"
-                            : "text-gray-700 dark:text-gray-300"
+                              ? "bg-gray-100 dark:bg-gray-700 font-medium text-gray-900 dark:text-gray-100"
+                              : "text-gray-700 dark:text-gray-300"
                         }`
                       }
                     >
@@ -216,7 +221,7 @@ export default function WithdrawMoney({
         {/* Amount */}
         <div>
           <label className="mb-2 block text-sm font-medium text-gray-600 dark:text-gray-400">
-            Enter Amount <span className="text-red-500">*</span>
+            {t("fields.amount.label")} <span className="text-red-500">*</span>
           </label>
 
           <div className="relative rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 focus-within:border-emerald-500 focus-within:ring-emerald-200 dark:focus-within:ring-emerald-500/30">
@@ -225,7 +230,7 @@ export default function WithdrawMoney({
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                placeholder="Enter Amount"
+                placeholder={t("fields.amount.placeholder")}
                 className="flex-1 bg-transparent px-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 focus:outline-none no-spinner"
               />
 
@@ -275,14 +280,16 @@ export default function WithdrawMoney({
         {/* Info Box */}
         <div className="rounded-xl bg-gray-50 dark:bg-gray-800/60 px-4 py-3 text-sm space-y-2">
           <p className="flex justify-between text-gray-600 dark:text-gray-400">
-            <span>Available Balance</span>
+            <span>{t("info.availableBalance")}</span>
             <span className="font-medium text-gray-800 dark:text-gray-200">
               {userBalance} {baseCurrency}
             </span>
           </p>
           <p className="flex justify-between text-gray-600 dark:text-gray-400">
-            <span>Charge</span>
-            <span className="font-medium text-gray-800 dark:text-gray-200">{chargeText}</span>
+            <span>{t("info.charge")}</span>
+            <span className="font-medium text-gray-800 dark:text-gray-200">
+              {chargeText}
+            </span>
           </p>
         </div>
 
@@ -305,7 +312,7 @@ export default function WithdrawMoney({
               disabled:opacity-50 disabled:cursor-not-allowed
               focus:outline-none focus:ring-2 focus:ring-emerald-400 dark:focus:ring-emerald-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900`}
           >
-            {submitLoading ? "Processing..." : "Confirm"}
+            {submitLoading ? t("button.processing") : t("button.confirm")}
           </button>
         </div>
       </div>

@@ -3,9 +3,12 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; 
 
 export default function PaymentInformation() {
   const router = useRouter();
+  const t = useTranslations("withdrawPaymentInformation"); 
+
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -46,9 +49,7 @@ export default function PaymentInformation() {
     const savedData = sessionStorage.getItem("pendingWithdrawData");
 
     if (!savedData) {
-      toast.error(
-        "No pending withdrawal found. Please start a new withdrawal.",
-      );
+      toast.error(t("errors.noPending"));
       router.push("/dashboard/withdraw-money");
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setLoading(false);
@@ -59,7 +60,7 @@ export default function PaymentInformation() {
       const parsed = JSON.parse(savedData);
 
       if (!parsed?.request_amount) {
-        toast.error("Failed to load payment summary. Please try again.");
+        toast.error(t("errors.loadSummaryFailed"));
         router.push("/dashboard/withdraw-money");
         setLoading(false);
         return;
@@ -74,7 +75,7 @@ export default function PaymentInformation() {
         payable: parsed.payable || "—",
       });
     } catch {
-      toast.error("Failed to load payment summary. Please try again.");
+      toast.error(t("errors.loadSummaryFailed"));
       router.push("/dashboard/withdraw-money");
     }
 
@@ -87,7 +88,7 @@ export default function PaymentInformation() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
         <p className="text-gray-600 dark:text-gray-300 text-lg">
-          Loading payment information...
+          {t("loading")}
         </p>
       </div>
     );
@@ -97,7 +98,7 @@ export default function PaymentInformation() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
         <p className="text-red-600 dark:text-red-400 text-lg">
-          Unable to load payment details
+          {t("errors.unableToLoad")}
         </p>
       </div>
     );
@@ -109,10 +110,10 @@ export default function PaymentInformation() {
     <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-950/40 p-8 w-full max-w-3xl">
       <div className="text-center mb-8">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
-          Payment Information
+          {t("title")}
         </h1>
         <p className="text-gray-600 dark:text-gray-300">
-          Please review the details of your withdrawal request below.
+          {t("subtitle")}
         </p>
       </div>
 
@@ -120,7 +121,7 @@ export default function PaymentInformation() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-gray-600 dark:text-gray-300 font-medium mb-1">
-              Enter Amount
+              {t("fields.enterAmount")}
             </label>
             <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">
               {formatMoney(summary.request_amount)}
@@ -129,7 +130,7 @@ export default function PaymentInformation() {
 
           <div>
             <label className="block text-gray-600 dark:text-gray-300 font-medium mb-1">
-              Exchange Rate
+              {t("fields.exchangeRate")}
             </label>
             <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">
               {formatExchangeRate(summary.exchange_rate)}
@@ -138,7 +139,7 @@ export default function PaymentInformation() {
 
           <div>
             <label className="block text-gray-600 dark:text-gray-300 font-medium mb-1">
-              Fees & Charges
+              {t("fields.feesCharges")}
             </label>
             <p className="text-xl font-semibold text-red-600 dark:text-red-400">
               {formatMoney(summary.total_charge)}
@@ -147,7 +148,7 @@ export default function PaymentInformation() {
 
           <div>
             <label className="block text-gray-600 dark:text-gray-300 font-medium mb-1">
-              Conversion Amount
+              {t("fields.conversionAmount")}
             </label>
             <p className="text-xl font-semibold text-gray-900 dark:text-gray-100">
               {formatMoney(summary.conversion_amount)}
@@ -156,7 +157,7 @@ export default function PaymentInformation() {
 
           <div>
             <label className="block text-gray-600 dark:text-gray-300 font-medium mb-1">
-              Will Get
+              {t("fields.willGet")}
             </label>
             <p className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">
               {formatMoney(summary.will_get)}
@@ -165,7 +166,7 @@ export default function PaymentInformation() {
 
           <div className="md:col-span-2 border-t border-gray-200 dark:border-gray-700 pt-4">
             <label className="block text-gray-600 dark:text-gray-300 font-medium mb-1 text-lg">
-              Total Payable Amount
+              {t("fields.totalPayable")}
             </label>
             <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">
               {formatMoney(summary.payable)}
