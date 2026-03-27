@@ -2,6 +2,7 @@
 
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl"; 
 import { getUserTransactions } from "../../utils/api";
 import TransactionLogSkeleton from "./TransactionLogSkeleton";
 import toast from "react-hot-toast";
@@ -11,6 +12,8 @@ import toast from "react-hot-toast";
 // ============================================================================
 
 const AllTransactionLog = () => {
+  const t = useTranslations("allTransactionLog"); 
+
   // --------------------------------------------------------------------------
   // State Management
   // --------------------------------------------------------------------------
@@ -39,7 +42,7 @@ const AllTransactionLog = () => {
         const data = await getUserTransactions(1, 500);
 
         if (!data?.data?.transactions) {
-          toast.error("Invalid response format");
+          toast.error(t("errors.invalidResponse"));
         }
 
         const categories = data.data.transactions || {};
@@ -51,7 +54,7 @@ const AllTransactionLog = () => {
             ...tx,
             normalizedType: "ADD-MONEY",
             displayVia: tx.gateway_name || "Unknown",
-            displayType: "Add Money",
+            displayType: t("types.addMoney"),
             displayAmount: tx.request_amount || "—",
             displayFees: tx.total_charge || "—",
             displayBalance: tx.current_balance || "—",
@@ -64,7 +67,7 @@ const AllTransactionLog = () => {
             ...tx,
             normalizedType: "TRANSFER-MONEY",
             displayVia: tx.transaction_heading || "Transfer",
-            displayType: "Transfer Money",
+            displayType: t("types.transferMoney"),
             displayAmount: tx.request_amount || "—",
             displayFees: tx.total_charge || "—",
             displayBalance: tx.current_balance || "—",
@@ -77,7 +80,7 @@ const AllTransactionLog = () => {
             ...tx,
             normalizedType: "VIRTUAL-CARD",
             displayVia: tx.transaction_type || "Virtual Card",
-            displayType: "Virtual Card",
+            displayType: t("types.virtualCard"),
             displayAmount:
               tx.request_amount || tx.card_amount || tx.payable || "—",
             displayFees: tx.total_charge || "—",
@@ -91,7 +94,7 @@ const AllTransactionLog = () => {
             ...tx,
             normalizedType: "WITHDRAW-MONEY",
             displayVia: tx.gateway_name || "Manual",
-            displayType: "Withdraw Money",
+            displayType: t("types.withdrawMoney"),
             displayAmount: tx.request_amount || "—",
             displayFees: tx.total_charge || "—",
             displayBalance: tx.current_balance || "—",
@@ -104,7 +107,7 @@ const AllTransactionLog = () => {
             ...tx,
             normalizedType: "GIFT-CARD",
             displayVia: tx.card_name || "Gift Card",
-            displayType: "Gift Card",
+            displayType: t("types.giftCard"),
             displayAmount: tx.request_amount || "—",
             displayFees: tx.total_charge || "—",
             displayBalance: tx.current_balance || "—",
@@ -118,7 +121,7 @@ const AllTransactionLog = () => {
         setFilteredTransactions(allTx);
       } catch (err) {
         // console.error("Fetch error:", err);
-        setError(err.message || "Could not load transactions");
+        setError(err.message || t("errors.loadFailed"));
       } finally {
         setLoading(false);
       }
@@ -191,40 +194,21 @@ const AllTransactionLog = () => {
 
     const commonFields = (
       <>
-        <DetailRow label="Status" value={selectedTx.status} isStatus />
-        <DetailRow label="Transaction ID" value={selectedTx.trx} isMono />
-        <DetailRow
-          label="Fees & Charges"
-          value={selectedTx.total_charge || "—"}
-        />
-        <DetailRow
-          label="Current Balance"
-          value={selectedTx.current_balance || "—"}
-        />
-        <DetailRow
-          label="Time & Date"
-          value={formatDate(selectedTx.date_time)}
-        />
+        <DetailRow label={t("modal.status")} value={selectedTx.status} isStatus />
+        <DetailRow label={t("modal.transactionId")} value={selectedTx.trx} isMono />
+        <DetailRow label={t("modal.feesCharges")} value={selectedTx.total_charge || "—"} />
+        <DetailRow label={t("modal.currentBalance")} value={selectedTx.current_balance || "—"} />
+        <DetailRow label={t("modal.timeDate")} value={formatDate(selectedTx.date_time)} />
       </>
     );
 
     if (type === "VIRTUAL-CARD") {
       return (
         <>
-          <DetailRow
-            label="Transaction Type"
-            value={selectedTx.transaction_type}
-          />
+          <DetailRow label={t("modal.transactionType")} value={selectedTx.transaction_type} />
           {commonFields}
-          <DetailRow
-            label="Card Amount"
-            value={selectedTx.card_amount || selectedTx.request_amount || "—"}
-          />
-          <DetailRow
-            label="Card Masked"
-            value={selectedTx.card_number || "—"}
-            isMono
-          />
+          <DetailRow label={t("modal.cardAmount")} value={selectedTx.card_amount || selectedTx.request_amount || "—"} />
+          <DetailRow label={t("modal.cardMasked")} value={selectedTx.card_number || "—"} isMono />
         </>
       );
     }
@@ -232,15 +216,9 @@ const AllTransactionLog = () => {
     if (type === "TRANSFER-MONEY") {
       return (
         <>
-          <DetailRow
-            label="Transaction Heading"
-            value={selectedTx.transaction_heading || "—"}
-          />
+          <DetailRow label={t("modal.transactionHeading")} value={selectedTx.transaction_heading || "—"} />
           {commonFields}
-          <DetailRow
-            label="Recipient Received"
-            value={selectedTx.recipient_received || "—"}
-          />
+          <DetailRow label={t("modal.recipientReceived")} value={selectedTx.recipient_received || "—"} />
         </>
       );
     }
@@ -248,15 +226,9 @@ const AllTransactionLog = () => {
     if (type === "ADD-MONEY") {
       return (
         <>
-          <DetailRow
-            label="Add Balance via"
-            value={selectedTx.gateway_name || "—"}
-          />
+          <DetailRow label={t("modal.addBalanceVia")} value={selectedTx.gateway_name || "—"} />
           {commonFields}
-          <DetailRow
-            label="Exchange Rate"
-            value={selectedTx.exchange_rate || "—"}
-          />
+          <DetailRow label={t("modal.exchangeRate")} value={selectedTx.exchange_rate || "—"} />
         </>
       );
     }
@@ -264,16 +236,10 @@ const AllTransactionLog = () => {
     if (type === "WITHDRAW-MONEY") {
       return (
         <>
-          <DetailRow
-            label="Withdraw Money"
-            value={selectedTx.gateway_name || "—"}
-          />
+          <DetailRow label={t("modal.withdrawMoney")} value={selectedTx.gateway_name || "—"} />
           {commonFields}
-          <DetailRow
-            label="Exchange Rate"
-            value={selectedTx.exchange_rate || "—"}
-          />
-          <DetailRow label="Will Get" value={selectedTx.will_get || "—"} />
+          <DetailRow label={t("modal.exchangeRate")} value={selectedTx.exchange_rate || "—"} />
+          <DetailRow label={t("modal.willGet")} value={selectedTx.will_get || "—"} />
         </>
       );
     }
@@ -281,36 +247,15 @@ const AllTransactionLog = () => {
     if (type === "GIFT-CARD") {
       return (
         <>
-          <DetailRow
-            label="Transaction Type"
-            value={selectedTx.transaction_type || "Gift Card"}
-          />
+          <DetailRow label={t("modal.transactionType")} value={selectedTx.transaction_type || t("types.giftCard")} />
           {commonFields}
-          <DetailRow
-            label="Exchange Rate"
-            value={selectedTx.exchange_rate || "—"}
-          />
-          <DetailRow label="Card Name" value={selectedTx.card_name || "—"} />
-          <DetailRow
-            label="Receiver Email"
-            value={selectedTx.receiver_email || "—"}
-          />
-          <DetailRow
-            label="Receiver Phone"
-            value={selectedTx.receiver_phone || "—"}
-          />
-          <DetailRow
-            label="Card Unit Price"
-            value={selectedTx.card_unit_price || "—"}
-          />
-          <DetailRow
-            label="Card Quantity"
-            value={selectedTx.card_quantity || "—"}
-          />
-          <DetailRow
-            label="Card Total Price"
-            value={selectedTx.card_total_price || "—"}
-          />
+          <DetailRow label={t("modal.exchangeRate")} value={selectedTx.exchange_rate || "—"} />
+          <DetailRow label={t("modal.cardName")} value={selectedTx.card_name || "—"} />
+          <DetailRow label={t("modal.receiverEmail")} value={selectedTx.receiver_email || "—"} />
+          <DetailRow label={t("modal.receiverPhone")} value={selectedTx.receiver_phone || "—"} />
+          <DetailRow label={t("modal.cardUnitPrice")} value={selectedTx.card_unit_price || "—"} />
+          <DetailRow label={t("modal.cardQuantity")} value={selectedTx.card_quantity || "—"} />
+          <DetailRow label={t("modal.cardTotalPrice")} value={selectedTx.card_total_price || "—"} />
         </>
       );
     }
@@ -318,10 +263,7 @@ const AllTransactionLog = () => {
     // Fallback
     return (
       <>
-        <DetailRow
-          label="Transaction Type"
-          value={selectedTx.transaction_type || "Unknown"}
-        />
+        <DetailRow label={t("modal.transactionType")} value={selectedTx.transaction_type || t("modal.unknown")} />
         {commonFields}
       </>
     );
@@ -343,13 +285,13 @@ const AllTransactionLog = () => {
       {/* Header + Search */}
       <div className="flex items-center justify-between mb-5">
         <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">
-          Transaction Log
+          {t("pageTitle")}
         </h1>
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Ex: TRX ID, Add Money"
+          placeholder={t("searchPlaceholder")}
           className="w-64 rounded-lg bg-white dark:bg-gray-800 px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-emerald-400 dark:focus:ring-emerald-500"
         />
       </div>
@@ -357,9 +299,10 @@ const AllTransactionLog = () => {
       {/* Search result count */}
       {search.trim() && (
         <div className="mb-4 text-sm text-gray-600 dark:text-gray-300">
-          Found {filteredTransactions.length} transaction
-          {filteredTransactions.length !== 1 ? "s" : ""} matching &quot;{search}
-          &quot;
+          {t("searchResults", {
+            count: filteredTransactions.length,
+            term: search,
+          })}
         </div>
       )}
 
@@ -367,28 +310,28 @@ const AllTransactionLog = () => {
       <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm">
         <div className="rounded-t-2xl bg-gray-900 dark:bg-gray-950 px-6 py-4">
           <h2 className="text-base font-semibold text-white">
-            All Transactions
+            {t("tableTitle")}
           </h2>
         </div>
 
         <div className="overflow-x-auto">
           <div className="min-w-[1100px]">
             <div className="hidden md:grid grid-cols-7 gap-4 px-6 py-3 bg-gray-50 dark:bg-gray-900 text-sm font-semibold text-gray-600 dark:text-gray-300">
-              <span>Transaction</span>
-              <span>Status</span>
-              <span>Transaction ID</span>
-              <span>Amount</span>
-              <span>Fees & Charges</span>
-              <span>Current Balance</span>
-              <span>Time & Date</span>
+              <span>{t("columns.transaction")}</span>
+              <span>{t("columns.status")}</span>
+              <span>{t("columns.transactionId")}</span>
+              <span>{t("columns.amount")}</span>
+              <span>{t("columns.feesCharges")}</span>
+              <span>{t("columns.currentBalance")}</span>
+              <span>{t("columns.timeDate")}</span>
             </div>
 
             <div className="divide-y divide-gray-200 dark:divide-gray-700">
               {paginatedTx.length === 0 ? (
                 <div className="py-12 text-center text-gray-500 dark:text-gray-300 col-span-7">
                   {search.trim()
-                    ? "No matching transactions found"
-                    : "No transactions found"}
+                    ? t("empty.noMatch")
+                    : t("empty.noTransactions")}
                 </div>
               ) : (
                 paginatedTx.map((log) => (
@@ -498,7 +441,7 @@ const AllTransactionLog = () => {
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="sticky top-0 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex justify-between items-center z-10">
               <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
-                Transaction Details
+                {t("modal.title")}
               </h2>
               <button
                 onClick={() => setSelectedTx(null)}
@@ -517,7 +460,7 @@ const AllTransactionLog = () => {
                 onClick={() => setSelectedTx(null)}
                 className="px-6 py-2.5 bg-gray-800 dark:bg-gray-700 text-white rounded-lg hover:bg-gray-900 dark:hover:bg-gray-600 transition cursor-pointer"
               >
-                Close
+                {t("modal.close")}
               </button>
             </div>
           </div>

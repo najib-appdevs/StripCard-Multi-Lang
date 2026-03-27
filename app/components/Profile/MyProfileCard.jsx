@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import MyProfileSkeleton from "./MyProfileSkeleton";
 
 import { Loader2 } from "lucide-react";
+import { useTranslations } from "next-intl"; // ← adjust to your i18n import if different
 import {
   deleteUserAccount,
   getUserProfile,
@@ -14,6 +15,8 @@ import {
 } from "../../utils/api";
 
 function MyProfileCard() {
+  const t = useTranslations("myProfile"); // ← namespace: "myProfile"
+
   const [loading, setLoading] = useState(true);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
@@ -164,7 +167,7 @@ function MyProfileCard() {
         return;
       }
     } catch (error) {
-      toast.error("An unexpected error occurred during account deletion.");
+      toast.error(t("errors.deleteUnexpected"));
     } finally {
       setLoading(false);
       setShowDeleteModal(false);
@@ -195,7 +198,7 @@ function MyProfileCard() {
         {/* HEADER */}
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">
-            My Profile
+            {t("title")}
           </h2>
 
           <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 px-5 py-2.5 rounded-full text-base font-medium shadow-sm">
@@ -209,7 +212,7 @@ function MyProfileCard() {
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-lg dark:shadow-gray-900/60">
               <img
                 src={imageFile ? URL.createObjectURL(imageFile) : profileImage}
-                alt="Profile"
+                alt={t("profileImageAlt")}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -247,7 +250,7 @@ function MyProfileCard() {
           className="grid grid-cols-1 md:grid-cols-2 gap-5"
         >
           <div>
-            <label className={labelClass}>First Name <span className="text-red-500">*</span></label>
+            <label className={labelClass}>{t("fields.firstName")} <span className="text-red-500">*</span></label>
             <input
               name="firstName"
               value={profileData.firstName}
@@ -258,7 +261,7 @@ function MyProfileCard() {
           </div>
 
           <div>
-            <label className={labelClass}>Last Name <span className="text-red-500">*</span></label>
+            <label className={labelClass}>{t("fields.lastName")} <span className="text-red-500">*</span></label>
             <input
               name="lastName"
               value={profileData.lastName}
@@ -270,13 +273,13 @@ function MyProfileCard() {
 
           {/* COUNTRY DROPDOWN */}
           <div className="relative">
-            <label className={labelClass}>Country <span className="text-red-500">*</span></label>
+            <label className={labelClass}>{t("fields.country")} <span className="text-red-500">*</span></label>
             <button
               type="button"
               onClick={() => setIsCountryOpen(!isCountryOpen)}
               className={`${inputClass} flex justify-between items-center bg-white dark:bg-gray-800 cursor-pointer`}
             >
-              <span>{profileData.country || "Select country"}</span>
+              <span>{profileData.country || t("fields.countryPlaceholder")}</span>
               <span>
                 <svg
                   className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-transform ${
@@ -313,7 +316,7 @@ function MyProfileCard() {
 
           {/* PHONE */}
           <div>
-            <label className={labelClass}>Phone <span className="text-red-500">*</span></label>
+            <label className={labelClass}>{t("fields.phone")} <span className="text-red-500">*</span></label>
             <input
               name="phone"
               value={
@@ -330,13 +333,13 @@ function MyProfileCard() {
                 })
               }
               className={inputClass}
-              placeholder="Enter phone number"
+              placeholder={t("fields.phonePlaceholder")}
               required
             />
           </div>
 
           <div>
-            <label className={labelClass}>Address</label>
+            <label className={labelClass}>{t("fields.address")}</label>
             <input
               name="address"
               value={profileData.address}
@@ -346,7 +349,7 @@ function MyProfileCard() {
           </div>
 
           <div>
-            <label className={labelClass}>City</label>
+            <label className={labelClass}>{t("fields.city")}</label>
             <input
               name="city"
               value={profileData.city}
@@ -356,7 +359,7 @@ function MyProfileCard() {
           </div>
 
           <div>
-            <label className={labelClass}>State</label>
+            <label className={labelClass}>{t("fields.state")}</label>
             <input
               name="state"
               value={profileData.state}
@@ -366,7 +369,7 @@ function MyProfileCard() {
           </div>
 
           <div>
-            <label className={labelClass}>Zip Code</label>
+            <label className={labelClass}>{t("fields.zipCode")}</label>
             <input
               name="zipCode"
               value={profileData.zipCode}
@@ -382,7 +385,7 @@ function MyProfileCard() {
               onClick={handleDeleteAccount}
               className="px-8 py-3 bg-red-500 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 text-white rounded-lg transition-colors cursor-pointer font-semibold"
             >
-              Delete Account
+              {t("buttons.deleteAccount")}
             </button>
 
             <button
@@ -400,7 +403,7 @@ function MyProfileCard() {
                   <Loader2 className="w-5 h-5 animate-spin" />
                 </>
               ) : (
-                "Update Profile"
+                t("buttons.updateProfile")
               )}
             </button>
           </div>
@@ -430,12 +433,11 @@ function MyProfileCard() {
             </div>
 
             <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 text-center mb-3">
-              Delete Account?
+              {t("deleteModal.title")}
             </h3>
 
             <p className="text-gray-600 dark:text-gray-400 text-center mb-6">
-              Are you sure you want to delete your account? This action cannot
-              be undone and all your data will be permanently removed.
+              {t("deleteModal.description")}
             </p>
 
             <div className="flex gap-3">
@@ -443,13 +445,13 @@ function MyProfileCard() {
                 onClick={cancelDeleteAccount}
                 className="flex-1 px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors cursor-pointer"
               >
-                Cancel
+                {t("deleteModal.cancel")}
               </button>
               <button
                 onClick={confirmDeleteAccount}
                 className="flex-1 px-6 py-3 bg-red-500 hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700 text-white rounded-lg font-semibold transition-colors cursor-pointer"
               >
-                Yes, Delete
+                {t("deleteModal.confirm")}
               </button>
             </div>
           </div>

@@ -1007,5 +1007,132 @@
       "loadSummaryFailed": "Failed to load payment summary. Please try again.",
       "unableToLoad": "Unable to load payment details"
     }
+  },
+  "allTransactionLog": {
+    "pageTitle": "Transaction Log",
+    "tableTitle": "All Transactions",
+    "searchPlaceholder": "Ex: TRX ID, Add Money",
+    "searchResults": "Found {count} transaction{count, plural, one {} other {s}} matching \"{term}\"",
+    "types": {
+      "addMoney": "Add Money",
+      "transferMoney": "Transfer Money",
+      "virtualCard": "Virtual Card",
+      "withdrawMoney": "Withdraw Money",
+      "giftCard": "Gift Card"
+    },
+    "columns": {
+      "transaction": "Transaction",
+      "status": "Status",
+      "transactionId": "Transaction ID",
+      "amount": "Amount",
+      "feesCharges": "Fees & Charges",
+      "currentBalance": "Current Balance",
+      "timeDate": "Time & Date"
+    },
+    "empty": {
+      "noMatch": "No matching transactions found",
+      "noTransactions": "No transactions found"
+    },
+    "modal": {
+      "title": "Transaction Details",
+      "close": "Close",
+      "unknown": "Unknown",
+      "status": "Status",
+      "transactionId": "Transaction ID",
+      "feesCharges": "Fees & Charges",
+      "currentBalance": "Current Balance",
+      "timeDate": "Time & Date",
+      "transactionType": "Transaction Type",
+      "transactionHeading": "Transaction Heading",
+      "addBalanceVia": "Add Balance via",
+      "exchangeRate": "Exchange Rate",
+      "recipientReceived": "Recipient Received",
+      "withdrawMoney": "Withdraw Money",
+      "willGet": "Will Get",
+      "cardAmount": "Card Amount",
+      "cardMasked": "Card Masked",
+      "cardName": "Card Name",
+      "receiverEmail": "Receiver Email",
+      "receiverPhone": "Receiver Phone",
+      "cardUnitPrice": "Card Unit Price",
+      "cardQuantity": "Card Quantity",
+      "cardTotalPrice": "Card Total Price"
+    },
+    "errors": {
+      "invalidResponse": "Invalid response format",
+      "loadFailed": "Could not load transactions"
+    }
+  },
+  "myProfile": {
+    "title": "My Profile",
+    "profileImageAlt": "Profile",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "country": "Country",
+      "countryPlaceholder": "Select country",
+      "phone": "Phone",
+      "phonePlaceholder": "Enter phone number",
+      "address": "Address",
+      "city": "City",
+      "state": "State",
+      "zipCode": "Zip Code"
+    },
+    "buttons": {
+      "deleteAccount": "Delete Account",
+      "updateProfile": "Update Profile"
+    },
+    "deleteModal": {
+      "title": "Delete Account?",
+      "description": "Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently removed.",
+      "cancel": "Cancel",
+      "confirm": "Yes, Delete"
+    },
+    "errors": {
+      "deleteUnexpected": "An unexpected error occurred during account deletion."
+    }
+  },
+  "changePassword": {
+    "title": "Change Password",
+    "fields": {
+      "currentPassword": "Current Password",
+      "newPassword": "New Password",
+      "confirmPassword": "Confirm Password"
+    },
+    "placeholders": {
+      "currentPassword": "Enter Current Password",
+      "newPassword": "Enter New Password",
+      "confirmPassword": "Enter Confirmed Password"
+    },
+    "button": {
+      "change": "Change"
+    }
+  },
+  "verifiedKYC": {
+    "title": "KYC Verification",
+    "statusLabel": "Status",
+    "selectPlaceholder": "Select {label}",
+    "status": {
+      "unverified": "Unverified",
+      "verified": "Verified",
+      "pending": "Pending",
+      "rejected": "Rejected"
+    },
+    "statusMessages": {
+      "underReview": "Your KYC is under review. Please wait for approval.",
+      "verifiedSuccess": "Your KYC is verified successfully."
+    },
+    "button": {
+      "submit": "Submit KYC"
+    },
+    "success": {
+      "submitted": "KYC submitted successfully"
+    },
+    "errors": {
+      "loadFailed": "Failed to load KYC data.",
+      "submitFailed": "Submission failed",
+      "serverError": "Server Error",
+      "connectionError": "Something went wrong. Please check your connection"
+    }
   }
 }

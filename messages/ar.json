@@ -1004,5 +1004,132 @@
       "loadSummaryFailed": "فشل تحميل ملخص الدفع. يرجى المحاولة مرة أخرى.",
       "unableToLoad": "تعذر تحميل تفاصيل الدفع"
     }
+  },
+  "allTransactionLog": {
+    "pageTitle": "سجل المعاملات",
+    "tableTitle": "جميع المعاملات",
+    "searchPlaceholder": "مثال: رقم TRX، إضافة رصيد",
+    "searchResults": "تم العثور على {count} معاملة تطابق \"{term}\"",
+    "types": {
+      "addMoney": "إضافة رصيد",
+      "transferMoney": "تحويل رصيد",
+      "virtualCard": "بطاقة افتراضية",
+      "withdrawMoney": "سحب رصيد",
+      "giftCard": "بطاقة هدية"
+    },
+    "columns": {
+      "transaction": "المعاملة",
+      "status": "الحالة",
+      "transactionId": "رقم المعاملة",
+      "amount": "المبلغ",
+      "feesCharges": "الرسوم والتكاليف",
+      "currentBalance": "الرصيد الحالي",
+      "timeDate": "التاريخ والوقت"
+    },
+    "empty": {
+      "noMatch": "لم يتم العثور على معاملات مطابقة",
+      "noTransactions": "لا توجد معاملات"
+    },
+    "modal": {
+      "title": "تفاصيل المعاملة",
+      "close": "إغلاق",
+      "unknown": "غير معروف",
+      "status": "الحالة",
+      "transactionId": "رقم المعاملة",
+      "feesCharges": "الرسوم والتكاليف",
+      "currentBalance": "الرصيد الحالي",
+      "timeDate": "التاريخ والوقت",
+      "transactionType": "نوع المعاملة",
+      "transactionHeading": "عنوان المعاملة",
+      "addBalanceVia": "إيداع عبر",
+      "exchangeRate": "سعر الصرف",
+      "recipientReceived": "المبلغ المستلم",
+      "withdrawMoney": "سحب رصيد",
+      "willGet": "ستحصل على",
+      "cardAmount": "مبلغ البطاقة",
+      "cardMasked": "البطاقة المخفية",
+      "cardName": "اسم البطاقة",
+      "receiverEmail": "البريد الإلكتروني للمستلم",
+      "receiverPhone": "هاتف المستلم",
+      "cardUnitPrice": "سعر الوحدة",
+      "cardQuantity": "الكمية",
+      "cardTotalPrice": "السعر الإجمالي"
+    },
+    "errors": {
+      "invalidResponse": "تنسيق الاستجابة غير صالح",
+      "loadFailed": "تعذّر تحميل المعاملات"
+    }
+  },
+  "myProfile": {
+    "title": "ملفي الشخصي",
+    "profileImageAlt": "الصورة الشخصية",
+    "fields": {
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "country": "الدولة",
+      "countryPlaceholder": "اختر الدولة",
+      "phone": "الهاتف",
+      "phonePlaceholder": "أدخل رقم الهاتف",
+      "address": "العنوان",
+      "city": "المدينة",
+      "state": "الولاية / المنطقة",
+      "zipCode": "الرمز البريدي"
+    },
+    "buttons": {
+      "deleteAccount": "حذف الحساب",
+      "updateProfile": "تحديث الملف الشخصي"
+    },
+    "deleteModal": {
+      "title": "حذف الحساب؟",
+      "description": "هل أنت متأكد من رغبتك في حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء وسيتم حذف جميع بياناتك بشكل دائم.",
+      "cancel": "إلغاء",
+      "confirm": "نعم، احذف"
+    },
+    "errors": {
+      "deleteUnexpected": "حدث خطأ غير متوقع أثناء حذف الحساب."
+    }
+  },
+  "changePassword": {
+    "title": "تغيير كلمة المرور",
+    "fields": {
+      "currentPassword": "كلمة المرور الحالية",
+      "newPassword": "كلمة المرور الجديدة",
+      "confirmPassword": "تأكيد كلمة المرور"
+    },
+    "placeholders": {
+      "currentPassword": "أدخل كلمة المرور الحالية",
+      "newPassword": "أدخل كلمة المرور الجديدة",
+      "confirmPassword": "أدخل كلمة المرور للتأكيد"
+    },
+    "button": {
+      "change": "تغيير"
+    }
+  },
+  "verifiedKYC": {
+    "title": "التحقق من الهوية (KYC)",
+    "statusLabel": "الحالة",
+    "selectPlaceholder": "اختر {label}",
+    "status": {
+      "unverified": "غير موثق",
+      "verified": "موثق",
+      "pending": "قيد الانتظار",
+      "rejected": "مرفوض"
+    },
+    "statusMessages": {
+      "underReview": "طلب KYC الخاص بك قيد المراجعة. يرجى انتظار الموافقة.",
+      "verifiedSuccess": "تم التحقق من هويتك (KYC) بنجاح."
+    },
+    "button": {
+      "submit": "إرسال KYC"
+    },
+    "success": {
+      "submitted": "تم إرسال KYC بنجاح"
+    },
+    "errors": {
+      "loadFailed": "فشل تحميل بيانات KYC.",
+      "submitFailed": "فشل الإرسال",
+      "serverError": "خطأ في الخادم",
+      "connectionError": "حدث خطأ ما. يرجى التحقق من اتصالك"
+    }
   }
 }

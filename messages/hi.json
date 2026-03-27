@@ -1003,5 +1003,132 @@
       "loadSummaryFailed": "भुगतान सारांश लोड करने में विफल। कृपया पुनः प्रयास करें।",
       "unableToLoad": "भुगतान विवरण लोड करने में असमर्थ"
     }
+  },
+  "allTransactionLog": {
+    "pageTitle": "लेनदेन लॉग",
+    "tableTitle": "सभी लेनदेन",
+    "searchPlaceholder": "जैसे: TRX ID, पैसे जोड़ें",
+    "searchResults": "\"{term}\" से मेल खाने वाले {count} लेनदेन मिले",
+    "types": {
+      "addMoney": "पैसे जोड़ें",
+      "transferMoney": "पैसे ट्रांसफर करें",
+      "virtualCard": "वर्चुअल कार्ड",
+      "withdrawMoney": "पैसे निकालें",
+      "giftCard": "गिफ्ट कार्ड"
+    },
+    "columns": {
+      "transaction": "लेनदेन",
+      "status": "स्थिति",
+      "transactionId": "लेनदेन ID",
+      "amount": "राशि",
+      "feesCharges": "शुल्क और प्रभार",
+      "currentBalance": "वर्तमान शेष",
+      "timeDate": "समय और दिनांक"
+    },
+    "empty": {
+      "noMatch": "कोई मेल खाने वाला लेनदेन नहीं मिला",
+      "noTransactions": "कोई लेनदेन नहीं मिला"
+    },
+    "modal": {
+      "title": "लेनदेन विवरण",
+      "close": "बंद करें",
+      "unknown": "अज्ञात",
+      "status": "स्थिति",
+      "transactionId": "लेनदेन ID",
+      "feesCharges": "शुल्क और प्रभार",
+      "currentBalance": "वर्तमान शेष",
+      "timeDate": "समय और दिनांक",
+      "transactionType": "लेनदेन प्रकार",
+      "transactionHeading": "लेनदेन शीर्षक",
+      "addBalanceVia": "जमा माध्यम",
+      "exchangeRate": "विनिमय दर",
+      "recipientReceived": "प्राप्तकर्ता को मिली राशि",
+      "withdrawMoney": "पैसे निकालें",
+      "willGet": "आपको मिलेगा",
+      "cardAmount": "कार्ड राशि",
+      "cardMasked": "मास्क्ड कार्ड",
+      "cardName": "कार्ड का नाम",
+      "receiverEmail": "प्राप्तकर्ता ईमेल",
+      "receiverPhone": "प्राप्तकर्ता फोन",
+      "cardUnitPrice": "इकाई मूल्य",
+      "cardQuantity": "मात्रा",
+      "cardTotalPrice": "कुल मूल्य"
+    },
+    "errors": {
+      "invalidResponse": "अमान्य प्रतिक्रिया प्रारूप",
+      "loadFailed": "लेनदेन लोड नहीं हो सके"
+    }
+  },
+  "myProfile": {
+    "title": "मेरी प्रोफ़ाइल",
+    "profileImageAlt": "प्रोफ़ाइल",
+    "fields": {
+      "firstName": "पहला नाम",
+      "lastName": "अंतिम नाम",
+      "country": "देश",
+      "countryPlaceholder": "देश चुनें",
+      "phone": "फ़ोन",
+      "phonePlaceholder": "फ़ोन नंबर दर्ज करें",
+      "address": "पता",
+      "city": "शहर",
+      "state": "राज्य",
+      "zipCode": "पिन कोड"
+    },
+    "buttons": {
+      "deleteAccount": "खाता हटाएं",
+      "updateProfile": "प्रोफ़ाइल अपडेट करें"
+    },
+    "deleteModal": {
+      "title": "खाता हटाएं?",
+      "description": "क्या आप वाकई अपना खाता हटाना चाहते हैं? यह क्रिया पूर्ववत नहीं की जा सकती और आपका सारा डेटा स्थायी रूप से हटा दिया जाएगा।",
+      "cancel": "रद्द करें",
+      "confirm": "हाँ, हटाएं"
+    },
+    "errors": {
+      "deleteUnexpected": "खाता हटाने के दौरान एक अप्रत्याशित त्रुटि हुई।"
+    }
+  },
+  "changePassword": {
+    "title": "पासवर्ड बदलें",
+    "fields": {
+      "currentPassword": "वर्तमान पासवर्ड",
+      "newPassword": "नया पासवर्ड",
+      "confirmPassword": "पासवर्ड की पुष्टि करें"
+    },
+    "placeholders": {
+      "currentPassword": "वर्तमान पासवर्ड दर्ज करें",
+      "newPassword": "नया पासवर्ड दर्ज करें",
+      "confirmPassword": "पुष्टि पासवर्ड दर्ज करें"
+    },
+    "button": {
+      "change": "बदलें"
+    }
+  },
+  "verifiedKYC": {
+    "title": "KYC सत्यापन",
+    "statusLabel": "स्थिति",
+    "selectPlaceholder": "{label} चुनें",
+    "status": {
+      "unverified": "असत्यापित",
+      "verified": "सत्यापित",
+      "pending": "लंबित",
+      "rejected": "अस्वीकृत"
+    },
+    "statusMessages": {
+      "underReview": "आपका KYC समीक्षाधीन है। कृपया अनुमोदन की प्रतीक्षा करें।",
+      "verifiedSuccess": "आपका KYC सफलतापूर्वक सत्यापित हो गया है।"
+    },
+    "button": {
+      "submit": "KYC जमा करें"
+    },
+    "success": {
+      "submitted": "KYC सफलतापूर्वक जमा किया गया"
+    },
+    "errors": {
+      "loadFailed": "KYC डेटा लोड करने में विफल।",
+      "submitFailed": "सबमिशन विफल",
+      "serverError": "सर्वर त्रुटि",
+      "connectionError": "कुछ गलत हो गया। कृपया अपना कनेक्शन जांचें"
+    }
   }
 }

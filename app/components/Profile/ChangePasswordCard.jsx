@@ -3,11 +3,14 @@
 import { Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; // ← adjust to your i18n import if different
 import { updateUserPassword } from "../../utils/api";
 import { getToastMessage } from "../../utils/toastHelper";
 import ChangePasswordSkeleton from "./ChangePasswordSkeleton";
 
 function ChangePasswordCard() {
+  const t = useTranslations("changePassword"); // ← namespace: "changePassword"
+
   const [passwordData, setPasswordData] = useState({
     currentPassword: "",
     newPassword: "",
@@ -85,14 +88,14 @@ function ChangePasswordCard() {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-gray-950/50 p-6 max-w-4xl mx-auto">
       <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-8 text-center">
-        Change Password
+        {t("title")}
       </h2>
 
       <form onSubmit={handlePasswordChangeSubmit} className="space-y-6">
         {/* Current Password */}
         <div>
           <label className={labelClass}>
-            Current Password <span className="text-red-500">*</span>
+            {t("fields.currentPassword")} <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <input
@@ -101,7 +104,7 @@ function ChangePasswordCard() {
               value={passwordData.currentPassword}
               onChange={handlePasswordChange}
               className={inputClass}
-              placeholder="Enter Current Password"
+              placeholder={t("placeholders.currentPassword")}
               required
               disabled={isSubmitting}
             />
@@ -153,7 +156,7 @@ function ChangePasswordCard() {
         {/* New Password */}
         <div>
           <label className={labelClass}>
-            New Password <span className="text-red-500">*</span>
+            {t("fields.newPassword")} <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <input
@@ -162,7 +165,7 @@ function ChangePasswordCard() {
               value={passwordData.newPassword}
               onChange={handlePasswordChange}
               className={inputClass}
-              placeholder="Enter New Password"
+              placeholder={t("placeholders.newPassword")}
               required
               disabled={isSubmitting}
             />
@@ -214,7 +217,7 @@ function ChangePasswordCard() {
         {/* Confirm Password */}
         <div>
           <label className={labelClass}>
-            Confirm Password <span className="text-red-500">*</span>
+            {t("fields.confirmPassword")} <span className="text-red-500">*</span>
           </label>
           <div className="relative">
             <input
@@ -223,7 +226,7 @@ function ChangePasswordCard() {
               value={passwordData.confirmPassword}
               onChange={handlePasswordChange}
               className={inputClass}
-              placeholder="Enter Confirmed Password"
+              placeholder={t("placeholders.confirmPassword")}
               required
               disabled={isSubmitting}
             />
@@ -289,7 +292,7 @@ function ChangePasswordCard() {
                 <Loader2 className="w-5 h-5 animate-spin" />
               </>
             ) : (
-              "Change"
+              t("button.change")
             )}
           </button>
         </div>

@@ -1010,5 +1010,132 @@
       "loadSummaryFailed": "Error al cargar el resumen del pago. Por favor, inténtalo de nuevo.",
       "unableToLoad": "No se pueden cargar los detalles del pago"
     }
+  },
+  "allTransactionLog": {
+    "pageTitle": "Historial de Transacciones",
+    "tableTitle": "Todas las Transacciones",
+    "searchPlaceholder": "Ej: ID de TRX, Agregar Dinero",
+    "searchResults": "Se encontraron {count} transacción/transacciones que coinciden con \"{term}\"",
+    "types": {
+      "addMoney": "Agregar Dinero",
+      "transferMoney": "Transferir Dinero",
+      "virtualCard": "Tarjeta Virtual",
+      "withdrawMoney": "Retirar Dinero",
+      "giftCard": "Tarjeta de Regalo"
+    },
+    "columns": {
+      "transaction": "Transacción",
+      "status": "Estado",
+      "transactionId": "ID de Transacción",
+      "amount": "Monto",
+      "feesCharges": "Tarifas y Cargos",
+      "currentBalance": "Saldo Actual",
+      "timeDate": "Fecha y Hora"
+    },
+    "empty": {
+      "noMatch": "No se encontraron transacciones coincidentes",
+      "noTransactions": "No se encontraron transacciones"
+    },
+    "modal": {
+      "title": "Detalles de la Transacción",
+      "close": "Cerrar",
+      "unknown": "Desconocido",
+      "status": "Estado",
+      "transactionId": "ID de Transacción",
+      "feesCharges": "Tarifas y Cargos",
+      "currentBalance": "Saldo Actual",
+      "timeDate": "Fecha y Hora",
+      "transactionType": "Tipo de Transacción",
+      "transactionHeading": "Encabezado de Transacción",
+      "addBalanceVia": "Depósito vía",
+      "exchangeRate": "Tipo de Cambio",
+      "recipientReceived": "Monto Recibido",
+      "withdrawMoney": "Retiro de Dinero",
+      "willGet": "Recibirás",
+      "cardAmount": "Monto de la Tarjeta",
+      "cardMasked": "Tarjeta Enmascarada",
+      "cardName": "Nombre de la Tarjeta",
+      "receiverEmail": "Correo del Destinatario",
+      "receiverPhone": "Teléfono del Destinatario",
+      "cardUnitPrice": "Precio Unitario",
+      "cardQuantity": "Cantidad",
+      "cardTotalPrice": "Precio Total"
+    },
+    "errors": {
+      "invalidResponse": "Formato de respuesta no válido",
+      "loadFailed": "No se pudieron cargar las transacciones"
+    }
+  },
+  "myProfile": {
+    "title": "Mi Perfil",
+    "profileImageAlt": "Perfil",
+    "fields": {
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "country": "País",
+      "countryPlaceholder": "Seleccionar país",
+      "phone": "Teléfono",
+      "phonePlaceholder": "Ingresa tu número de teléfono",
+      "address": "Dirección",
+      "city": "Ciudad",
+      "state": "Estado",
+      "zipCode": "Código Postal"
+    },
+    "buttons": {
+      "deleteAccount": "Eliminar Cuenta",
+      "updateProfile": "Actualizar Perfil"
+    },
+    "deleteModal": {
+      "title": "¿Eliminar cuenta?",
+      "description": "¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer y todos tus datos serán eliminados permanentemente.",
+      "cancel": "Cancelar",
+      "confirm": "Sí, eliminar"
+    },
+    "errors": {
+      "deleteUnexpected": "Ocurrió un error inesperado durante la eliminación de la cuenta."
+    }
+  },
+  "changePassword": {
+    "title": "Cambiar Contraseña",
+    "fields": {
+      "currentPassword": "Contraseña Actual",
+      "newPassword": "Nueva Contraseña",
+      "confirmPassword": "Confirmar Contraseña"
+    },
+    "placeholders": {
+      "currentPassword": "Ingresa la contraseña actual",
+      "newPassword": "Ingresa la nueva contraseña",
+      "confirmPassword": "Confirma la nueva contraseña"
+    },
+    "button": {
+      "change": "Cambiar"
+    }
+  },
+  "verifiedKYC": {
+    "title": "Verificación KYC",
+    "statusLabel": "Estado",
+    "selectPlaceholder": "Seleccionar {label}",
+    "status": {
+      "unverified": "No verificado",
+      "verified": "Verificado",
+      "pending": "Pendiente",
+      "rejected": "Rechazado"
+    },
+    "statusMessages": {
+      "underReview": "Tu KYC está en revisión. Por favor, espera la aprobación.",
+      "verifiedSuccess": "Tu KYC ha sido verificado exitosamente."
+    },
+    "button": {
+      "submit": "Enviar KYC"
+    },
+    "success": {
+      "submitted": "KYC enviado exitosamente"
+    },
+    "errors": {
+      "loadFailed": "Error al cargar los datos KYC.",
+      "submitFailed": "Error al enviar",
+      "serverError": "Error del servidor",
+      "connectionError": "Algo salió mal. Por favor verifica tu conexión"
+    }
   }
 }

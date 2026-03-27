@@ -4,14 +4,15 @@ import { Listbox } from "@headlessui/react";
 import { ChevronDown, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; // ← adjust to your i18n import if different
 import { getKycInputFields, submitKyc } from "../../utils/api";
 import KycSkeleton from "./KycSkeleton";
 
 const KYC_STATUS_MAP = {
-  0: { label: "Unverified", color: "text-red-600 dark:text-red-400" },
-  1: { label: "Verified", color: "text-green-600 dark:text-green-400" },
-  2: { label: "Pending", color: "text-yellow-600 dark:text-yellow-400" },
-  3: { label: "Rejected", color: "text-red-700 dark:text-red-300" },
+  0: { labelKey: "status.unverified", color: "text-red-600 dark:text-red-400" },
+  1: { labelKey: "status.verified", color: "text-green-600 dark:text-green-400" },
+  2: { labelKey: "status.pending", color: "text-yellow-600 dark:text-yellow-400" },
+  3: { labelKey: "status.rejected", color: "text-red-700 dark:text-red-300" },
 };
 
 function classNames(...classes) {
@@ -19,6 +20,8 @@ function classNames(...classes) {
 }
 
 export default function VerifiedKYC() {
+  const t = useTranslations("verifiedKYC"); // ← namespace: "verifiedKYC"
+
   const [loading, setLoading] = useState(true);
   const [kycData, setKycData] = useState(null);
   const [formValues, setFormValues] = useState({});
@@ -55,19 +58,19 @@ export default function VerifiedKYC() {
       const res = await submitKyc(formValues);
 
       if (res?.message?.success) {
-        const msg = res.message.success[0] || "KYC submitted successfully";
+        const msg = res.message.success[0] || t("success.submitted");
         setSuccess(msg);
         toast.success(msg);
       } else if (res?.message?.error) {
-        const errorMsg = res.message.error[0] || "Submission failed";
+        const errorMsg = res.message.error[0] || t("errors.submitFailed");
         setErrors(res.message.error);
         toast.error(errorMsg);
       } else {
         // This is your "Server Error" case
-        toast.error("Server Error", { duration: 5000 });
+        toast.error(t("errors.serverError"), { duration: 5000 });
       }
     } catch (err) {
-      toast.error("Something went wrong. Please check your connection", {
+      toast.error(t("errors.connectionError"), {
         duration: 5000,
       });
     } finally {
@@ -82,7 +85,7 @@ export default function VerifiedKYC() {
   if (!kycData) {
     return (
       <p className="text-red-600 dark:text-red-400 text-center font-medium">
-        Failed to load KYC data.
+        {t("errors.loadFailed")}
       </p>
     );
   }
@@ -104,10 +107,10 @@ export default function VerifiedKYC() {
       {/* Header */}
       <div className="mb-6 border-b border-gray-200 dark:border-gray-700 pb-4">
         <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
-          KYC Verification
+          {t("title")}
         </h2>
         <p className={`mt-2 text-sm font-semibold ${status.color}`}>
-          Status: {status.label}
+          {t("statusLabel")}: {t(status.labelKey)}
         </p>
       </div>
 
@@ -215,7 +218,7 @@ export default function VerifiedKYC() {
                       <span className="block truncate">
                         {formValues[field.name]
                           ? formValues[field.name]
-                          : `Select ${field.label}`}
+                          : t("selectPlaceholder", { label: field.label })}
                       </span>
                       <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
                         <ChevronDown
@@ -308,7 +311,7 @@ export default function VerifiedKYC() {
                 <Loader2 className="w-5 h-5 animate-spin" />
               </>
             ) : (
-              "Submit KYC"
+              t("button.submit")
             )}
           </button>
         </form>
@@ -316,13 +319,13 @@ export default function VerifiedKYC() {
 
       {kycData.kyc_status === 2 && (
         <p className="text-yellow-600 dark:text-yellow-400 font-medium mt-4">
-          Your KYC is under review. Please wait for approval.
+          {t("statusMessages.underReview")}
         </p>
       )}
 
       {kycData.kyc_status === 1 && (
         <p className="text-green-600 dark:text-green-400 font-medium mt-4">
-          Your KYC is verified successfully.
+          {t("statusMessages.verifiedSuccess")}
         </p>
       )}
     </div>
