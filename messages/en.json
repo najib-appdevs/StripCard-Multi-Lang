@@ -690,7 +690,8 @@
       "title": "Account",
       "profile": "My Profile",
       "kyc": "KYC Verification",
-      "twoFactor": "2FA Security"
+      "twoFactor": "2FA Security",
+      "support": "Get Support"
     }
   },
   "addMoney": {
@@ -1134,5 +1135,46 @@
       "serverError": "Server Error",
       "connectionError": "Something went wrong. Please check your connection"
     }
+  },
+  "twoFactorAuth": {
+    "title": "Two Factor Authenticator",
+    "badge": {
+      "enabled": "Enabled",
+      "notEnabled": "Not Enabled"
+    },
+    "secretPlaceholder": "No secret available",
+    "copyAriaLabel": "Copy code",
+    "qrAlt": "2FA QR Code",
+    "qrNotAvailable": "No QR Code",
+    "button": {
+      "enable": "Enable",
+      "disable": "Disable",
+      "processing": "Processing..."
+    },
+    "modal": {
+      "titleEnable": "Enable Two-Factor Authentication",
+      "titleDisable": "Disable Two-Factor Authentication",
+      "confirmEnable": "Are you sure to Enable 2 factor authentication (Powered by google)?",
+      "confirmDisable": "Are you sure you want to disable 2FA? You will lose an extra layer of security.",
+      "cancel": "Cancel",
+      "confirmButtonEnable": "Enable",
+      "confirmButtonDisable": "Disable"
+    },
+    "success": {
+      "enabled": "2FA Enabled Successfully!",
+      "disabled": "2FA Disabled Successfully!"
+    },
+    "errors": {
+      "loadFailed": "Failed to load 2FA data",
+      "loadGeneric": "An error occurred while loading 2FA setup",
+      "operationFailed": "Operation failed",
+      "generic": "Something went wrong. Please try again."
+    }
+  },
+  "downloadAuthenticator": {
+    "title": "Download Google Authenticator App",
+    "description": "Google Authenticator is a product-based authenticator by Google that provides two-factor authentication services for verifying users of various applications.",
+    "imageAlt": "Google Authenticator",
+    "button": "Download App"
   }
 }

@@ -689,7 +689,8 @@
       "title": "الحساب",
       "profile": "ملفي الشخصي",
       "kyc": "التحقق من الهوية (KYC)",
-      "twoFactor": "أمان التحقق بخطوتين (2FA)"
+      "twoFactor": "أمان التحقق بخطوتين (2FA)",
+      "support": "الحصول على الدعم"
     }
   },
   "addMoney": {
@@ -1131,5 +1132,46 @@
       "serverError": "خطأ في الخادم",
       "connectionError": "حدث خطأ ما. يرجى التحقق من اتصالك"
     }
+  },
+  "twoFactorAuth": {
+    "title": "المصادقة الثنائية",
+    "badge": {
+      "enabled": "مفعّل",
+      "notEnabled": "غير مفعّل"
+    },
+    "secretPlaceholder": "لا يوجد رمز سري",
+    "copyAriaLabel": "نسخ الرمز",
+    "qrAlt": "رمز QR للمصادقة الثنائية",
+    "qrNotAvailable": "لا يوجد رمز QR",
+    "button": {
+      "enable": "تفعيل",
+      "disable": "تعطيل",
+      "processing": "جارٍ المعالجة..."
+    },
+    "modal": {
+      "titleEnable": "تفعيل المصادقة الثنائية",
+      "titleDisable": "تعطيل المصادقة الثنائية",
+      "confirmEnable": "هل أنت متأكد من رغبتك في تفعيل المصادقة الثنائية (مدعومة من Google)؟",
+      "confirmDisable": "هل أنت متأكد من رغبتك في تعطيل المصادقة الثنائية؟ ستفقد طبقة أمان إضافية.",
+      "cancel": "إلغاء",
+      "confirmButtonEnable": "تفعيل",
+      "confirmButtonDisable": "تعطيل"
+    },
+    "success": {
+      "enabled": "تم تفعيل المصادقة الثنائية بنجاح!",
+      "disabled": "تم تعطيل المصادقة الثنائية بنجاح!"
+    },
+    "errors": {
+      "loadFailed": "فشل تحميل بيانات المصادقة الثنائية",
+      "loadGeneric": "حدث خطأ أثناء تحميل إعداد المصادقة الثنائية",
+      "operationFailed": "فشلت العملية",
+      "generic": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
+    }
+  },
+  "downloadAuthenticator": {
+    "title": "تحميل تطبيق Google Authenticator",
+    "description": "Google Authenticator هو تطبيق مصادقة من Google يوفر خدمات المصادقة الثنائية للتحقق من هوية مستخدمي التطبيقات المختلفة.",
+    "imageAlt": "Google Authenticator",
+    "button": "تحميل التطبيق"
   }
 }

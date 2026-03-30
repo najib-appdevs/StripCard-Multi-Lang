@@ -5,6 +5,7 @@ import {
   ArrowDownCircle,
   CreditCard,
   Gift,
+  HeadphonesIcon,
   Home,
   Lock,
   PlusCircle,
@@ -73,6 +74,11 @@ const navigationGroups = [
       },
       { icon: ShieldCheck, labelKey: "account.kyc", href: "/dashboard/kyc" },
       { icon: Lock, labelKey: "account.twoFactor", href: "/dashboard/2fa" },
+      {
+        icon: HeadphonesIcon,
+        labelKey: "account.support",
+        href: "/dashboard/support",
+      },
     ],
   },
 ];
@@ -132,11 +138,13 @@ export default function Sidebar({ isOpen, onClose }) {
         {/* Logo */}
         <div className="p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img
-              src="/logo-dark.png"
-              alt={t("logoAlt")}
-              className="w-40 h-10 rounded-lg object-contain"
-            />
+            <Link href="/">
+              <img
+                src="/logo-dark.png"
+                alt={t("logoAlt")}
+                className="w-40 h-10 rounded-lg object-contain cursor-pointer"
+              />
+            </Link>
           </div>
 
           {/* Close button for mobile */}

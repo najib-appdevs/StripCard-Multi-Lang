@@ -11,10 +11,13 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl"; 
 import { getGoogle2FASetup, google2FAUpdateStatus } from "../../utils/api";
 import TwoFactorSkeleton from "./TwoFactorSkeleton";
 
 const TwoFactorAuthenticator = () => {
+  const t = useTranslations("twoFactorAuth");
+
   const [secret, setSecret] = useState("");
   const [qrCodeUrl, setQrCodeUrl] = useState("");
   const [status, setStatus] = useState(0); // 0 = disabled, 1 = enabled
@@ -39,10 +42,10 @@ const TwoFactorAuthenticator = () => {
           setStatus(response.data.qr_status ?? 0);
           setAlertMessage(response.data.alert || "");
         } else if (response?.message?.error) {
-          setError(response.message.error[0] || "Failed to load 2FA data");
+          setError(response.message.error[0] || t("errors.loadFailed"));
         }
       } catch (err) {
-        setError("An error occurred while loading 2FA setup");
+        setError(t("errors.loadGeneric"));
       } finally {
         setLoading(false);
       }
@@ -74,18 +77,18 @@ const TwoFactorAuthenticator = () => {
         const msg =
           response.message.success[0] ||
           (actionType === "enable"
-            ? "2FA Enabled Successfully!"
-            : "2FA Disabled Successfully!");
+            ? t("success.enabled")
+            : t("success.disabled"));
 
         toast.success(msg);
         // Toggle the status after successful API call
         setStatus(actionType === "enable" ? 1 : 0);
       } else if (response?.message?.error) {
-        const errMsg = response.message.error[0] || "Operation failed";
+        const errMsg = response.message.error[0] || t("errors.operationFailed");
         toast.error(errMsg);
       }
     } catch (err) {
-      toast.error("Something went wrong. Please try again.");
+      toast.error(t("errors.generic"));
     } finally {
       setIsProcessing(false);
     }
@@ -94,10 +97,10 @@ const TwoFactorAuthenticator = () => {
   const isEnabled = status === 1;
 
   const buttonText = isProcessing
-    ? "Processing..."
+    ? t("button.processing")
     : isEnabled
-      ? "Disable"
-      : "Enable";
+      ? t("button.disable")
+      : t("button.enable");
 
   const buttonAction = isEnabled
     ? () => openConfirmModal("disable")
@@ -127,7 +130,7 @@ const TwoFactorAuthenticator = () => {
           text-center mb-6
           font-medium"
         >
-          Two Factor Authenticator
+          {t("title")}
         </h2>
 
         {/* Status Badge */}
@@ -146,7 +149,7 @@ const TwoFactorAuthenticator = () => {
                 size={16}
                 className="text-green-600 dark:text-green-400"
               />
-              <span>Enabled</span>
+              <span>{t("badge.enabled")}</span>
             </div>
           ) : (
             <div
@@ -162,7 +165,7 @@ const TwoFactorAuthenticator = () => {
                 size={16}
                 className="text-amber-600 dark:text-amber-400"
               />
-              <span>Not Enabled</span>
+              <span>{t("badge.notEnabled")}</span>
             </div>
           )}
         </div>
@@ -185,7 +188,7 @@ const TwoFactorAuthenticator = () => {
                 text-gray-800 dark:text-gray-200
                 font-mono text-sm
                 outline-none"
-              placeholder="No secret available"
+              placeholder={t("secretPlaceholder")}
             />
             <button
               onClick={handleCopy}
@@ -194,7 +197,7 @@ const TwoFactorAuthenticator = () => {
                 hover:bg-gray-200 dark:hover:bg-gray-800
                 rounded-md transition-colors
               "
-              aria-label="Copy code"
+              aria-label={t("copyAriaLabel")}
               disabled={!secret}
             >
               {copied ? (
@@ -219,16 +222,16 @@ const TwoFactorAuthenticator = () => {
             {qrCodeUrl ? (
               <img
                 src={qrCodeUrl}
-                alt="2FA QR Code"
+                alt={t("qrAlt")}
                 className="w-[92%] h-[92%] object-contain"
                 onError={(e) => {
                   e.target.src = "";
-                  e.target.alt = "QR not available";
+                  e.target.alt = t("qrNotAvailable");
                 }}
               />
             ) : (
               <span className="text-gray-400 dark:text-gray-500 text-xs">
-                No QR Code
+                {t("qrNotAvailable")}
               </span>
             )}
           </div>
@@ -311,8 +314,9 @@ const TwoFactorAuthenticator = () => {
                 text-gray-800 dark:text-gray-100
               "
               >
-                {actionType === "enable" ? "Enable" : "Disable"} Two-Factor
-                Authentication
+                {actionType === "enable"
+                  ? t("modal.titleEnable")
+                  : t("modal.titleDisable")}
               </h3>
             </div>
 
@@ -323,8 +327,8 @@ const TwoFactorAuthenticator = () => {
             "
             >
               {actionType === "enable"
-                ? "Are you sure to Enable 2 factor authentication (Powered by google)?"
-                : "Are you sure you want to disable 2FA? You will lose an extra layer of security."}
+                ? t("modal.confirmEnable")
+                : t("modal.confirmDisable")}
             </p>
 
             <div className="flex gap-3">
@@ -339,7 +343,7 @@ const TwoFactorAuthenticator = () => {
                   transition-colors
                 "
               >
-                Cancel
+                {t("modal.cancel")}
               </button>
               <button
                 onClick={handleConfirmAction}
@@ -354,7 +358,9 @@ const TwoFactorAuthenticator = () => {
                   }
                 `}
               >
-                {actionType === "enable" ? "Enable" : "Disable"}
+                {actionType === "enable"
+                  ? t("modal.confirmButtonEnable")
+                  : t("modal.confirmButtonDisable")}
               </button>
             </div>
           </div>

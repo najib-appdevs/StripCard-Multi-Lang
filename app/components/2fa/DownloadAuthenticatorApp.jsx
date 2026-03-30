@@ -1,7 +1,10 @@
 import { Download } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl"; 
 
 const DownloadAuthenticatorApp = () => {
+  const t = useTranslations("downloadAuthenticator"); 
+
   return (
     <div
       className="
@@ -22,7 +25,7 @@ const DownloadAuthenticatorApp = () => {
         font-medium
       "
       >
-        Download Google Authenticator App
+        {t("title")}
       </h2>
 
       <p
@@ -33,9 +36,7 @@ const DownloadAuthenticatorApp = () => {
         leading-relaxed
       "
       >
-        Google Authenticator is a product-based authenticator by Google that
-        provides two-factor authentication services for verifying users of
-        various applications.
+        {t("description")}
       </p>
 
       <div className="flex justify-center mb-8">
@@ -48,7 +49,7 @@ const DownloadAuthenticatorApp = () => {
         >
           <Image
             src="/google-authenticator.webp"
-            alt="Google Authenticator"
+            alt={t("imageAlt")}
             width={192}
             height={192}
             className="w-56 h-56 object-contain rounded-xl"
@@ -77,7 +78,7 @@ const DownloadAuthenticatorApp = () => {
           "
         >
           <Download className="w-5 h-5" />
-          Download App
+          {t("button")}
         </button>
       </a>
     </div>

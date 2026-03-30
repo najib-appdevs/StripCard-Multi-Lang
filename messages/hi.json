@@ -688,7 +688,8 @@
       "title": "खाता",
       "profile": "मेरा प्रोफाइल",
       "kyc": "KYC सत्यापन",
-      "twoFactor": "2FA सुरक्षा"
+      "twoFactor": "2FA सुरक्षा",
+      "support": "सहायता प्राप्त करें"
     }
   },
   "addMoney": {
@@ -1130,5 +1131,46 @@
       "serverError": "सर्वर त्रुटि",
       "connectionError": "कुछ गलत हो गया। कृपया अपना कनेक्शन जांचें"
     }
+  },
+  "twoFactorAuth": {
+    "title": "टू-फैक्टर ऑथेंटिकेटर",
+    "badge": {
+      "enabled": "सक्षम",
+      "notEnabled": "सक्षम नहीं"
+    },
+    "secretPlaceholder": "कोई सीक्रेट उपलब्ध नहीं",
+    "copyAriaLabel": "कोड कॉपी करें",
+    "qrAlt": "2FA QR कोड",
+    "qrNotAvailable": "QR कोड उपलब्ध नहीं",
+    "button": {
+      "enable": "सक्षम करें",
+      "disable": "अक्षम करें",
+      "processing": "प्रक्रिया हो रही है..."
+    },
+    "modal": {
+      "titleEnable": "टू-फैक्टर ऑथेंटिकेशन सक्षम करें",
+      "titleDisable": "टू-फैक्टर ऑथेंटिकेशन अक्षम करें",
+      "confirmEnable": "क्या आप वाकई 2-फैक्टर ऑथेंटिकेशन (Google द्वारा संचालित) सक्षम करना चाहते हैं?",
+      "confirmDisable": "क्या आप वाकई 2FA अक्षम करना चाहते हैं? आप सुरक्षा की एक अतिरिक्त परत खो देंगे।",
+      "cancel": "रद्द करें",
+      "confirmButtonEnable": "सक्षम करें",
+      "confirmButtonDisable": "अक्षम करें"
+    },
+    "success": {
+      "enabled": "2FA सफलतापूर्वक सक्षम किया गया!",
+      "disabled": "2FA सफलतापूर्वक अक्षम किया गया!"
+    },
+    "errors": {
+      "loadFailed": "2FA डेटा लोड करने में विफल",
+      "loadGeneric": "2FA सेटअप लोड करते समय एक त्रुटि हुई",
+      "operationFailed": "ऑपरेशन विफल",
+      "generic": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।"
+    }
+  },
+  "downloadAuthenticator": {
+    "title": "Google Authenticator ऐप डाउनलोड करें",
+    "description": "Google Authenticator, Google का एक उत्पाद-आधारित प्रमाणक है जो विभिन्न एप्लिकेशन के उपयोगकर्ताओं को सत्यापित करने के लिए टू-फैक्टर ऑथेंटिकेशन सेवाएं प्रदान करता है।",
+    "imageAlt": "Google Authenticator",
+    "button": "ऐप डाउनलोड करें"
   }
 }

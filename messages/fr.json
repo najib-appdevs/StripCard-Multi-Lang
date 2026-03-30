@@ -688,7 +688,8 @@
       "title": "Compte",
       "profile": "Mon profil",
       "kyc": "Vérification KYC",
-      "twoFactor": "Sécurité 2FA"
+      "twoFactor": "Sécurité 2FA",
+      "support": "Obtenir de l'aide"
     }
   },
   "addMoney": {
@@ -1131,5 +1132,46 @@
       "serverError": "Erreur serveur",
       "connectionError": "Une erreur s'est produite. Veuillez vérifier votre connexion"
     }
+  },
+  "twoFactorAuth": {
+    "title": "Authentificateur à Deux Facteurs",
+    "badge": {
+      "enabled": "Activé",
+      "notEnabled": "Non activé"
+    },
+    "secretPlaceholder": "Aucun secret disponible",
+    "copyAriaLabel": "Copier le code",
+    "qrAlt": "QR Code 2FA",
+    "qrNotAvailable": "Pas de QR Code",
+    "button": {
+      "enable": "Activer",
+      "disable": "Désactiver",
+      "processing": "Traitement en cours..."
+    },
+    "modal": {
+      "titleEnable": "Activer l'authentification à deux facteurs",
+      "titleDisable": "Désactiver l'authentification à deux facteurs",
+      "confirmEnable": "Êtes-vous sûr de vouloir activer l'authentification à 2 facteurs (powered by Google) ?",
+      "confirmDisable": "Êtes-vous sûr de vouloir désactiver le 2FA ? Vous perdrez une couche de sécurité supplémentaire.",
+      "cancel": "Annuler",
+      "confirmButtonEnable": "Activer",
+      "confirmButtonDisable": "Désactiver"
+    },
+    "success": {
+      "enabled": "2FA activé avec succès !",
+      "disabled": "2FA désactivé avec succès !"
+    },
+    "errors": {
+      "loadFailed": "Échec du chargement des données 2FA",
+      "loadGeneric": "Une erreur s'est produite lors du chargement de la configuration 2FA",
+      "operationFailed": "L'opération a échoué",
+      "generic": "Une erreur s'est produite. Veuillez réessayer."
+    }
+  },
+  "downloadAuthenticator": {
+    "title": "Télécharger Google Authenticator",
+    "description": "Google Authenticator est une application d'authentification de Google qui fournit des services d'authentification à deux facteurs pour vérifier les utilisateurs de diverses applications.",
+    "imageAlt": "Google Authenticator",
+    "button": "Télécharger l'application"
   }
 }
